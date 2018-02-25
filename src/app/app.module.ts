@@ -9,6 +9,8 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HomePage } from '../pages/home/home';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { routes } from './app.route';
+import { ContactModule } from '../pages/contact/contact.module';
+import { BlogModule } from '../pages/blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { routes } from './app.route';
     BrowserModule,
     SharedModule,
     HomeModule,
-    PortfolioModule
+    PortfolioModule,
+    ContactModule,
+    BlogModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
