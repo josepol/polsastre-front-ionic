@@ -6,8 +6,7 @@ import { BlogDetailPage } from "../pages/blog/containers/blog-detail/blog-detail
 
 export const routes = [
     { component: HomePage, name: 'Home', segment: 'home' },
-    { component: PortfolioPage, name: 'Portfolio', segment: 'portfolio' },
-    { component: ContactPage, name: 'Contact', segment: 'contacto' },
     { component: BlogPage, name: 'Blog', segment: 'blog' },
     { component: BlogDetailPage, name: 'BlogDetail', segment: 'blog/:id' },
+    { component: ContactPage, name: 'Contact', segment: 'contacto' }
   ]

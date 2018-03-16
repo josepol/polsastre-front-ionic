@@ -1,3 +1,17 @@
-nav {
+.nav-button-background-color {
+    border-color: #1ABC9C !important;
+}
 
+.nav-button {
+    border-color: white !important;
+}
+
+.navbar-nav {
+    margin: 0 !important;
+}
+
+@media (max-width: 600px) {
+    .navbar-nav {
+        margin: 0 !important;
+    }
 }

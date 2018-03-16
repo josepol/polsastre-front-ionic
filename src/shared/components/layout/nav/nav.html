@@ -1,22 +1,26 @@
 <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
+        <button type="button" class="navbar-toggle nav-button-background-color" data-toggle="collapse" data-target=".navbar-ex1-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" routerLink="/home">Pol Sastre</a>
+        <a href="javascript:;" class="navbar-brand" (click)="navigateBlog()">Pol Sastre</a>
       </div>
   
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <div class="collapse navbar-collapse navbar-ex1-collapse nav-button">
         <ul class="nav navbar-nav navbar-right">
-          <li><a (click)="navigateHome()">Home</a></li>
-          <li><a (click)="navigatePortfolio()">Portfolio</a></li>
-          <li><a (click)="navigateBlog()">Blog</a></li>
-          <li><a (click)="navigateContact()">Contacto</a></li>
-          <li><a routerLink="/admin">Admin</a></li>
+          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>
+          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>
+          <li><a href="javascript:;" routerLink="/login">Login</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Idioma <i class="fa fa-angle-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('spanish')">Español</a></li>
+              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('english')">Ingés</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

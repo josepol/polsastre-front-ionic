@@ -31,5 +31,9 @@ export class NavComponent {
   public navigateBlog() {
     this.app.getRootNav().push(BlogPage);
   }
+
+  public translate(language) {
+    
+  }
   
 }

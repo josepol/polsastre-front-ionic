@@ -7,11 +7,14 @@ import { DefinitionComponent } from './components/definition/definition';
 import { SteveJobsComponent } from './components/stevejobs/stevejobs';
 import { PortfolioComponent } from './components/portfolio/portfolio';
 import { KnowledgeComponent } from './components/knowledge/knowledge';
+import { IntroComponent } from './components/intro/intro';
+import { BlogModule } from '../blog/blog.module';
 
 @NgModule({
 	declarations: [
         HomePage,
         CarrouselComponent,
+        IntroComponent,
         DefinitionComponent,
         SteveJobsComponent,
         PortfolioComponent,
@@ -19,6 +22,7 @@ import { KnowledgeComponent } from './components/knowledge/knowledge';
 	],
 	imports: [
         SharedModule,
+        BlogModule,
         IonicPageModule.forChild(HomePage)
     ],
 	exports: [

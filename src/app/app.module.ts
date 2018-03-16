@@ -32,8 +32,8 @@ import { BlogModule } from '../pages/blog/blog.module';
     MyApp
   ],
   providers: [
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: LocationStrategy, useClass: PathLocationStrategy }
+    { provide: ErrorHandler, useClass: IonicErrorHandler }/*,
+    { provide: LocationStrategy, useClass: PathLocationStrategy }*/
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

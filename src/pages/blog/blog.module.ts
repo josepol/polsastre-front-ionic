@@ -18,6 +18,7 @@ import { PostListComponent } from './components/post-list/post-list';
     IonicPageModule.forChild(BlogPage),
   ],
   exports: [
+    PostListComponent
   ]
 })
 export class BlogModule {}
