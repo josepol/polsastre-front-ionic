@@ -13,7 +13,6 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>
           <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>
-          <li><a href="javascript:;" (click)="navigateLogin()">Login</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Idioma <i class="fa fa-angle-down"></i></a>
             <ul class="dropdown-menu">
@@ -21,6 +20,8 @@
               <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('english')">Ingés</a></li>
             </ul>
           </li>
+          <li><a href="javascript:;" (click)="navigateLogin()">Login</a></li>
+          <li *ngIf="false"><a href="javascript:;" (click)="navigateLogin()">Logout</a></li>
         </ul>
       </div>
     </div>
