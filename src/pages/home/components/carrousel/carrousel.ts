@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavigationProvider } from '../../../../shared/providers/navigation.provider';
+import { BlogPage } from '../../../blog/containers/blog/blog';
 
 @Component({
   selector: 'app-carrousel',
@@ -6,9 +8,13 @@ import { Component } from '@angular/core';
 })
 export class CarrouselComponent {
 
-  text: string;
+  constructor(
+    private navigationProvider: NavigationProvider
+  ) {
+  }
 
-  constructor() {
+  navigateBlog() {
+    this.navigationProvider.getNaviController().push(BlogPage);
   }
 
 }

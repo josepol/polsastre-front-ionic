@@ -6,14 +6,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="javascript:;" class="navbar-brand" (click)="navigateBlog()">Pol Sastre</a>
+        <a href="javascript:;" class="navbar-brand" (click)="navigateHome()">Pol Sastre</a>
       </div>
   
       <div class="collapse navbar-collapse navbar-ex1-collapse nav-button">
         <ul class="nav navbar-nav navbar-right">
           <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>
           <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>
-          <li><a href="javascript:;" routerLink="/login">Login</a></li>
+          <li><a href="javascript:;" (click)="navigateLogin()">Login</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Idioma <i class="fa fa-angle-down"></i></a>
             <ul class="dropdown-menu">

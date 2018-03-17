@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SharedModule } from '../../shared/components/shared.module';
 import { BlogPage } from './containers/blog/blog';
 import { BlogDetailPage } from './containers/blog-detail/blog-detail';
 import { CategoryComponent } from './components/category/category';
 import { PostListComponent } from './components/post-list/post-list';
+import { SharedModule } from '../../shared/shared.module';
+import { BlogDataProvider } from './providers/blog-data.provider';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { PostListComponent } from './components/post-list/post-list';
   imports: [
     SharedModule,
     IonicPageModule.forChild(BlogPage),
+  ],
+  providers: [
+    BlogDataProvider
   ],
   exports: [
     PostListComponent
