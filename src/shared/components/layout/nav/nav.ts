@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, App } from 'ionic-angular';
-import { PortfolioPage } from '../../../../pages/portfolio/portfolio';
+import { App } from 'ionic-angular';
 import { HomePage } from '../../../../pages/home/home';
-import { ContactPage } from '../../../../pages/contact/contact';
 import { BlogPage } from '../../../../pages/blog/containers/blog/blog';
 import { NavigationProvider } from '../../../providers/navigation.provider';
 import { LoginPage } from '../../../../pages/login/login';
 import { AdminHomePage } from '../../../../pages/admin/containers/home/admin-home';
 import AuthProvider from '../../../providers/auth.provider';
+import { ProfilePage } from '../../../../pages/profile/profile';
 
 @Component({
   selector: 'app-nav',
@@ -42,6 +41,10 @@ export class NavComponent implements OnInit {
 
   public navigateAdminHome() {
     this.navigationProvider.getNaviController().push(AdminHomePage);
+  }
+
+  public navigateProfile() {
+    this.navigationProvider.getNaviController().push(ProfilePage);
   }
 
   public logout() {

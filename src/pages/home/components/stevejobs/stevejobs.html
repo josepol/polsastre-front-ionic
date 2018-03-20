@@ -8,7 +8,8 @@
                 <h4 class="steve-jobs-name">Steve Jobs</h4>
             </div>
             <div class="col-md-3 col-sm-4">
-                <a routerLink="/#/login" class="btn btn-danger btn-lg">Iniciar sesión</a>
+                <a *ngIf="!isAuthenticated" href="javascript:;" (click)="navigateLogin()" class="btn btn-danger btn-lg">Iniciar sesión</a>
+                <a *ngIf="isAuthenticated" href="javascript:;" (click)="navigateAdminHome()" class="btn btn-danger btn-lg">Administración</a>
             </div>
         </div>
 

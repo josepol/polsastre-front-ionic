@@ -1,0 +1,33 @@
+.left-side-container {
+    background-image: url('../../assets/template/img/profile-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    opacity: 0.6;
+}
+
+.left-side {
+    background-color: rgba(133, 180, 221, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.right-side {
+    background-color: #ECF0F1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.personal-header-info {
+    font-weight: bold;
+    color: white;
+}
+
+.personal-info-data {
+    margin-top: 20px;
+}
+
+.personal-info-text {
+    color: #1ABC9C;
+}

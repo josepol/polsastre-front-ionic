@@ -15,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginModule } from '../pages/login/login.module';
 import { AdminModule } from '../pages/admin/admin.module';
 import HttpInterceptorProvider from '../shared/providers/http.interceptor.provider';
+import { ProfileModule } from '../pages/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import HttpInterceptorProvider from '../shared/providers/http.interceptor.provid
     ContactModule,
     BlogModule,
     LoginModule,
-    AdminModule
+    AdminModule,
+    ProfileModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

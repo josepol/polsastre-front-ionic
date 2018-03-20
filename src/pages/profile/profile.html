@@ -1,0 +1,32 @@
+<ion-content>
+    <app-breadcrumb [title]="'Perfil'"></app-breadcrumb>
+    <div class="container">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-lg-5 col-12>
+                    <div class="left-side-container">
+                        <div class="left-side">
+                            <h3 class="page-header text-center personal-header-info">Información personal</h3>
+                            <div class="personal-info-data">
+                                    <ion-item>
+                                        <ion-label>Nombre</ion-label>
+                                        <ion-input [(ngModel)]="name" readonly type="text"></ion-input>
+                                        <button clear item-right (click)="openUserDataModal()">Cambiar</button>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-label>Nombre de usuario</ion-label>
+                                        <ion-input [(ngModel)]="username" readonly type="text"></ion-input>
+                                    </ion-item>
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col col-lg-7 col-12>
+                    <div class="right-side">
+
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>
