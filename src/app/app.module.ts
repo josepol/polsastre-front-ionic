@@ -13,6 +13,7 @@ import { ContactModule } from '../pages/contact/contact.module';
 import { BlogModule } from '../pages/blog/blog.module';
 import { SharedModule } from '../shared/shared.module';
 import { LoginModule } from '../pages/login/login.module';
+import { AdminModule } from '../pages/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginModule } from '../pages/login/login.module';
     PortfolioModule,
     ContactModule,
     BlogModule,
-    LoginModule
+    LoginModule,
+    AdminModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -4,6 +4,7 @@ import { NavComponent } from './components/layout/nav/nav';
 import { FooterComponent } from './components/layout/footer/footer';
 import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb';
 import { NavigationProvider } from './providers/navigation.provider';
+import AuthProvider from './providers/auth.provider';
 
 @NgModule({
 	declarations: [
@@ -15,7 +16,8 @@ import { NavigationProvider } from './providers/navigation.provider';
 		IonicModule,
 	],
 	providers: [
-		NavigationProvider
+		NavigationProvider,
+		AuthProvider
 	],
 	exports: [
 		NavComponent,

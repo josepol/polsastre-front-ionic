@@ -6,6 +6,7 @@ import { ContactPage } from '../../../../pages/contact/contact';
 import { BlogPage } from '../../../../pages/blog/containers/blog/blog';
 import { NavigationProvider } from '../../../providers/navigation.provider';
 import { LoginPage } from '../../../../pages/login/login';
+import { AdminHomePage } from '../../../../pages/admin/containers/home/admin-home';
 
 @Component({
   selector: 'app-nav',
@@ -29,6 +30,10 @@ export class NavComponent {
 
   public navigateLogin() {
     this.navigationProvider.getNaviController().push(LoginPage);
+  }
+
+  public navigateAdminHome() {
+    this.navigationProvider.getNaviController().push(AdminHomePage);
   }
 
   public translate(language) {

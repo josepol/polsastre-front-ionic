@@ -5,7 +5,7 @@
         "message": "Esto es una prueba blablabla <h2>Soy un h2</h2>",
         "created_at": 123123123123123,
         "modified_at": 234234234234,
-        "creator": "53841156",
+        "creator": "polsastre3@gmail.com",
         "category": "test",
         "comments": 12
     },
@@ -15,7 +15,7 @@
         "message": "Esto es una prueba blablabla <h3>Soy un h3</h3>",
         "created_at": 123123123123123,
         "modified_at": 234234234234,
-        "creator": "53841156",
+        "creator": "polsastre3@gmail.com",
         "category": "test",
         "comments": 3
     },
@@ -25,7 +25,7 @@
         "message": "Esto es una prueba blablabla <h4>Soy un h4</h4>",
         "created_at": 123123123123123,
         "modified_at": 234234234234,
-        "creator": "53841156",
+        "creator": "polsastre3@gmail.com",
         "category": "test",
         "comments": 1
     }
