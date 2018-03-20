@@ -10,38 +10,41 @@ import 'rxjs/add/operator/map'
 export default class AuthProvider {
 
     private isAuthenticated: BehaviorSubject<boolean>  = new BehaviorSubject<boolean>(false);
-    private token: string;
 
     constructor(
         private http: HttpClient,
         private navigationProvider: NavigationProvider
-    ) {}
+    ) {
+        this.refresh();
+    }
 
     getIsAuthenticated() {
         return this.isAuthenticated;
     }
 
-    setIsAuthenticated(loginStatus) {
-        this.isAuthenticated.next(loginStatus);
-    }
-
-    getToken() {
-        return this.token;
-    }
-
     login(userLogin) {
         return this.http.post(`${ENV.API_ENDPOINT}/users/login`, userLogin)
-        .map((response: any) => {
-            this.token = response.token;
-            this.isAuthenticated.next(true);
-            localStorage.setItem('token', this.token);
-        });
+        .map((response: any) => this.saveToken(response));
+    }
+
+    refresh() {
+        if (!localStorage.getItem('token')) {
+            return Promise.resolve(false);
+        }
+        return this.http.get(`${ENV.API_ENDPOINT}/users/refresh`)
+        .map((response: any) => this.saveToken(response)).toPromise();
     }
 
     logout() {
         localStorage.clear();
+        this.isAuthenticated.next(false);
         this.navigationProvider.getNaviController().push(LoginPage);
     }
 
+    private saveToken(response) {
+        this.isAuthenticated.next(true);
+        localStorage.setItem('token', response.token);
+        return response.token ? true : false;
+    }
 
 }

@@ -24,6 +24,10 @@ export class LoginPage implements OnInit {
   ) {
   }
 
+  ionViewCanEnter() {
+    return this.authProvider.refresh().then(token => !token);
+  }
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],

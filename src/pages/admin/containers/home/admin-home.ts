@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import AuthProvider from '../../../../shared/providers/auth.provider';
 
 @IonicPage()
@@ -15,7 +15,7 @@ export class AdminHomePage {
   }
 
   ionViewCanEnter() {
-    return this.authProvider.getIsAuthenticated();
+    return this.authProvider.refresh().then(token => token);
   }
 
 }

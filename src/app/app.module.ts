@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomeModule } from '../pages/home/home.module';
@@ -14,6 +14,7 @@ import { BlogModule } from '../pages/blog/blog.module';
 import { SharedModule } from '../shared/shared.module';
 import { LoginModule } from '../pages/login/login.module';
 import { AdminModule } from '../pages/admin/admin.module';
+import HttpInterceptorProvider from '../shared/providers/http.interceptor.provider';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,12 @@ import { AdminModule } from '../pages/admin/admin.module';
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler }/*,
-    { provide: LocationStrategy, useClass: PathLocationStrategy }*/
+    { provide: LocationStrategy, useClass: PathLocationStrategy }*/,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorProvider,
+      multi: true,
+    }
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
