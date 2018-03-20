@@ -29,6 +29,8 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
+polsastre.apk
+KEY_NAME_TO_CHANGE.keystore
 
 .DS_Store
 Thumbs.db
