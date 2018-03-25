@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { App } from 'ionic-angular';
 import { HomePage } from '../../../../pages/home/home';
 import { BlogPage } from '../../../../pages/blog/containers/blog/blog';
 import { NavigationProvider } from '../../../providers/navigation.provider';
@@ -7,6 +6,8 @@ import { LoginPage } from '../../../../pages/login/login';
 import { AdminHomePage } from '../../../../pages/admin/containers/home/admin-home';
 import AuthProvider from '../../../providers/auth.provider';
 import { ProfilePage } from '../../../../pages/profile/profile';
+import { ModalController } from 'ionic-angular';
+import { ConfirmationModalComponent } from '../../confirmation-modal/confirmation-modal';
 
 @Component({
   selector: 'app-nav',
@@ -17,9 +18,9 @@ export class NavComponent implements OnInit {
   public isAuthenticated: boolean = false;
 
   constructor(
-    private app: App,
     private navigationProvider: NavigationProvider,
-    private authProvider: AuthProvider
+    private authProvider: AuthProvider,
+    private modalController: ModalController
   ) {
   }
 
@@ -48,7 +49,13 @@ export class NavComponent implements OnInit {
   }
 
   public logout() {
-    this.authProvider.logout();
+    const confirmationModalComponent = this.modalController.create(ConfirmationModalComponent);
+    confirmationModalComponent.onDidDismiss(data => {
+      if(data.status === 'OK') {
+        this.authProvider.logout();
+      }
+    });
+    confirmationModalComponent.present();
   }
 
   public translate(language) {
