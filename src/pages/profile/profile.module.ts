@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { SharedModule } from '../../shared/shared.module';
 import { ProfilePage } from './profile';
-import { ProfileUserDataModal } from './components/profile-user-data-modal.ts/profile-user-data-modal';
+import { ProfileUserLeftDataComponent } from './components/profile-user-left-data/profile-user-left-data';
+import { ProfileUserDataModal } from './components/profile-user-data-modal/profile-user-data-modal';
 
 @NgModule({
   declarations: [
     ProfilePage,
-    ProfileUserDataModal
+    ProfileUserDataModal,
+    ProfileUserLeftDataComponent
   ],
   imports: [
     SharedModule,

@@ -1,16 +1,10 @@
-<ion-content class="no-scroll main-view" style="height: 80%">
-    <div class="overlay" (click)="dismiss()"></div>
+<ion-content class="app-modal no-scroll">
+    <div class="overlay" (click)="cancel()"></div>
     <div class="modal_content">
-        <div>
-            <p class="text-center">¿Estás seguro de cerrar la sesión?</p>
-        </div>
+        <div><p class="text-center">¿Estás seguro de cerrar la sesión?</p></div>
         <div class="position-bottom">
-            <button class="confirm-button confirm-button-cancel" (click)="cancel()">
-                Cancelar
-            </button>
-            <button class="confirm-button confirm-button-accept" (click)="accept()">
-                Aceptar
-            </button>
+            <button class="confirm-button-cancel" (click)="cancel()">Cancelar</button>
+            <button class="confirm-button-accept" (click)="accept()">Aceptar</button>
         </div>
     </div>
 </ion-content>

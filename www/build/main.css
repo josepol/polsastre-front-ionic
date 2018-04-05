@@ -3815,6 +3815,85 @@ ion-icon::before {
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
+.app-modal .no-scroll .scroll-content {
+  overflow: hidden;
+  background: transparent;
+}
+
+.app-modal .text-center {
+  margin: auto;
+  font-size: 30px;
+  margin-top: 40px;
+  font-weight: 1 !important;
+}
+
+@media (max-width: 700px) {
+  .app-modal .text-center {
+    margin: auto;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}
+
+.app-modal .position-bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  margin-left: -10px;
+}
+
+.app-modal .confirm-button-accept {
+  width: 50%;
+  height: 70px;
+  float: left;
+  font-weight: none !important;
+  color: white;
+  background-color: #1abc9c;
+}
+
+.app-modal .confirm-button-cancel {
+  width: 50%;
+  height: 70px;
+  float: left;
+  font-weight: none !important;
+  color: white;
+  background-color: #85b4dd;
+}
+
+.app-modal .overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: .5;
+  background-color: #333;
+}
+
+.app-modal .modal_content {
+  position: absolute;
+  top: calc(50% - (50%/2));
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  z-index: 100;
+  margin: 0 auto;
+  padding: 10px;
+  color: #333;
+  background: #e8e8e8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e8e8e8));
+  background: linear-gradient(to bottom, #fff 0%, #e8e8e8 100%);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 3px rgba(51, 51, 51, 0.35);
+  box-shadow: 0 2px 3px rgba(51, 51, 51, 0.35);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  overflow: hidden;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;
@@ -5535,7 +5614,7 @@ ion-app.ios {
 ion-app.md {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-size: 1.4rem;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 ion-app.wp {
@@ -8748,7 +8827,7 @@ ion-app.ios [margin-horizontal] .scroll-content {
 
 .content-md {
   color: #000;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .content-md hr {
@@ -15486,7 +15565,7 @@ ion-menu[type=overlay] .show-backdrop {
 }
 
 .md .menu-inner {
-  background: #fff;
+  background: transparent;
 }
 
 .md .menu-content-reveal {
@@ -16255,7 +16334,7 @@ ion-popover {
   min-height: 0;
   max-height: 90%;
   color: #000;
-  background: #fff;
+  background: transparent;
   -webkit-box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.3);
 }
@@ -16951,7 +17030,7 @@ ion-range ion-icon {
 
 .range-md .range-knob-min.range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
-  background: #fff;
+  background: transparent;
 }
 
 .range-md .range-knob-min.range-knob-min .range-pin,
@@ -16973,7 +17052,7 @@ ion-range ion-icon {
 
 .range-md-primary .range-md .range-knob-min.range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
-  background: #fff;
+  background: transparent;
 }
 
 .range-md-primary .range-md .range-knob-min.range-knob-min .range-pin,
@@ -16991,7 +17070,7 @@ ion-range ion-icon {
 
 .range-md-secondary .range-md .range-knob-min.range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
-  background: #fff;
+  background: transparent;
 }
 
 .range-md-secondary .range-md .range-knob-min.range-knob-min .range-pin,
@@ -17009,7 +17088,7 @@ ion-range ion-icon {
 
 .range-md-danger .range-md .range-knob-min.range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
-  background: #fff;
+  background: transparent;
 }
 
 .range-md-danger .range-md .range-knob-min.range-knob-min .range-pin,
@@ -17027,7 +17106,7 @@ ion-range ion-icon {
 
 .range-md-light .range-md .range-knob-min.range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
-  background: #fff;
+  background: transparent;
 }
 
 .range-md-light .range-md .range-knob-min.range-knob-min .range-pin,
@@ -17045,7 +17124,7 @@ ion-range ion-icon {
 
 .range-md-dark .range-md .range-knob-min.range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
-  background: #fff;
+  background: transparent;
 }
 
 .range-md-dark .range-md .range-knob-min.range-knob-min .range-pin,
@@ -20665,7 +20744,7 @@ ion-toast {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #fff;
+  background-color: transparent;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-duration: 300ms;
@@ -25747,88 +25826,11 @@ modal-wrapper {
   color: #1ABC9C;
 }
 
-.no-scroll .scroll-content {
-  overflow: hidden;
+.icon-bg {
+  background-color: white;
 }
 
 .no-scroll .scroll-content {
-  overflow: hidden;
-  background: transparent;
-}
-
-.text-center {
-  margin: auto;
-  font-size: 30px;
-  margin-top: 40px;
-  font-weight: 1 !important;
-}
-
-@media (max-width: 700px) {
-  .text-center {
-    margin: auto;
-    font-size: 20px;
-    margin-top: 20px;
-  }
-}
-
-.position-bottom {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  margin-left: -10px;
-}
-
-.confirm-button {
-  width: 50%;
-  height: 70px;
-  float: left;
-  font-weight: none !important;
-  color: white;
-}
-
-.confirm-button-accept {
-  background-color: #1abc9c;
-}
-
-.confirm-button-cancel {
-  background-color: #85b4dd;
-}
-
-.main-view {
-  background: transparent;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: .5;
-  background-color: #333;
-}
-
-.modal_content {
-  position: absolute;
-  top: calc(50% - (50%/2));
-  left: 0;
-  right: 0;
-  width: 50%;
-  height: 50%;
-  padding: 10px;
-  z-index: 100;
-  margin: 0 auto;
-  padding: 10px;
-  color: #333;
-  background: #e8e8e8;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e8e8e8));
-  background: linear-gradient(to bottom, #fff 0%, #e8e8e8 100%);
-  border-radius: 5px;
-  -webkit-box-shadow: 0 2px 3px rgba(51, 51, 51, 0.35);
-  box-shadow: 0 2px 3px rgba(51, 51, 51, 0.35);
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   overflow: hidden;
 }
 

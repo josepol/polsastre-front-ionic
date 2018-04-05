@@ -1,0 +1,14 @@
+<div class="left-side">
+    <h3 class="page-header text-center personal-header-info">Información personal</h3>
+    <div class="personal-info-data">
+            <ion-item>
+                <ion-label>Nombre</ion-label>
+                <ion-input readonly type="text" [value]="name"></ion-input>
+                <button clear item-right (click)="openUserDataModal()" class="icon-bg"><ion-icon name="create"></ion-icon></button>
+            </ion-item>
+            <ion-item>
+                <ion-label>Nombre de usuario</ion-label>
+                <ion-input readonly type="text" [value]="'@' + username"></ion-input>
+            </ion-item>
+    </div>
+</div>
