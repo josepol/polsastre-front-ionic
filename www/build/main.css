@@ -3855,6 +3855,15 @@ ion-icon::before {
   margin-bottom: -10px;
 }
 
+.app-modal .modal-input {
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  margin-top: 5px;
+  padding: 10px;
+}
+
 @media (max-width: 700px) {
   .app-modal .text-center {
     margin: auto;
@@ -30680,7 +30689,11 @@ modal-wrapper {
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: center;
-  opacity: 1;
+  opacity: 0.8;
+}
+
+.no-opacity {
+  opacity: 1 !important;
 }
 
 .left-side {
