@@ -44,7 +44,6 @@
     }
     
     @mixin confirm-button {
-        width: 50%;
         height: 70px;
         float: left;
         font-weight: none !important;
@@ -53,14 +52,22 @@
     
     .confirm-button-accept {
         @include confirm-button;
+        width: 50%;
         background-color: color($colors, green-main, base);
     }
     
     .confirm-button-cancel {
         @include confirm-button;
+        width: 50%;
         background-color: rgb(133, 180, 221);
     }
-    
+
+    .confirm-button-alone {
+        @include confirm-button;
+        width: 100%;
+        background-color: rgb(133, 180, 221);
+    }
+
     .overlay {
         position: fixed;
         top: 0;
@@ -97,5 +104,13 @@
 
     .modal_content-with-height {
         height: 50%;
+    }
+
+    .bottom-modal-btn {
+        height: 100px;
+        width: 70%;
+        background: white;
+        text-align: center;
+
     }
 }

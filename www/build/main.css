@@ -3880,20 +3880,29 @@ ion-icon::before {
 }
 
 .app-modal .confirm-button-accept {
-  width: 50%;
   height: 70px;
   float: left;
   font-weight: none !important;
   color: white;
+  width: 50%;
   background-color: #1abc9c;
 }
 
 .app-modal .confirm-button-cancel {
-  width: 50%;
   height: 70px;
   float: left;
   font-weight: none !important;
   color: white;
+  width: 50%;
+  background-color: #85b4dd;
+}
+
+.app-modal .confirm-button-alone {
+  height: 70px;
+  float: left;
+  font-weight: none !important;
+  color: white;
+  width: 100%;
   background-color: #85b4dd;
 }
 
@@ -3932,6 +3941,13 @@ ion-icon::before {
 
 .app-modal .modal_content-with-height {
   height: 50%;
+}
+
+.app-modal .bottom-modal-btn {
+  height: 100px;
+  width: 70%;
+  background: white;
+  text-align: center;
 }
 
 ion-action-sheet {
@@ -30689,6 +30705,9 @@ modal-wrapper {
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: center;
+}
+
+.opacity {
   opacity: 0.8;
 }
 
