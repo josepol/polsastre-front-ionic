@@ -8,7 +8,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  dark-light: rgba(130, 130, 130, 1),
+  green-main: rgb(26, 188, 156)
 );
 
 $background-md-color: transparent;

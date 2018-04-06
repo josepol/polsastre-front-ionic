@@ -11,6 +11,13 @@
         margin-top: 40px;
         font-weight: 1 !important;
     }
+
+    .modal-label {
+        color: color($colors, dark-light, base);
+        font-weight: bold;
+        font-size: 17px;
+        margin-bottom: -10px;
+    }
     
     @media (max-width: 700px) {
         .text-center {
@@ -37,7 +44,7 @@
     
     .confirm-button-accept {
         @include confirm-button;
-        background-color: rgb(26, 188, 156);
+        background-color: color($colors, green-main, base);
     }
     
     .confirm-button-cancel {
@@ -61,7 +68,7 @@
         left: 0;
         right: 0;
         width: 50%;
-        height: 50%;
+        // height: 50%;
         padding: 10px;
         z-index: 100;
         margin: 0 auto;
@@ -77,5 +84,9 @@
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         overflow: hidden;
+    }
+
+    .modal_content-with-height {
+        height: 50%;
     }
 }

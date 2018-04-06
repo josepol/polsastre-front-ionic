@@ -1,0 +1,20 @@
+.circle-img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border-width: 1px;
+    border-color: color($colors, green-main, base);;
+    background-color: white;
+    position: relative;
+}
+
+.half-bg {
+    background: color($colors, green-main, base);
+    color: color($colors, dark-light, base) !important;
+    position: absolute;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+}
