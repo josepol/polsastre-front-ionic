@@ -3867,6 +3867,7 @@ ion-icon::before {
   background-color: transparent;
   margin-top: 5px;
   padding: 10px;
+  width: 100%;
 }
 
 @media (max-width: 700px) {

@@ -90,6 +90,9 @@ var ProfileDataProvider = (function () {
     ProfileDataProvider.prototype.getProfileData = function () {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/profile");
     };
+    ProfileDataProvider.prototype.updateProfileData = function () {
+        return this.http.get('assets/mocks/profile/password.json');
+    };
     ProfileDataProvider.prototype.verifyCurrrentPassword = function (currentPassword) {
         // return this.http.post('assets/mocks/profile/password.json', {currentPassword});
         return this.http.get('assets/mocks/profile/password.json');
@@ -97,6 +100,9 @@ var ProfileDataProvider = (function () {
     ProfileDataProvider.prototype.changePassword = function (newPassword) {
         // return this.http.post('', {newPassword});
         return this.http.get('assets/mocks/profile/password.json');
+    };
+    ProfileDataProvider.prototype.cancelAccount = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/cancel-account");
     };
     ProfileDataProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
