@@ -7,6 +7,7 @@ webpackJsonp([0],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +19,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ProfilePage = (function () {
-    function ProfilePage(modalController) {
+    function ProfilePage(modalController, profileDataProvider) {
         this.modalController = modalController;
+        this.profileDataProvider = profileDataProvider;
     }
     ProfilePage.prototype.ionViewDidLoad = function () {
-        this.profileData = {
-            name: 'Jose Manuel Pol Sastre',
-            username: 'josepol'
-        };
+        var _this = this;
+        this.profileDataProvider.getProfileData().subscribe(function (profileData) {
+            _this.profileData = profileData;
+        });
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Perfil\'"></app-breadcrumb>\n\n    <!--<div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-5 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [username]="profileData?.username" [name]="profileData?.name"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n                <ion-col col-lg-7 col-12>\n\n                    <div class="right-side">\n\n\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>-->\n\n    <div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-8 offset-lg-2 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [profileData]="profileData"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__["a" /* ProfileDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__["a" /* ProfileDataProvider */]) === "function" && _b || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile.js.map
@@ -66,6 +70,7 @@ var CANCEL_ACCOUNT = 'CANCEL_ACCOUNT';
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileDataProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environment__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -77,23 +82,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ProfileDataProvider = (function () {
     function ProfileDataProvider(http) {
         this.http = http;
     }
     ProfileDataProvider.prototype.getProfileData = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/profile");
     };
     ProfileDataProvider.prototype.verifyCurrrentPassword = function (currentPassword) {
-        return this.http.post('assets/mocks/profile/password.json', { currentPassword: currentPassword });
+        // return this.http.post('assets/mocks/profile/password.json', {currentPassword});
+        return this.http.get('assets/mocks/profile/password.json');
     };
     ProfileDataProvider.prototype.changePassword = function (newPassword) {
-        return this.http.post('', { newPassword: newPassword });
+        // return this.http.post('', {newPassword});
+        return this.http.get('assets/mocks/profile/password.json');
     };
     ProfileDataProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
     ], ProfileDataProvider);
     return ProfileDataProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=profile-data.provider.js.map
@@ -140,7 +150,8 @@ webpackEmptyAsyncContext.id = 163;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ENV; });
 var ENV = {
-    API_ENDPOINT: /*'http://localhost:4000'*/ 'http://api.polsastre.com'
+    API_ENDPOINT: 'http://localhost:4000'
+    // API_ENDPOINT: 'http://api.polsastre.com'
 };
 //# sourceMappingURL=config.dev.js.map
 
