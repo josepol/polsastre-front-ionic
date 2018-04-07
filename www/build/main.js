@@ -30,11 +30,12 @@ var ProfilePage = (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Perfil\'"></app-breadcrumb>\n\n    <div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-5 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [username]="profileData?.username" [name]="profileData?.name"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n                <ion-col col-lg-7 col-12>\n\n                    <div class="right-side">\n\n\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/,
+            selector: 'app-profile',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Perfil\'"></app-breadcrumb>\n\n    <!--<div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-5 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [username]="profileData?.username" [name]="profileData?.name"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n                <ion-col col-lg-7 col-12>\n\n                    <div class="right-side">\n\n\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>-->\n\n    <div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-8 offset-lg-2 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [profileData]="profileData"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _a || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a;
 }());
 
 //# sourceMappingURL=profile.js.map
@@ -318,21 +319,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ProfileUserDataModal = (function () {
-    function ProfileUserDataModal(viewController) {
+    function ProfileUserDataModal(viewController, params) {
         this.viewController = viewController;
+        this.params = params;
     }
     ProfileUserDataModal.prototype.ionViewDidLoad = function () {
+        this.profileData = this.params.get('profileData');
     };
     ProfileUserDataModal.prototype.cancel = function () {
         this.viewController.dismiss({ status: 'KO' });
     };
     ProfileUserDataModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-data-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/'<ion-content class="app-modal">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content">\n\n        <div class="personal-info-data">\n\n            <div>\n\n                <div class="half-bg"></div>\n\n                <div class="left-side-container no-opacity circle-img"></div>\n\n            </div>\n\n            <ion-grid>\n\n                <ion-row>\n\n                    <ion-col col-lg-6 col-12 class="text-center">\n\n                            <p class="modal-label">Nombre</p>\n\n                            <input type="text" class="modal-input" />\n\n                            <p class="modal-label">Apellidos</p>\n\n                            <input type="text" class="modal-input" />\n\n                    </ion-col>\n\n                    <ion-col col-lg-6 col-12 class="text-center">\n\n                            \n\n                    </ion-col>\n\n                </ion-row>\n\n            </ion-grid>\n\n        </div>\n\n        <br/><br/><br/>\n\n        <div class="position-bottom">\n\n            <button class="confirm-button-alone" (click)="accept()">Actualizar</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/,
+            selector: 'app-profile-user-data-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/'<ion-content class="app-modal">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content">\n\n        <div class="personal-info-data">\n\n            <div>\n\n                <div class="half-bg"></div>\n\n                <div class="left-side-container no-opacity circle-img"></div>\n\n            </div>\n\n            <ion-grid>\n\n                <ion-row>\n\n                    <ion-col col-lg-6 col-12 class="text-center">\n\n                            <p class="modal-label">Nombre</p>\n\n                            <input type="text" placeholder="Tu nombre" class="modal-input" [value]="profileData?.name" />\n\n                            <p class="modal-label">Username</p>\n\n                            <input type="text" placeholder="@username" class="modal-input" [value]="\'@\' + profileData?.username" />\n\n                    </ion-col>\n\n                    <ion-col col-lg-6 col-12 class="text-center">\n\n                            \n\n                    </ion-col>\n\n                </ion-row>\n\n            </ion-grid>\n\n        </div>\n\n        <br/><br/><br/>\n\n        <br/><br/><br/>\n\n        <div class="position-bottom">\n\n            <button class="confirm-button-alone" (click)="accept()">Actualizar</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object])
     ], ProfileUserDataModal);
     return ProfileUserDataModal;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-data-modal.js.map
@@ -1524,6 +1528,8 @@ var ProfileModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1536,6 +1542,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProfileUserLeftDataComponent = (function () {
     function ProfileUserLeftDataComponent(modalController) {
         this.modalController = modalController;
@@ -1543,7 +1550,7 @@ var ProfileUserLeftDataComponent = (function () {
     ProfileUserLeftDataComponent.prototype.ionViewDidLoad = function () {
     };
     ProfileUserLeftDataComponent.prototype.openUserDataModal = function () {
-        var profileUserDataModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__["a" /* ProfileUserDataModal */]);
+        var profileUserDataModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__["a" /* ProfileUserDataModal */], { profileData: this.profileData });
         profileUserDataModal.onDidDismiss(function (data) {
             if (data.status === 'KO') {
                 return;
@@ -1553,22 +1560,26 @@ var ProfileUserLeftDataComponent = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", String)
-    ], ProfileUserLeftDataComponent.prototype, "username", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", String)
-    ], ProfileUserLeftDataComponent.prototype, "name", void 0);
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
+    ], ProfileUserLeftDataComponent.prototype, "profileData", void 0);
     ProfileUserLeftDataComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/'<div class="left-side">\n\n    <h3 class="page-header text-center personal-header-info">Información personal</h3>\n\n    <div class="personal-info-data">\n\n            <ion-item>\n\n                <ion-label>Nombre</ion-label>\n\n                <ion-input readonly type="text" [value]="name"></ion-input>\n\n                <button clear item-right (click)="openUserDataModal()" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label>Nombre de usuario</ion-label>\n\n                <ion-input readonly type="text" [value]="\'@\' + username"></ion-input>\n\n            </ion-item>\n\n    </div>\n\n</div>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/,
+            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/'<div class="left-side">\n\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n\n        <button clear item-right (click)="openUserDataModal()" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n\n    </h3>\n\n    <div class="personal-info-data">\n\n            <ion-item>\n\n                <ion-label>Nombre</ion-label>\n\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label>Nombre de usuario</ion-label>\n\n                <ion-input readonly type="text" [value]="\'@\' + profileData?.username"></ion-input>\n\n            </ion-item>\n\n    </div>\n\n    <ion-grid>\n\n        <ion-row class="grid-padding">\n\n            <ion-col col-lg-6 col-12>\n\n                <button class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n\n            </ion-col>\n\n            <ion-col col-lg-6 col-12>\n\n                <button class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</div>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _b || Object])
     ], ProfileUserLeftDataComponent);
     return ProfileUserLeftDataComponent;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-left-data.js.map
+
+/***/ }),
+
+/***/ 303:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=profile-user.models.js.map
 
 /***/ }),
 

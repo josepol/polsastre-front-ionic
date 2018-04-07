@@ -1,6 +1,6 @@
 <ion-content>
     <app-breadcrumb [title]="'Perfil'"></app-breadcrumb>
-    <div class="container">
+    <!--<div class="container">
         <ion-grid>
             <ion-row>
                 <ion-col col-lg-5 col-12>
@@ -11,6 +11,17 @@
                 <ion-col col-lg-7 col-12>
                     <div class="right-side">
 
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>-->
+    <div class="container">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-lg-8 offset-lg-2 col-12>
+                    <div class="left-side-container opacity">
+                        <app-profile-user-left-data [profileData]="profileData"></app-profile-user-left-data>
                     </div>
                 </ion-col>
             </ion-row>

@@ -30742,11 +30742,16 @@ modal-wrapper {
 }
 
 .icon-bg {
-  background-color: white;
+  background-color: transparent;
+  color: white;
 }
 
-.no-scroll .scroll-content {
-  overflow: hidden;
+.profile-left-btn {
+  width: 100%;
+}
+
+.grid-padding {
+  padding: 10px;
 }
 
 .breadcrumb-corrector {

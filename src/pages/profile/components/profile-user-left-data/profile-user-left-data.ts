@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { ProfileUserDataModal } from '../profile-user-data-modal/profile-user-data-modal';
+import { ProfileUserModel } from '../../models/profile-user.models';
 
 @Component({
   selector: 'app-profile-user-left-data',
@@ -8,8 +9,7 @@ import { ProfileUserDataModal } from '../profile-user-data-modal/profile-user-da
 })
 export class ProfileUserLeftDataComponent {
 
-  @Input() username: string;
-  @Input() name: string;
+  @Input() profileData: ProfileUserModel;
 
   constructor(
     private modalController: ModalController
@@ -20,7 +20,7 @@ export class ProfileUserLeftDataComponent {
   }
 
   public openUserDataModal() {
-    const profileUserDataModal = this.modalController.create(ProfileUserDataModal);
+    const profileUserDataModal = this.modalController.create(ProfileUserDataModal, {profileData: this.profileData});
     profileUserDataModal.onDidDismiss(data => {
       if (data.status === 'KO') {
         return;

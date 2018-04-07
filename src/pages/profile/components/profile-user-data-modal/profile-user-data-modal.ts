@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController } from 'ionic-angular';
+import { IonicPage, ViewController, NavParams } from 'ionic-angular';
+import { ProfileUserModel } from '../../models/profile-user.models';
 
 @Component({
   selector: 'app-profile-user-data-modal',
@@ -7,12 +8,16 @@ import { IonicPage, ViewController } from 'ionic-angular';
 })
 export class ProfileUserDataModal {
 
+  public profileData: ProfileUserModel;
+
   constructor(
-    private viewController: ViewController
+    private viewController: ViewController,
+    private params: NavParams
   ) {
   }
 
   ionViewDidLoad() {
+    this.profileData = this.params.get('profileData');
   }
 
   public cancel() {
