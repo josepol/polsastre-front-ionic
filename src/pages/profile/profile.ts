@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController } from 'ionic-angular';
 import { ProfileUserModel } from './models/profile-user.models';
 import { ProfileDataProvider } from './providers/profile-data.provider';
+import AuthProvider from '../../shared/providers/auth.provider';
 
 @IonicPage()
 @Component({
@@ -14,8 +15,13 @@ export class ProfilePage {
 
   constructor(
     private modalController: ModalController,
-    private profileDataProvider: ProfileDataProvider
+    private profileDataProvider: ProfileDataProvider,
+    private authProvider: AuthProvider
   ) {
+  }
+
+  ionViewCanEnter() {
+    return this.authProvider.refresh().then(token => token);
   }
 
   ionViewDidLoad() {

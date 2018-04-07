@@ -4,6 +4,8 @@ import { ProfileUserModel } from '../../models/profile-user.models';
 import { PERSONAL_INFO, CHANGE_PASSWORD, KO, OK, CANCEL_ACCOUNT } from '../../../../shared/constants/app.contants';
 import { ProfileDataProvider } from '../../providers/profile-data.provider';
 import { ProfileUserDataModalChangePasswordComponent } from '../profile-user-data-modal-change-password/profile-user-data-modal-change-password';
+import { NavigationProvider } from '../../../../shared/providers/navigation.provider';
+import { LoginPage } from '../../../login/login';
 
 @Component({
   selector: 'app-profile-user-data-modal',
@@ -25,7 +27,8 @@ export class ProfileUserDataModal {
   constructor(
     private viewController: ViewController,
     private params: NavParams,
-    private profileDataProvider: ProfileDataProvider
+    private profileDataProvider: ProfileDataProvider,
+    private navigationProvider: NavigationProvider
   ) {
   }
 
@@ -60,7 +63,10 @@ export class ProfileUserDataModal {
   }
 
   public cancelAccount() {
-    console.log('cancel');
+    this.profileDataProvider.cancelAccount().subscribe(response => {
+      this.navigationProvider.getNaviController().setRoot(LoginPage);
+      this.success();
+    });
   }
 
 }
