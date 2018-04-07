@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, ViewController, NavParams } from 'ionic-angular';
 import { ProfileUserModel } from '../../models/profile-user.models';
-import { PERSONAL_INFO, CHANGE_PASSWORD, KO } from '../../../../shared/constants/app.contants';
+import { PERSONAL_INFO, CHANGE_PASSWORD, KO, OK, CANCEL_ACCOUNT } from '../../../../shared/constants/app.contants';
 import { ProfileDataProvider } from '../../providers/profile-data.provider';
 import { ProfileUserDataModalChangePasswordComponent } from '../profile-user-data-modal-change-password/profile-user-data-modal-change-password';
 
@@ -11,12 +11,14 @@ import { ProfileUserDataModalChangePasswordComponent } from '../profile-user-dat
 })
 export class ProfileUserDataModal {
 
+  public PERSONAL_INFO: string = PERSONAL_INFO;
+  public CHANGE_PASSWORD: string = CHANGE_PASSWORD;
+  public CANCEL_ACCOUNT: string = CANCEL_ACCOUNT;
+
   @ViewChild('profileUserDataModalChangePassword') public profileUserDataModalChangePassword: ProfileUserDataModalChangePasswordComponent;
 
   public profileData: ProfileUserModel;
   public profileModalType: string;
-  public PERSONAL_INFO: string = PERSONAL_INFO;
-  public CHANGE_PASSWORD: string = CHANGE_PASSWORD;
   public changePasswordStepStatus: number = 0;
   public changePasswordCurrentButtonValue: string = 'Verificar contraseña';
 
@@ -36,7 +38,15 @@ export class ProfileUserDataModal {
     this.viewController.dismiss({status: KO});
   }
 
+  public success() {
+    this.viewController.dismiss({status: OK});
+  }
+
   public onUpdateChangePasswordStatus(newStepStatus) {
+    if (newStepStatus === -1) {
+      this.success();
+      return;
+    }
     this.changePasswordStepStatus = newStepStatus;
     this.changePasswordCurrentButtonValue = 'Actualizar nueva contraseña';
   }
@@ -47,6 +57,10 @@ export class ProfileUserDataModal {
     } else {
       this.profileUserDataModalChangePassword.changePassword();
     }
+  }
+
+  public cancelAccount() {
+    console.log('cancel');
   }
 
 }

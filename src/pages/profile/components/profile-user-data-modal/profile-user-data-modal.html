@@ -17,6 +17,10 @@
                     (updateChangePasswordStatus)="onUpdateChangePasswordStatus($event)"
                     *ngIf="profileModalType === CHANGE_PASSWORD">
                 </app-profile-user-data-modal-change-password>
+                <app-profile-user-data-modal-cancel-account 
+                    [profileData]="profileData"
+                    *ngIf="profileModalType === CANCEL_ACCOUNT">
+                </app-profile-user-data-modal-cancel-account>
             </ion-grid>
         </div>
         <br/><br/><br/>
@@ -24,6 +28,7 @@
         <div class="position-bottom">
             <button *ngIf="profileModalType === PERSONAL_INFO" class="confirm-button-alone" (click)="accept()">Actualizar</button>
             <button *ngIf="profileModalType === CHANGE_PASSWORD" class="confirm-button-alone" (click)="addChangePasswordStep()">{{ changePasswordCurrentButtonValue }}</button>
+            <button *ngIf="profileModalType === CANCEL_ACCOUNT" class="confirm-button-alone-danger" (click)="cancelAccount()">Cancelar cuenta</button>
         </div>
     </div>
 </ion-content>

@@ -45,14 +45,16 @@ var ProfilePage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return KO; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return OK; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return PERSONAL_INFO; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CHANGE_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return KO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return OK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return PERSONAL_INFO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CHANGE_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CANCEL_ACCOUNT; });
 var KO = 'KO';
 var OK = 'OK';
 var PERSONAL_INFO = 'PERSONAL_INFO';
 var CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+var CANCEL_ACCOUNT = 'CANCEL_ACCOUNT';
 //# sourceMappingURL=app.contants.js.map
 
 /***/ }),
@@ -82,19 +84,16 @@ var ProfileDataProvider = (function () {
     ProfileDataProvider.prototype.getProfileData = function () {
     };
     ProfileDataProvider.prototype.verifyCurrrentPassword = function (currentPassword) {
-        // return this.http.post('assets/mocks/profile/password.json', {currentPassword});
-        return this.http.get('assets/mocks/profile/password.json');
+        return this.http.post('assets/mocks/profile/password.json', { currentPassword: currentPassword });
     };
     ProfileDataProvider.prototype.changePassword = function (newPassword) {
-        // return this.http.post('', {newPassword});
-        return this.http.get('assets/mocks/profile/password.json');
+        return this.http.post('', { newPassword: newPassword });
     };
     ProfileDataProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
     ], ProfileDataProvider);
     return ProfileDataProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=profile-data.provider.js.map
@@ -388,8 +387,9 @@ var ProfileUserDataModal = (function () {
         this.viewController = viewController;
         this.params = params;
         this.profileDataProvider = profileDataProvider;
-        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["d" /* PERSONAL_INFO */];
-        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["a" /* CHANGE_PASSWORD */];
+        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["e" /* PERSONAL_INFO */];
+        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["b" /* CHANGE_PASSWORD */];
+        this.CANCEL_ACCOUNT = __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["a" /* CANCEL_ACCOUNT */];
         this.changePasswordStepStatus = 0;
         this.changePasswordCurrentButtonValue = 'Verificar contraseña';
     }
@@ -398,9 +398,16 @@ var ProfileUserDataModal = (function () {
         this.profileModalType = this.params.get('profileModalType');
     };
     ProfileUserDataModal.prototype.cancel = function () {
-        this.viewController.dismiss({ status: __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["b" /* KO */] });
+        this.viewController.dismiss({ status: __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["c" /* KO */] });
+    };
+    ProfileUserDataModal.prototype.success = function () {
+        this.viewController.dismiss({ status: __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__["d" /* OK */] });
     };
     ProfileUserDataModal.prototype.onUpdateChangePasswordStatus = function (newStepStatus) {
+        if (newStepStatus === -1) {
+            this.success();
+            return;
+        }
         this.changePasswordStepStatus = newStepStatus;
         this.changePasswordCurrentButtonValue = 'Actualizar nueva contraseña';
     };
@@ -412,19 +419,21 @@ var ProfileUserDataModal = (function () {
             this.profileUserDataModalChangePassword.changePassword();
         }
     };
+    ProfileUserDataModal.prototype.cancelAccount = function () {
+        console.log('cancel');
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('profileUserDataModalChangePassword'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */]) === "function" && _a || Object)
     ], ProfileUserDataModal.prototype, "profileUserDataModalChangePassword", void 0);
     ProfileUserDataModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-data-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/'<ion-content class="app-modal">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content">\n\n        <div class="personal-info-data">\n\n            <div>\n\n                <div class="half-bg"></div>\n\n                <div class="left-side-container no-opacity circle-img"></div>\n\n            </div>\n\n            <ion-grid>\n\n                <app-profile-user-data-modal-personal-info \n\n                    [profileData]="profileData"\n\n                    *ngIf="profileModalType === PERSONAL_INFO">\n\n                </app-profile-user-data-modal-personal-info>\n\n                <app-profile-user-data-modal-change-password #profileUserDataModalChangePassword\n\n                    [profileData]="profileData"\n\n                    [changePasswordStepStatus]="changePasswordStepStatus"\n\n                    (updateChangePasswordStatus)="onUpdateChangePasswordStatus($event)"\n\n                    *ngIf="profileModalType === CHANGE_PASSWORD">\n\n                </app-profile-user-data-modal-change-password>\n\n            </ion-grid>\n\n        </div>\n\n        <br/><br/><br/>\n\n        <br/><br/><br/>\n\n        <div class="position-bottom">\n\n            <button *ngIf="profileModalType === PERSONAL_INFO" class="confirm-button-alone" (click)="accept()">Actualizar</button>\n\n            <button *ngIf="profileModalType === CHANGE_PASSWORD" class="confirm-button-alone" (click)="addChangePasswordStep()">{{ changePasswordCurrentButtonValue }}</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/,
+            selector: 'app-profile-user-data-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/'<ion-content class="app-modal">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content">\n\n        <div class="personal-info-data">\n\n            <div>\n\n                <div class="half-bg"></div>\n\n                <div class="left-side-container no-opacity circle-img"></div>\n\n            </div>\n\n            <ion-grid>\n\n                <app-profile-user-data-modal-personal-info \n\n                    [profileData]="profileData"\n\n                    *ngIf="profileModalType === PERSONAL_INFO">\n\n                </app-profile-user-data-modal-personal-info>\n\n                <app-profile-user-data-modal-change-password #profileUserDataModalChangePassword\n\n                    [profileData]="profileData"\n\n                    [changePasswordStepStatus]="changePasswordStepStatus"\n\n                    (updateChangePasswordStatus)="onUpdateChangePasswordStatus($event)"\n\n                    *ngIf="profileModalType === CHANGE_PASSWORD">\n\n                </app-profile-user-data-modal-change-password>\n\n                <app-profile-user-data-modal-cancel-account \n\n                    [profileData]="profileData"\n\n                    *ngIf="profileModalType === CANCEL_ACCOUNT">\n\n                </app-profile-user-data-modal-cancel-account>\n\n            </ion-grid>\n\n        </div>\n\n        <br/><br/><br/>\n\n        <br/><br/><br/>\n\n        <div class="position-bottom">\n\n            <button *ngIf="profileModalType === PERSONAL_INFO" class="confirm-button-alone" (click)="accept()">Actualizar</button>\n\n            <button *ngIf="profileModalType === CHANGE_PASSWORD" class="confirm-button-alone" (click)="addChangePasswordStep()">{{ changePasswordCurrentButtonValue }}</button>\n\n            <button *ngIf="profileModalType === CANCEL_ACCOUNT" class="confirm-button-alone-danger" (click)="cancelAccount()">Cancelar cuenta</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__["a" /* ProfileDataProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__["a" /* ProfileDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__["a" /* ProfileDataProvider */]) === "function" && _d || Object])
     ], ProfileUserDataModal);
     return ProfileUserDataModal;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=profile-user-data-modal.js.map
@@ -467,7 +476,7 @@ var ProfileUserDataModalChangePasswordComponent = (function () {
     ProfileUserDataModalChangePasswordComponent.prototype.verifyCurrentPassword = function () {
         var _this = this;
         this.profileDataProvider.verifyCurrrentPassword('').subscribe(function (verifyPasswordResponse) {
-            if (verifyPasswordResponse.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["c" /* OK */]) {
+            if (verifyPasswordResponse.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["d" /* OK */]) {
                 _this.changePasswordStepStatus++;
                 _this.updateChangePasswordStatus.emit(_this.changePasswordStepStatus);
             }
@@ -477,7 +486,7 @@ var ProfileUserDataModalChangePasswordComponent = (function () {
     };
     ProfileUserDataModalChangePasswordComponent.prototype.changePassword = function () {
         this.profileDataProvider.changePassword('').subscribe(function (changePasswordReponse) {
-            if (changePasswordReponse.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["c" /* OK */]) {
+            if (changePasswordReponse.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["d" /* OK */]) {
             }
             else {
             }
@@ -498,7 +507,7 @@ var ProfileUserDataModalChangePasswordComponent = (function () {
     ], ProfileUserDataModalChangePasswordComponent.prototype, "updateChangePasswordStatus", void 0);
     ProfileUserDataModalChangePasswordComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-data-modal-change-password',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-change-password\profile-user-data-modal-change-password.html"*/'<ion-row>\n\n    <ng-container *ngIf="changePasswordStepStatus === 0"><ng-container *ngTemplateOutlet="currentPassword"></ng-container></ng-container>\n\n    <ng-container *ngIf="changePasswordStepStatus === 1"><ng-container *ngTemplateOutlet="newPassword"></ng-container></ng-container>\n\n</ion-row>\n\n\n\n<ng-template #currentPassword>\n\n    <ion-col col-lg-8 col-lg-offset-2 col-12 class="text-center">\n\n        <p class="modal-label">Contraseña actual</p>\n\n        <input type="password" placeholder="******" class="modal-input" />\n\n    </ion-col>\n\n</ng-template>\n\n\n\n<ng-template #newPassword>\n\n    <ion-col col-lg-8 col-lg-offset-2 col-12 class="text-center">\n\n        <p class="modal-label">Contraseña</p>\n\n        <input type="text" placeholder="Tu nombre" class="modal-input" />\n\n        <p class="modal-label">Repetir contraseña</p>\n\n        <input type="text" placeholder="@username" class="modal-input" />\n\n    </ion-col>\n\n</ng-template>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-change-password\profile-user-data-modal-change-password.html"*/,
+            selector: 'app-profile-user-data-modal-change-password',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-change-password\profile-user-data-modal-change-password.html"*/'<ion-row>\n\n    <ng-container *ngIf="changePasswordStepStatus === 0"><ng-container *ngTemplateOutlet="currentPassword"></ng-container></ng-container>\n\n    <ng-container *ngIf="changePasswordStepStatus === 1"><ng-container *ngTemplateOutlet="newPassword"></ng-container></ng-container>\n\n</ion-row>\n\n\n\n<ng-template #currentPassword>\n\n    <ion-col col-lg-8 col-lg-offset-2 col-12 class="text-center">\n\n        <p class="modal-label">Contraseña actual</p>\n\n        <input type="password" placeholder="******" class="modal-input" />\n\n    </ion-col>\n\n</ng-template>\n\n\n\n<ng-template #newPassword>\n\n    <ion-col col-lg-8 col-lg-offset-2 col-12 class="text-center">\n\n        <p class="modal-label">Contraseña</p>\n\n        <input type="text" placeholder="******" class="modal-input" />\n\n        <p class="modal-label">Repetir contraseña</p>\n\n        <input type="text" placeholder="******" class="modal-input" />\n\n    </ion-col>\n\n</ng-template>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-change-password\profile-user-data-modal-change-password.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__["a" /* ProfileDataProvider */]])
@@ -1649,12 +1658,14 @@ var HttpInterceptorProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_profile_user_data_modal_personal_info_profile_user_data_modal_personal_info__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_profile_user_data_modal_change_password_profile_user_data_modal_change_password__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_profile_data_provider__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_profile_user_data_modal_cancel_account_profile_user_data_modal_cancel_account__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1673,8 +1684,9 @@ var ProfileModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__profile__["a" /* ProfilePage */],
                 __WEBPACK_IMPORTED_MODULE_5__components_profile_user_data_modal_profile_user_data_modal__["a" /* ProfileUserDataModal */],
                 __WEBPACK_IMPORTED_MODULE_4__components_profile_user_left_data_profile_user_left_data__["a" /* ProfileUserLeftDataComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__components_profile_user_data_modal_personal_info_profile_user_data_modal_personal_info__["a" /* ProfileUserDataModalPersonalInfo */],
-                __WEBPACK_IMPORTED_MODULE_7__components_profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__components_profile_user_data_modal_personal_info_profile_user_data_modal_personal_info__["a" /* ProfileUserDataModalPersonalInfoComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__components_profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__components_profile_user_data_modal_cancel_account_profile_user_data_modal_cancel_account__["a" /* ProfileUserDataModalCancelAccountComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__["a" /* SharedModule */],
@@ -1706,7 +1718,9 @@ var ProfileModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1720,11 +1734,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProfileUserLeftDataComponent = (function () {
     function ProfileUserLeftDataComponent(modalController) {
         this.modalController = modalController;
-        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["d" /* PERSONAL_INFO */];
-        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["a" /* CHANGE_PASSWORD */];
+        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["e" /* PERSONAL_INFO */];
+        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["b" /* CHANGE_PASSWORD */];
+        this.CANCEL_ACCOUNT = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["a" /* CANCEL_ACCOUNT */];
     }
     ProfileUserLeftDataComponent.prototype.ionViewDidLoad = function () {
     };
@@ -1734,12 +1750,12 @@ var ProfileUserLeftDataComponent = (function () {
             profileModalType: profileModalType
         });
         profileUserDataModal.onDidDismiss(function (data) {
-            if (data.status === 'KO') {
-                console.log('KO');
+            if (data.status === __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["c" /* KO */]) {
+                console.log(__WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["c" /* KO */]);
                 return;
             }
             else {
-                console.log('OK');
+                console.log(__WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["d" /* OK */]);
                 return;
             }
         });
@@ -1747,15 +1763,16 @@ var ProfileUserLeftDataComponent = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
     ], ProfileUserLeftDataComponent.prototype, "profileData", void 0);
     ProfileUserLeftDataComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/'<div class="left-side">\n\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n\n        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n\n    </h3>\n\n    <div class="personal-info-data">\n\n            <ion-item>\n\n                <ion-label>Nombre</ion-label>\n\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label>Nombre de usuario</ion-label>\n\n                <ion-input readonly type="text" [value]="\'@\' + profileData?.username"></ion-input>\n\n            </ion-item>\n\n    </div>\n\n    <ion-grid>\n\n        <ion-row class="grid-padding">\n\n            <ion-col col-lg-6 col-12>\n\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n\n            </ion-col>\n\n            <ion-col col-lg-6 col-12>\n\n                <button class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</div>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/,
+            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/'<div class="left-side">\n\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n\n        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n\n    </h3>\n\n    <div class="personal-info-data">\n\n            <ion-item>\n\n                <ion-label>Nombre</ion-label>\n\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label>Nombre de usuario</ion-label>\n\n                <ion-input readonly type="text" [value]="\'@\' + profileData?.username"></ion-input>\n\n            </ion-item>\n\n    </div>\n\n    <ion-grid>\n\n        <ion-row class="grid-padding">\n\n            <ion-col col-lg-6 col-12>\n\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n\n            </ion-col>\n\n            <ion-col col-lg-6 col-12>\n\n                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</div>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _b || Object])
     ], ProfileUserLeftDataComponent);
     return ProfileUserLeftDataComponent;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-left-data.js.map
@@ -1766,9 +1783,11 @@ var ProfileUserLeftDataComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalPersonalInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalPersonalInfoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1780,29 +1799,86 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var ProfileUserDataModalPersonalInfo = (function () {
-    function ProfileUserDataModalPersonalInfo(viewController) {
+
+var ProfileUserDataModalPersonalInfoComponent = (function () {
+    function ProfileUserDataModalPersonalInfoComponent(viewController) {
         this.viewController = viewController;
     }
-    ProfileUserDataModalPersonalInfo.prototype.ionViewDidLoad = function () {
+    ProfileUserDataModalPersonalInfoComponent.prototype.ionViewDidLoad = function () {
     };
-    ProfileUserDataModalPersonalInfo.prototype.cancel = function () {
+    ProfileUserDataModalPersonalInfoComponent.prototype.cancel = function () {
         this.viewController.dismiss({ status: 'KO' });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", Object)
-    ], ProfileUserDataModalPersonalInfo.prototype, "profileData", void 0);
-    ProfileUserDataModalPersonalInfo = __decorate([
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
+    ], ProfileUserDataModalPersonalInfoComponent.prototype, "profileData", void 0);
+    ProfileUserDataModalPersonalInfoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile-user-data-modal-personal-info',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-personal-info\profile-user-data-modal-personal-info.html"*/'<ion-row>\n\n    <ion-col col-lg-6 col-12 class="text-center">\n\n            <p class="modal-label">Nombre</p>\n\n            <input type="text" placeholder="Tu nombre" class="modal-input" [value]="profileData?.name" />\n\n            <p class="modal-label">Username</p>\n\n            <input type="text" placeholder="@username" class="modal-input" [value]="\'@\' + profileData?.username" />\n\n    </ion-col>\n\n    <ion-col col-lg-6 col-12 class="text-center">\n\n            \n\n    </ion-col>\n\n</ion-row>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-personal-info\profile-user-data-modal-personal-info.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]])
-    ], ProfileUserDataModalPersonalInfo);
-    return ProfileUserDataModalPersonalInfo;
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _b || Object])
+    ], ProfileUserDataModalPersonalInfoComponent);
+    return ProfileUserDataModalPersonalInfoComponent;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-data-modal-personal-info.js.map
+
+/***/ }),
+
+/***/ 307:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=profile-user.models.js.map
+
+/***/ }),
+
+/***/ 308:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalCancelAccountComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProfileUserDataModalCancelAccountComponent = (function () {
+    function ProfileUserDataModalCancelAccountComponent(viewController) {
+        this.viewController = viewController;
+    }
+    ProfileUserDataModalCancelAccountComponent.prototype.ionViewDidLoad = function () {
+    };
+    ProfileUserDataModalCancelAccountComponent.prototype.cancel = function () {
+        this.viewController.dismiss({ status: 'KO' });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
+    ], ProfileUserDataModalCancelAccountComponent.prototype, "profileData", void 0);
+    ProfileUserDataModalCancelAccountComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-profile-user-data-modal-cancel-account',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-cancel-account\profile-user-data-modal-cancel-account.html"*/'<ion-row>\n\n    <ion-col col-lg-8 offset-lg-2 col-12 class="text-center">\n\n            <p class="modal-label">¿Estás seguro de cancelar tu cuenta?</p>\n\n    </ion-col>\n\n</ion-row>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-cancel-account\profile-user-data-modal-cancel-account.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _b || Object])
+    ], ProfileUserDataModalCancelAccountComponent);
+    return ProfileUserDataModalCancelAccountComponent;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=profile-user-data-modal-cancel-account.js.map
 
 /***/ }),
 

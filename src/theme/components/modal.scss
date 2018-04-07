@@ -68,6 +68,12 @@
         background-color: rgb(133, 180, 221);
     }
 
+    .confirm-button-alone-danger {
+        @include confirm-button;
+        width: 100%;
+        background-color: color($colors, red-light, base);
+    }
+
     .overlay {
         position: fixed;
         top: 0;

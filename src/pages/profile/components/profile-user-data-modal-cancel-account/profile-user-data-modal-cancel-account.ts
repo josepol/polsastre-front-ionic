@@ -3,10 +3,10 @@ import { IonicPage, ViewController, NavParams } from 'ionic-angular';
 import { ProfileUserModel } from '../../models/profile-user.models';
 
 @Component({
-  selector: 'app-profile-user-data-modal-personal-info',
-  templateUrl: 'profile-user-data-modal-personal-info.html',
+  selector: 'app-profile-user-data-modal-cancel-account',
+  templateUrl: 'profile-user-data-modal-cancel-account.html',
 })
-export class ProfileUserDataModalPersonalInfoComponent {
+export class ProfileUserDataModalCancelAccountComponent {
 
   @Input() public profileData: ProfileUserModel;
 

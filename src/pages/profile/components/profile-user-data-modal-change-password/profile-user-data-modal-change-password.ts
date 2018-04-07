@@ -42,12 +42,11 @@ export class ProfileUserDataModalChangePasswordComponent {
   public changePassword() {
     this.profileDataProvider.changePassword('').subscribe(changePasswordReponse => {
       if (changePasswordReponse.status === OK) {
-        
+        this.updateChangePasswordStatus.emit(-1);
       } else {
 
       }
-    })
-    console.log('change');
+    });
   }
 
 }

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { ProfileUserDataModal } from '../profile-user-data-modal/profile-user-data-modal';
 import { ProfileUserModel } from '../../models/profile-user.models';
-import { PERSONAL_INFO, CHANGE_PASSWORD } from '../../../../shared/constants/app.contants';
+import { PERSONAL_INFO, CHANGE_PASSWORD, CANCEL_ACCOUNT, OK, KO } from '../../../../shared/constants/app.contants';
 
 @Component({
   selector: 'app-profile-user-left-data',
@@ -14,6 +14,7 @@ export class ProfileUserLeftDataComponent {
 
   public PERSONAL_INFO: string = PERSONAL_INFO;
   public CHANGE_PASSWORD: string = CHANGE_PASSWORD;
+  public CANCEL_ACCOUNT: string = CANCEL_ACCOUNT;
 
   constructor(
     private modalController: ModalController
@@ -29,11 +30,11 @@ export class ProfileUserLeftDataComponent {
       profileModalType: profileModalType
     });
     profileUserDataModal.onDidDismiss(data => {
-      if (data.status === 'KO') {
-        console.log('KO');
+      if (data.status === KO) {
+        console.log(KO);
         return;
       } else {
-        console.log('OK');
+        console.log(OK);
         return;
       }
     })
