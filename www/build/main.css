@@ -3836,6 +3836,11 @@ ion-icon::before {
   right: 0px;
 }
 
+.img-country-flat {
+  width: 25px;
+  opacity: 0.8;
+}
+
 .app-modal .no-scroll .scroll-content {
   overflow: hidden;
   background: transparent;

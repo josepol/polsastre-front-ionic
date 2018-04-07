@@ -7,23 +7,23 @@
                 <div class="left-side-container no-opacity circle-img"></div>
             </div>
             <ion-grid>
-                <ion-row>
-                    <ion-col col-lg-6 col-12 class="text-center">
-                            <p class="modal-label">Nombre</p>
-                            <input type="text" placeholder="Tu nombre" class="modal-input" [value]="profileData?.name" />
-                            <p class="modal-label">Username</p>
-                            <input type="text" placeholder="@username" class="modal-input" [value]="'@' + profileData?.username" />
-                    </ion-col>
-                    <ion-col col-lg-6 col-12 class="text-center">
-                            
-                    </ion-col>
-                </ion-row>
+                <app-profile-user-data-modal-personal-info 
+                    [profileData]="profileData"
+                    *ngIf="profileModalType === PERSONAL_INFO">
+                </app-profile-user-data-modal-personal-info>
+                <app-profile-user-data-modal-change-password #profileUserDataModalChangePassword
+                    [profileData]="profileData"
+                    [changePasswordStepStatus]="changePasswordStepStatus"
+                    (updateChangePasswordStatus)="onUpdateChangePasswordStatus($event)"
+                    *ngIf="profileModalType === CHANGE_PASSWORD">
+                </app-profile-user-data-modal-change-password>
             </ion-grid>
         </div>
         <br/><br/><br/>
         <br/><br/><br/>
         <div class="position-bottom">
-            <button class="confirm-button-alone" (click)="accept()">Actualizar</button>
+            <button *ngIf="profileModalType === PERSONAL_INFO" class="confirm-button-alone" (click)="accept()">Actualizar</button>
+            <button *ngIf="profileModalType === CHANGE_PASSWORD" class="confirm-button-alone" (click)="addChangePasswordStep()">{{ changePasswordCurrentButtonValue }}</button>
         </div>
     </div>
 </ion-content>

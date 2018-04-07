@@ -1,6 +1,6 @@
 <div class="left-side">
     <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;
-        <button clear item-right (click)="openUserDataModal()" class="icon-bg"><ion-icon name="create"></ion-icon></button>
+        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>
     </h3>
     <div class="personal-info-data">
             <ion-item>
@@ -15,7 +15,7 @@
     <ion-grid>
         <ion-row class="grid-padding">
             <ion-col col-lg-6 col-12>
-                <button class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>
+                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>
             </ion-col>
             <ion-col col-lg-6 col-12>
                 <button class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>
