@@ -1,0 +1,123 @@
+.app-modal {
+
+    .no-scroll .scroll-content {
+        overflow: hidden;
+        background: transparent;
+    }
+    
+    .text-center {
+        margin: auto;
+        font-size: 30px;
+        margin-top: 40px;
+        font-weight: 1 !important;
+    }
+
+    .modal-label {
+        color: color($colors, dark-light, base);
+        font-weight: bold;
+        font-size: 17px;
+        margin-bottom: -10px;
+    }
+
+    .modal-input {
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+        margin-top: 5px;
+        padding: 10px;
+        width: 100%;
+    }
+    
+    @media (max-width: 700px) {
+        .text-center {
+            margin: auto;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
+    
+    .position-bottom {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        margin-left: -10px;
+    }
+    
+    @mixin confirm-button {
+        height: 70px;
+        float: left;
+        font-weight: none !important;
+        color: white;
+    }
+    
+    .confirm-button-accept {
+        @include confirm-button;
+        width: 50%;
+        background-color: color($colors, green-main, base);
+    }
+    
+    .confirm-button-cancel {
+        @include confirm-button;
+        width: 50%;
+        background-color: rgb(133, 180, 221);
+    }
+
+    .confirm-button-alone {
+        @include confirm-button;
+        width: 100%;
+        background-color: rgb(133, 180, 221);
+    }
+
+    .confirm-button-alone-danger {
+        @include confirm-button;
+        width: 100%;
+        background-color: color($colors, red-light, base);
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: .5;
+        background-color: #333;
+    }
+    
+    .modal_content {
+        position: absolute;
+        top: calc(50% - (50%/2));
+        left: 0;
+        right: 0;
+        width: 50%;
+        // height: 50%;
+        padding: 10px;
+        z-index: 100;
+        margin: 0 auto;
+        padding: 10px;
+        color: #333;
+        background: #e8e8e8;
+        background: -moz-linear-gradient(top, #fff 0%, #e8e8e8 100%);
+        background: -webkit-linear-gradient(top, #fff 0%, #e8e8e8 100%);
+        background: linear-gradient(to bottom, #fff 0%, #e8e8e8 100%);
+        border-radius: 5px;
+        box-shadow: 0 2px 3px rgba(51, 51, 51, .35);
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .modal_content-with-height {
+        height: 35%;
+    }
+
+    .bottom-modal-btn {
+        height: 100px;
+        width: 70%;
+        background: white;
+        text-align: center;
+
+    }
+}

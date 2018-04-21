@@ -1,0 +1,5 @@
+export const KO = 'KO';
+export const OK = 'OK';
+export const PERSONAL_INFO = 'PERSONAL_INFO';
+export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+export const CANCEL_ACCOUNT = 'CANCEL_ACCOUNT';

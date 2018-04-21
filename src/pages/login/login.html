@@ -18,6 +18,7 @@
                             <p *ngIf="loginFailed && submitted" class="text-danger">Usuario o contraseña incorrectos</p>
                         </div>
                         <button type="input" [disabled]="loading" class="btn btn-primary">Entrar</button>
+                        <button type="input" [disabled]="loading" class="btn btn-primary">Registrarse</button>
                         <img *ngIf="loading" />
                     </form>
                 </div>

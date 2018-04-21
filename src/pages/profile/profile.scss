@@ -3,7 +3,14 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
-    opacity: 0.6;
+}
+
+.opacity {
+    opacity: 0.8;
+}
+
+.no-opacity {
+    opacity: 1 !important;
 }
 
 .left-side {
@@ -30,4 +37,17 @@
 
 .personal-info-text {
     color: #1ABC9C;
+}
+
+.icon-bg {
+    background-color: transparent;
+    color: white;
+}
+
+.profile-left-btn {
+    width: 100%;
+}
+
+.grid-padding {
+    padding: 10px;
 }

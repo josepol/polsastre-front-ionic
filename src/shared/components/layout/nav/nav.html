@@ -13,22 +13,16 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>
           <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Idioma <i class="fa fa-angle-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('spanish')">Español</a></li>
-              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('english')">Ingés</a></li>
-            </ul>
-          </li>
           <li *ngIf="!isAuthenticated"><a href="javascript:;" (click)="navigateLogin()">Login</a></li>
-          <li *ngIf="isAuthenticated" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Admin <i class="fa fa-angle-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateAdminHome()">Administrar</a></li>
-              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateProfile()">Perfil</a></li>
-              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="logout()">Logout</a></li>
-            </ul>
-          </li>
+          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateAdminHome()">Admin</a></li>
+          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateProfile()">Perfil</a></li>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="img-country-flat" src="assets/imgs/es.png" /></a>
+              <ul class="dropdown-menu">
+                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('english')"><img class="img-country-flat img-responsive img-flat-second" src="assets/imgs/gb.png" /></a></li>
+              </ul>
+            </li>
+          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="logout()">Logout</a></li>
         </ul>
       </div>
     </div>

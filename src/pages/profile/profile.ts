@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController } from 'ionic-angular';
-import { ProfileUserDataModal } from './components/profile-user-data-modal.ts/profile-user-data-modal';
+import { ProfileUserModel } from './models/profile-user.models';
+import { ProfileDataProvider } from './providers/profile-data.provider';
+import AuthProvider from '../../shared/providers/auth.provider';
 
 @IonicPage()
 @Component({
@@ -9,20 +11,23 @@ import { ProfileUserDataModal } from './components/profile-user-data-modal.ts/pr
 })
 export class ProfilePage {
 
-  public name: string = 'Jose Manuel Pol Sastre';
-  public username: string = 'josepol';
+  public profileData: ProfileUserModel;
 
   constructor(
-    private modalController: ModalController
+    private modalController: ModalController,
+    private profileDataProvider: ProfileDataProvider,
+    private authProvider: AuthProvider
   ) {
   }
 
-  ionViewDidLoad() {
+  ionViewCanEnter() {
+    return this.authProvider.refresh().then(token => token);
   }
 
-  openUserDataModal() {
-    const profileUserDataModal = this.modalController.create(ProfileUserDataModal);
-    profileUserDataModal.present();
+  ionViewDidLoad() {
+    this.profileDataProvider.getProfileData().subscribe(profileData => {
+      this.profileData = profileData;
+    });
   }
 
 }

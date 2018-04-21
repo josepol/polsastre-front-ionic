@@ -1,0 +1,25 @@
+<div class="left-side">
+    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;
+        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>
+    </h3>
+    <div class="personal-info-data">
+            <ion-item>
+                <ion-label>Nombre</ion-label>
+                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Nombre de usuario</ion-label>
+                <ion-input readonly type="text" [value]="'@' + profileData?.username"></ion-input>
+            </ion-item>
+    </div>
+    <ion-grid>
+        <ion-row class="grid-padding">
+            <ion-col col-lg-6 col-12>
+                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>
+            </ion-col>
+            <ion-col col-lg-6 col-12>
+                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
