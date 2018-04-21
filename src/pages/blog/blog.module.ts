@@ -23,6 +23,9 @@ import { BlogDataProvider } from './providers/blog-data.provider';
   ],
   exports: [
     PostListComponent
+  ],
+  entryComponents: [
+    BlogDetailPage
   ]
 })
 export class BlogModule {}

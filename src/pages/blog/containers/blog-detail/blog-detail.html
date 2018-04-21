@@ -1,0 +1,23 @@
+<ion-content *ngIf="post">
+    <app-breadcrumb [title]="'Blog'"></app-breadcrumb>
+
+    <div class="container container-int">
+        <div class="row">
+            <div class="post">
+                <h1 class="post-title">
+                    <a href="blog-post.html">{{ post.title }}</a>
+                </h1>
+                <p class="post-meta">
+                    <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd-MM-yyyy' }}
+                    <i class="fa fa-user"></i> {{ post.creatorName }}
+                    <i class="fa fa-comment"></i>
+                    <a href="#">{{ post.comments }} comentarios</a>
+                </p>
+                <div class="img-post">
+                    <img src="assets/template/img/post1.png" alt="post 1" class="img-responsive">
+                </div>
+                <div [innerHTML]="post.message"></div>
+            </div>
+        </div>
+    </div>
+</ion-content>
