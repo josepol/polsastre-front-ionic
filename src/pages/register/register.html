@@ -1,0 +1,39 @@
+<ion-content>
+    <app-breadcrumb [title]="'Registro'"></app-breadcrumb>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <h2>Registro</h2><br/>
+                    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value, registerForm.valid)">
+                        <div class="form-group">
+                            <label for="username">Email</label>
+                            <input id="username" formControlName="username" type="text" class="form-control" name="username"/>
+                            <p *ngIf="registerForm.controls.username.hasError('required') && submitted" class="text-danger">El campo username es requerido</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input id="password" formControlName="password" type="password" class="form-control" name="password" />
+                            <p *ngIf="registerForm.controls.password.hasError('required') && submitted" class="text-danger">El campo password es requerido</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Repetir contraseña</label>
+                            <input id="password" formControlName="passwordRepeat" type="password" class="form-control" name="passwordRepeat" />
+                            <p *ngIf="registerForm.controls.passwordRepeat.hasError('required') && submitted" class="text-danger">El campo contraseña es requerido</p>
+                            <p *ngIf="registerFailed === '00000' && submitted" class="text-danger">Algo ha salido mal, danos un segundo para resolverlo</p>
+                            <p *ngIf="registerFailed === '11000' && submitted" class="text-danger">Ya existe un usuario con ese email</p>
+                            <p *ngIf="differentPasswordFailed && submitted" class="text-danger">Las contraseñas son distintas</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Nombre</label>
+                            <input id="username" formControlName="name" type="text" class="form-control" name="name"/>
+                        </div>
+                        <button type="input" [disabled]="loading" class="btn btn-primary">Registrarse</button>
+                        <button (click)="goToLogin()" type="input" [disabled]="loading" class="btn btn-primary">Iniciar sesión</button>
+                        <img *ngIf="loading" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

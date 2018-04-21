@@ -4,6 +4,7 @@ import { NavigationProvider } from '../../shared/providers/navigation.provider';
 import { AdminHomePage } from '../admin/containers/home/admin-home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import AuthProvider from '../../shared/providers/auth.provider';
+import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
@@ -48,6 +49,11 @@ export class LoginPage implements OnInit {
       this.loginFailed = true;
     });
 
+  }
+
+  public goToRegister($event) {
+    // $event.preventDefault();
+    this.navigationProvider.getNaviController().push(RegisterPage);
   }
 
   private navigateAdminHome() {

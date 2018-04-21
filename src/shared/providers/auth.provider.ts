@@ -27,6 +27,11 @@ export default class AuthProvider {
         .map((response: any) => this.saveToken(response));
     }
 
+    register(userRegister) {
+        return this.http.post(`${ENV.API_ENDPOINT}/users/register`, userRegister)
+        .map((response: any) => this.saveToken(response));
+    }
+
     refresh() {
         if (!localStorage.getItem('token')) {
             return Promise.resolve(false);

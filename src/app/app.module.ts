@@ -13,15 +13,14 @@ import { LoginModule } from '../pages/login/login.module';
 import { AdminModule } from '../pages/admin/admin.module';
 import HttpInterceptorProvider from '../shared/providers/http.interceptor.provider';
 import { ProfileModule } from '../pages/profile/profile.module';
+import { RegisterModule } from '../pages/register/register.module';
 
 @NgModule({
   declarations: [
     MyApp
   ],
   imports: [
-    IonicModule.forRoot(MyApp, {}, {
-      links: routes
-    }),
+    IonicModule.forRoot(MyApp, {}, {links: routes}),
     BrowserModule,
     HttpClientModule,
     SharedModule,
@@ -30,6 +29,7 @@ import { ProfileModule } from '../pages/profile/profile.module';
     ContactModule,
     BlogModule,
     LoginModule,
+    RegisterModule,
     AdminModule,
     ProfileModule
   ],
