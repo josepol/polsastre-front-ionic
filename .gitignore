@@ -27,7 +27,7 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
-# www/
+www/
 $RECYCLE.BIN/
 polsastre.apk
 KEY_NAME_TO_CHANGE.keystore
