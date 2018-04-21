@@ -1,14 +1,27 @@
 webpackJsonp([0],{
 
-/***/ 105:
+/***/ 106:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ENV; });
+var ENV = {
+    API_ENDPOINT: 'http://localhost:4000'
+    // API_ENDPOINT: 'http://api.polsastre.com'
+};
+//# sourceMappingURL=config.dev.js.map
+
+/***/ }),
+
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,17 +54,18 @@ var ProfilePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Perfil\'"></app-breadcrumb>\n\n    <!--<div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-5 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [username]="profileData?.username" [name]="profileData?.name"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n                <ion-col col-lg-7 col-12>\n\n                    <div class="right-side">\n\n\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>-->\n\n    <div class="container">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-lg-8 offset-lg-2 col-12>\n\n                    <div class="left-side-container opacity">\n\n                        <app-profile-user-left-data [profileData]="profileData"></app-profile-user-left-data>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__["a" /* ProfileDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__["a" /* ProfileDataProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__["a" /* default */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__["a" /* default */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__["a" /* ProfileDataProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__["a" /* default */]])
     ], ProfilePage);
     return ProfilePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=profile.js.map
 
 /***/ }),
 
-/***/ 106:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69,60 +83,7 @@ var CANCEL_ACCOUNT = 'CANCEL_ACCOUNT';
 
 /***/ }),
 
-/***/ 107:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileDataProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environment__ = __webpack_require__(203);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ProfileDataProvider = (function () {
-    function ProfileDataProvider(http) {
-        this.http = http;
-    }
-    ProfileDataProvider.prototype.getProfileData = function () {
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/profile");
-    };
-    ProfileDataProvider.prototype.updateProfileData = function () {
-        return this.http.get('assets/mocks/profile/password.json');
-    };
-    ProfileDataProvider.prototype.verifyCurrrentPassword = function (currentPassword) {
-        // return this.http.post('assets/mocks/profile/password.json', {currentPassword});
-        return this.http.get('assets/mocks/profile/password.json');
-    };
-    ProfileDataProvider.prototype.changePassword = function (newPassword) {
-        // return this.http.post('', {newPassword});
-        return this.http.get('assets/mocks/profile/password.json');
-    };
-    ProfileDataProvider.prototype.cancelAccount = function () {
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/cancel-account");
-    };
-    ProfileDataProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
-    ], ProfileDataProvider);
-    return ProfileDataProvider;
-    var _a;
-}());
-
-//# sourceMappingURL=profile-data.provider.js.map
-
-/***/ }),
-
-/***/ 122:
+/***/ 123:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -135,11 +96,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 122;
+webpackEmptyAsyncContext.id = 123;
 
 /***/ }),
 
-/***/ 163:
+/***/ 164:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -152,20 +113,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 163;
-
-/***/ }),
-
-/***/ 203:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ENV; });
-var ENV = {
-    API_ENDPOINT: 'http://localhost:4000'
-    // API_ENDPOINT: 'http://api.polsastre.com'
-};
-//# sourceMappingURL=config.dev.js.map
+webpackEmptyAsyncContext.id = 164;
 
 /***/ }),
 
@@ -180,7 +128,7 @@ var ENV = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_blog_detail_blog_detail__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_category_category__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_post_list_post_list__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_shared_module__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_shared_module__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_data_provider__ = __webpack_require__(206);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -332,7 +280,7 @@ var ConfirmationModalComponent = (function () {
     };
     ConfirmationModalComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-confirmation-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\confirmation-modal\confirmation-modal.html"*/'<ion-content class="app-modal no-scroll">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content modal_content-with-height">\n\n        <div><p class="text-center">¿Estás seguro de cerrar la sesión?</p></div>\n\n        <div class="position-bottom">\n\n            <button class="confirm-button-cancel" (click)="cancel()">Cancelar</button>\n\n            <button class="confirm-button-accept" (click)="accept()">Aceptar</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\confirmation-modal\confirmation-modal.html"*/
+            selector: 'app-confirmation-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\confirmation-modal\confirmation-modal.html"*/'<ion-content class="app-modal no-scroll">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content modal_content-with-height">\n\n        <div><p class="text-center">¿Estás seguro de cerrar la sesión?</p></div>\n\n        <div class="position-bottom">\n\n            <button class="confirm-button-accept" (click)="accept()">Aceptar</button>\n\n            <button class="confirm-button-cancel" (click)="cancel()">Cancelar</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\confirmation-modal\confirmation-modal.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]])
     ], ConfirmationModalComponent);
@@ -388,11 +336,11 @@ var ContactPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_constants_app_contants__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_providers_navigation_provider__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_providers_navigation_provider__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -450,22 +398,24 @@ var ProfileUserDataModal = (function () {
     ProfileUserDataModal.prototype.cancelAccount = function () {
         var _this = this;
         this.profileDataProvider.cancelAccount().subscribe(function (response) {
-            _this.navigationProvider.getNaviController().setRoot(__WEBPACK_IMPORTED_MODULE_6__login_login__["a" /* LoginPage */]);
+            _this.navigationProvider.getNaviController().push(__WEBPACK_IMPORTED_MODULE_6__login_login__["a" /* LoginPage */]);
             _this.success();
         });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('profileUserDataModalChangePassword'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__profile_user_data_modal_change_password_profile_user_data_modal_change_password__["a" /* ProfileUserDataModalChangePasswordComponent */])
     ], ProfileUserDataModal.prototype, "profileUserDataModalChangePassword", void 0);
     ProfileUserDataModal = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile-user-data-modal',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/'<ion-content class="app-modal">\n\n    <div class="overlay" (click)="cancel()"></div>\n\n    <div class="modal_content">\n\n        <div class="personal-info-data">\n\n            <div>\n\n                <div class="half-bg"></div>\n\n                <div class="left-side-container no-opacity circle-img"></div>\n\n            </div>\n\n            <ion-grid>\n\n                <app-profile-user-data-modal-personal-info \n\n                    [profileData]="profileData"\n\n                    *ngIf="profileModalType === PERSONAL_INFO">\n\n                </app-profile-user-data-modal-personal-info>\n\n                <app-profile-user-data-modal-change-password #profileUserDataModalChangePassword\n\n                    [profileData]="profileData"\n\n                    [changePasswordStepStatus]="changePasswordStepStatus"\n\n                    (updateChangePasswordStatus)="onUpdateChangePasswordStatus($event)"\n\n                    *ngIf="profileModalType === CHANGE_PASSWORD">\n\n                </app-profile-user-data-modal-change-password>\n\n                <app-profile-user-data-modal-cancel-account \n\n                    [profileData]="profileData"\n\n                    *ngIf="profileModalType === CANCEL_ACCOUNT">\n\n                </app-profile-user-data-modal-cancel-account>\n\n            </ion-grid>\n\n        </div>\n\n        <br/><br/><br/>\n\n        <br/><br/><br/>\n\n        <div class="position-bottom">\n\n            <button *ngIf="profileModalType === PERSONAL_INFO" class="confirm-button-alone" (click)="accept()">Actualizar</button>\n\n            <button *ngIf="profileModalType === CHANGE_PASSWORD" class="confirm-button-alone" (click)="addChangePasswordStep()">{{ changePasswordCurrentButtonValue }}</button>\n\n            <button *ngIf="profileModalType === CANCEL_ACCOUNT" class="confirm-button-alone-danger" (click)="cancelAccount()">Cancelar cuenta</button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal\profile-user-data-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__["a" /* ProfileDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__["a" /* ProfileDataProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared_providers_navigation_provider__["a" /* NavigationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_providers_navigation_provider__["a" /* NavigationProvider */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_profile_data_provider__["a" /* ProfileDataProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__shared_providers_navigation_provider__["a" /* NavigationProvider */]])
     ], ProfileUserDataModal);
     return ProfileUserDataModal;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=profile-user-data-modal.js.map
@@ -479,8 +429,8 @@ var ProfileUserDataModal = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalChangePasswordComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_profile_data_provider__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -517,13 +467,14 @@ var ProfileUserDataModalChangePasswordComponent = (function () {
         });
     };
     ProfileUserDataModalChangePasswordComponent.prototype.changePassword = function () {
+        var _this = this;
         this.profileDataProvider.changePassword('').subscribe(function (changePasswordReponse) {
             if (changePasswordReponse.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["d" /* OK */]) {
+                _this.updateChangePasswordStatus.emit(-1);
             }
             else {
             }
         });
-        console.log('change');
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
@@ -580,7 +531,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_route__ = __webpack_require__(297);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact_module__ = __webpack_require__(298);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_blog_blog_module__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_shared_module__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_shared_module__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login_module__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_admin_admin_module__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_providers_http_interceptor_provider__ = __webpack_require__(303);
@@ -658,14 +609,50 @@ var AppModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavigationProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavigationProvider = (function () {
+    function NavigationProvider() {
+    }
+    NavigationProvider.prototype.setNavController = function (navController) {
+        this.navController = navController;
+    };
+    NavigationProvider.prototype.getNaviController = function () {
+        return this.navController;
+    };
+    NavigationProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], NavigationProvider);
+    return NavigationProvider;
+}());
+
+//# sourceMappingURL=navigation.provider.js.map
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SharedModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_layout_nav_nav__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_layout_footer_footer__ = __webpack_require__(293);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_layout_breadcrumb_breadcrumb__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_navigation_provider__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_provider__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_navigation_provider__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_provider__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_confirmation_modal_confirmation_modal__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -723,8 +710,8 @@ var SharedModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_providers_navigation_provider__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_providers_navigation_provider__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -769,7 +756,7 @@ var MyApp = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_carrousel_carrousel__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_definition_definition__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_stevejobs_stevejobs__ = __webpack_require__(284);
@@ -777,7 +764,7 @@ var MyApp = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_knowledge_knowledge__ = __webpack_require__(288);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_intro_intro__ = __webpack_require__(289);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__blog_blog_module__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_shared_module__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_shared_module__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -830,7 +817,7 @@ var HomeModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrouselComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_navigation_provider__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_navigation_provider__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__blog_containers_blog_blog__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -902,10 +889,10 @@ var DefinitionComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SteveJobsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_containers_home_admin_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_providers_auth_provider__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_containers_home_admin_home__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1132,13 +1119,13 @@ var PostListComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home_home__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home_home__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_blog_containers_blog_blog__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_navigation_provider__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_containers_home_admin_home__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_provider__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_profile_profile__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_navigation_provider__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_containers_home_admin_home__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_provider__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_profile_profile__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__confirmation_modal_confirmation_modal__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1200,7 +1187,7 @@ var NavComponent = (function () {
     };
     NavComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-nav',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\layout\nav\nav.html"*/'<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">\n\n    <div class="container">\n\n      <div class="navbar-header">\n\n        <button type="button" class="navbar-toggle nav-button-background-color" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n\n          <span class="icon-bar"></span>\n\n          <span class="icon-bar"></span>\n\n          <span class="icon-bar"></span>\n\n        </button>\n\n        <a href="javascript:;" class="navbar-brand" (click)="navigateHome()">Pol Sastre</a>\n\n      </div>\n\n  \n\n      <div class="collapse navbar-collapse navbar-ex1-collapse nav-button">\n\n        <ul class="nav navbar-nav navbar-right">\n\n          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>\n\n          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>\n\n          <li class="dropdown">\n\n            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="img-country-flat" src="assets/imgs/es.png" /> <!--<i class="fa fa-angle-down"></i>--></a>\n\n            <ul class="dropdown-menu">\n\n              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate(\'english\')"><img class="img-country-flat" src="assets/imgs/gb.png" /></a></li>\n\n            </ul>\n\n          </li>\n\n          <li *ngIf="!isAuthenticated"><a href="javascript:;" (click)="navigateLogin()">Login</a></li>\n\n          <li *ngIf="isAuthenticated" class="dropdown">\n\n            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Admin <i class="fa fa-angle-down"></i></a>\n\n            <ul class="dropdown-menu">\n\n              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateAdminHome()">Administrar</a></li>\n\n              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateProfile()">Perfil</a></li>\n\n              <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="logout()">Logout</a></li>\n\n            </ul>\n\n          </li>\n\n        </ul>\n\n      </div>\n\n    </div>\n\n  </nav>\n\n'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\layout\nav\nav.html"*/
+            selector: 'app-nav',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\layout\nav\nav.html"*/'<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">\n\n    <div class="container">\n\n      <div class="navbar-header">\n\n        <button type="button" class="navbar-toggle nav-button-background-color" data-toggle="collapse" data-target=".navbar-ex1-collapse">\n\n          <span class="icon-bar"></span>\n\n          <span class="icon-bar"></span>\n\n          <span class="icon-bar"></span>\n\n        </button>\n\n        <a href="javascript:;" class="navbar-brand" (click)="navigateHome()">Pol Sastre</a>\n\n      </div>\n\n  \n\n      <div class="collapse navbar-collapse navbar-ex1-collapse nav-button">\n\n        <ul class="nav navbar-nav navbar-right">\n\n          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>\n\n          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>\n\n          <li *ngIf="!isAuthenticated"><a href="javascript:;" (click)="navigateLogin()">Login</a></li>\n\n          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateAdminHome()">Admin</a></li>\n\n          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateProfile()">Perfil</a></li>\n\n          <li class="dropdown">\n\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="img-country-flat" src="assets/imgs/es.png" /></a>\n\n              <ul class="dropdown-menu">\n\n                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate(\'english\')"><img class="img-country-flat img-responsive img-flat-second" src="assets/imgs/gb.png" /></a></li>\n\n              </ul>\n\n            </li>\n\n          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="logout()">Logout</a></li>\n\n        </ul>\n\n      </div>\n\n    </div>\n\n  </nav>\n\n'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\shared\components\layout\nav\nav.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_navigation_provider__["a" /* NavigationProvider */],
             __WEBPACK_IMPORTED_MODULE_6__providers_auth_provider__["a" /* default */],
@@ -1252,7 +1239,7 @@ var FooterComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BreadcrumbComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_home_home__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1297,7 +1284,7 @@ var BreadcrumbComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__portfolio__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1376,13 +1363,13 @@ var PortfolioPage = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_home_home__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_home_home__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_contact_contact__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_blog_containers_blog_blog__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_blog_containers_blog_detail_blog_detail__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_containers_home_admin_home__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_profile_profile__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_containers_home_admin_home__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_profile_profile__ = __webpack_require__(107);
 
 
 
@@ -1413,7 +1400,7 @@ var routes = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_form_form__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_localization_localization__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1482,42 +1469,6 @@ var FormComponent = (function () {
 
 /***/ }),
 
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavigationProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var NavigationProvider = (function () {
-    function NavigationProvider() {
-    }
-    NavigationProvider.prototype.setNavController = function (navController) {
-        this.navController = navController;
-    };
-    NavigationProvider.prototype.getNaviController = function () {
-        return this.navController;
-    };
-    NavigationProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], NavigationProvider);
-    return NavigationProvider;
-}());
-
-//# sourceMappingURL=navigation.provider.js.map
-
-/***/ }),
-
 /***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1557,8 +1508,8 @@ var LocalizationComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1600,8 +1551,8 @@ var LoginModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_home_admin_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_home_admin_home__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1640,7 +1591,7 @@ var AdminModule = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environment__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environment__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1683,14 +1634,14 @@ var HttpInterceptorProvider = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_profile_user_left_data_profile_user_left_data__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(209);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_profile_user_data_modal_personal_info_profile_user_data_modal_personal_info__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_profile_user_data_modal_change_password_profile_user_data_modal_change_password__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_profile_data_provider__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_profile_user_data_modal_cancel_account_profile_user_data_modal_cancel_account__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_profile_data_provider__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_profile_user_data_modal_cancel_account_profile_user_data_modal_cancel_account__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1750,9 +1701,7 @@ var ProfileModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1766,13 +1715,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ProfileUserLeftDataComponent = (function () {
     function ProfileUserLeftDataComponent(modalController) {
         this.modalController = modalController;
-        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["e" /* PERSONAL_INFO */];
-        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["b" /* CHANGE_PASSWORD */];
-        this.CANCEL_ACCOUNT = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["a" /* CANCEL_ACCOUNT */];
+        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["e" /* PERSONAL_INFO */];
+        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["b" /* CHANGE_PASSWORD */];
+        this.CANCEL_ACCOUNT = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["a" /* CANCEL_ACCOUNT */];
     }
     ProfileUserLeftDataComponent.prototype.ionViewDidLoad = function () {
     };
@@ -1782,12 +1730,12 @@ var ProfileUserLeftDataComponent = (function () {
             profileModalType: profileModalType
         });
         profileUserDataModal.onDidDismiss(function (data) {
-            if (data.status === __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["c" /* KO */]) {
-                console.log(__WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["c" /* KO */]);
+            if (data.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["c" /* KO */]) {
+                console.log(__WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["c" /* KO */]);
                 return;
             }
             else {
-                console.log(__WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["d" /* OK */]);
+                console.log(__WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["d" /* OK */]);
                 return;
             }
         });
@@ -1795,16 +1743,15 @@ var ProfileUserLeftDataComponent = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
+        __metadata("design:type", Object)
     ], ProfileUserLeftDataComponent.prototype, "profileData", void 0);
     ProfileUserLeftDataComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile-user-left-data',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/'<div class="left-side">\n\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n\n        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n\n    </h3>\n\n    <div class="personal-info-data">\n\n            <ion-item>\n\n                <ion-label>Nombre</ion-label>\n\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label>Nombre de usuario</ion-label>\n\n                <ion-input readonly type="text" [value]="\'@\' + profileData?.username"></ion-input>\n\n            </ion-item>\n\n    </div>\n\n    <ion-grid>\n\n        <ion-row class="grid-padding">\n\n            <ion-col col-lg-6 col-12>\n\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n\n            </ion-col>\n\n            <ion-col col-lg-6 col-12>\n\n                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</div>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-left-data\profile-user-left-data.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], ProfileUserLeftDataComponent);
     return ProfileUserLeftDataComponent;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-left-data.js.map
@@ -1818,8 +1765,6 @@ var ProfileUserLeftDataComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalPersonalInfoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1829,7 +1774,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 var ProfileUserDataModalPersonalInfoComponent = (function () {
@@ -1843,16 +1787,15 @@ var ProfileUserDataModalPersonalInfoComponent = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
+        __metadata("design:type", Object)
     ], ProfileUserDataModalPersonalInfoComponent.prototype, "profileData", void 0);
     ProfileUserDataModalPersonalInfoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile-user-data-modal-personal-info',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-personal-info\profile-user-data-modal-personal-info.html"*/'<ion-row>\n\n    <ion-col col-lg-6 col-12 class="text-center">\n\n            <p class="modal-label">Nombre</p>\n\n            <input type="text" placeholder="Tu nombre" class="modal-input" [value]="profileData?.name" />\n\n            <p class="modal-label">Username</p>\n\n            <input type="text" placeholder="@username" class="modal-input" [value]="\'@\' + profileData?.username" />\n\n    </ion-col>\n\n    <ion-col col-lg-6 col-12 class="text-center">\n\n            \n\n    </ion-col>\n\n</ion-row>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-personal-info\profile-user-data-modal-personal-info.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]])
     ], ProfileUserDataModalPersonalInfoComponent);
     return ProfileUserDataModalPersonalInfoComponent;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-data-modal-personal-info.js.map
@@ -1860,21 +1803,12 @@ var ProfileUserDataModalPersonalInfoComponent = (function () {
 /***/ }),
 
 /***/ 307:
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=profile-user.models.js.map
-
-/***/ }),
-
-/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalCancelAccountComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1884,7 +1818,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 var ProfileUserDataModalCancelAccountComponent = (function () {
@@ -1898,67 +1831,31 @@ var ProfileUserDataModalCancelAccountComponent = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
+        __metadata("design:type", Object)
     ], ProfileUserDataModalCancelAccountComponent.prototype, "profileData", void 0);
     ProfileUserDataModalCancelAccountComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-profile-user-data-modal-cancel-account',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-cancel-account\profile-user-data-modal-cancel-account.html"*/'<ion-row>\n\n    <ion-col col-lg-8 offset-lg-2 col-12 class="text-center">\n\n            <p class="modal-label">¿Estás seguro de cancelar tu cuenta?</p>\n\n    </ion-col>\n\n</ion-row>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\profile\components\profile-user-data-modal-cancel-account\profile-user-data-modal-cancel-account.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]])
     ], ProfileUserDataModalCancelAccountComponent);
     return ProfileUserDataModalCancelAccountComponent;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=profile-user-data-modal-cancel-account.js.map
 
 /***/ }),
 
-/***/ 42:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl) {
-        this.navCtrl = navCtrl;
-    }
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\home\home.html"*/'<ion-content>\n\n  <app-carrousel></app-carrousel>\n\n  <app-intro></app-intro>\n\n  <app-stevejobs></app-stevejobs>\n\n  <app-knowledge></app-knowledge>\n\n  <app-footer></app-footer>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\home\home.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
-    ], HomePage);
-    return HomePage;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 43:
+/***/ 35:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_navigation_provider__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_containers_home_admin_home__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_navigation_provider__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_containers_home_admin_home__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_providers_auth_provider__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_providers_auth_provider__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2009,7 +1906,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\login\login.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Login\'"></app-breadcrumb>\n\n    <div class="section">\n\n        <div class="container">\n\n            <div class="row">\n\n                <div class="col-md-4 col-md-offset-4">\n\n                    <h2>Login</h2><br/>\n\n                    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value, loginForm.valid)">\n\n                        <div class="form-group">\n\n                            <label for="username">Email</label>\n\n                            <input id="username" formControlName="username" type="text" class="form-control" name="username"/>\n\n                            <p *ngIf="loginForm.controls.username.hasError(\'required\') && submitted" class="text-danger">El campo username es requerido</p>\n\n                        </div>\n\n                        <div class="form-group">\n\n                            <label for="password">Contraseña</label>\n\n                            <input id="password" formControlName="password" type="password" class="form-control" name="password" />\n\n                            <p *ngIf="loginForm.controls.password.hasError(\'required\') && submitted" class="text-danger">El campo password es requerido</p>\n\n                            <p *ngIf="loginFailed && submitted" class="text-danger">Usuario o contraseña incorrectos</p>\n\n                        </div>\n\n                        <button type="input" [disabled]="loading" class="btn btn-primary">Entrar</button>\n\n                        <img *ngIf="loading" />\n\n                    </form>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\login\login.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Login\'"></app-breadcrumb>\n\n    <div class="section">\n\n        <div class="container">\n\n            <div class="row">\n\n                <div class="col-md-4 col-md-offset-4">\n\n                    <h2>Login</h2><br/>\n\n                    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value, loginForm.valid)">\n\n                        <div class="form-group">\n\n                            <label for="username">Email</label>\n\n                            <input id="username" formControlName="username" type="text" class="form-control" name="username"/>\n\n                            <p *ngIf="loginForm.controls.username.hasError(\'required\') && submitted" class="text-danger">El campo username es requerido</p>\n\n                        </div>\n\n                        <div class="form-group">\n\n                            <label for="password">Contraseña</label>\n\n                            <input id="password" formControlName="password" type="password" class="form-control" name="password" />\n\n                            <p *ngIf="loginForm.controls.password.hasError(\'required\') && submitted" class="text-danger">El campo password es requerido</p>\n\n                            <p *ngIf="loginFailed && submitted" class="text-danger">Usuario o contraseña incorrectos</p>\n\n                        </div>\n\n                        <button type="input" [disabled]="loading" class="btn btn-primary">Entrar</button>\n\n                        <button type="input" [disabled]="loading" class="btn btn-primary">Registrarse</button>\n\n                        <img *ngIf="loading" />\n\n                    </form>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_providers_navigation_provider__["a" /* NavigationProvider */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
@@ -2022,45 +1919,7 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 44:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__ = __webpack_require__(45);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AdminHomePage = (function () {
-    function AdminHomePage(authProvider) {
-        this.authProvider = authProvider;
-    }
-    AdminHomePage.prototype.ionViewCanEnter = function () {
-        return this.authProvider.refresh().then(function (token) { return token; });
-    };
-    AdminHomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-admin-home',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\admin\containers\home\admin-home.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Blog\'"></app-breadcrumb>\n\n\n\n    <div class="container">\n\n\n\n        <div class="row">\n\n\n\n            ADMIN HOME\n\n\n\n        </div>\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\admin\containers\home\admin-home.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */]])
-    ], AdminHomePage);
-    return AdminHomePage;
-}());
-
-//# sourceMappingURL=admin-home.js.map
-
-/***/ }),
-
-/***/ 45:
+/***/ 36:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2068,9 +1927,9 @@ var AdminHomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navigation_provider__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environment__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navigation_provider__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environment__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2135,6 +1994,79 @@ var AuthProvider = (function () {
 
 /***/ }),
 
+/***/ 44:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomePage = (function () {
+    function HomePage(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\home\home.html"*/'<ion-content>\n\n  <app-carrousel></app-carrousel>\n\n  <app-intro></app-intro>\n\n  <app-stevejobs></app-stevejobs>\n\n  <app-knowledge></app-knowledge>\n\n  <app-footer></app-footer>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\home\home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 45:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__ = __webpack_require__(36);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AdminHomePage = (function () {
+    function AdminHomePage(authProvider) {
+        this.authProvider = authProvider;
+    }
+    AdminHomePage.prototype.ionViewCanEnter = function () {
+        return this.authProvider.refresh().then(function (token) { return token; });
+    };
+    AdminHomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-admin-home',template:/*ion-inline-start:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\admin\containers\home\admin-home.html"*/'<ion-content>\n\n    <app-breadcrumb [title]="\'Blog\'"></app-breadcrumb>\n\n\n\n    <div class="container">\n\n\n\n        <div class="row">\n\n\n\n            ADMIN HOME\n\n\n\n        </div>\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\polsa\Documents\proyectos\polsastre\polsastre-front-ionic\src\pages\admin\containers\home\admin-home.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */]])
+    ], AdminHomePage);
+    return AdminHomePage;
+}());
+
+//# sourceMappingURL=admin-home.js.map
+
+/***/ }),
+
 /***/ 57:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2170,6 +2102,58 @@ var BlogPage = (function () {
 }());
 
 //# sourceMappingURL=blog.js.map
+
+/***/ }),
+
+/***/ 58:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileDataProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environment__ = __webpack_require__(106);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProfileDataProvider = (function () {
+    function ProfileDataProvider(http) {
+        this.http = http;
+    }
+    ProfileDataProvider.prototype.getProfileData = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/profile");
+    };
+    ProfileDataProvider.prototype.updateProfileData = function () {
+        return this.http.get('assets/mocks/profile/password.json');
+    };
+    ProfileDataProvider.prototype.verifyCurrrentPassword = function (currentPassword) {
+        // return this.http.post('assets/mocks/profile/password.json', {currentPassword});
+        return this.http.get('assets/mocks/profile/password.json');
+    };
+    ProfileDataProvider.prototype.changePassword = function (newPassword) {
+        // return this.http.post('', {newPassword});
+        return this.http.get('assets/mocks/profile/password.json');
+    };
+    ProfileDataProvider.prototype.cancelAccount = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/users/cancel-account");
+    };
+    ProfileDataProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
+    ], ProfileDataProvider);
+    return ProfileDataProvider;
+}());
+
+//# sourceMappingURL=profile-data.provider.js.map
 
 /***/ })
 

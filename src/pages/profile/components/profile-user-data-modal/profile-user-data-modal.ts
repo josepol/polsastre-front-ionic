@@ -64,7 +64,7 @@ export class ProfileUserDataModal {
 
   public cancelAccount() {
     this.profileDataProvider.cancelAccount().subscribe(response => {
-      this.navigationProvider.getNaviController().setRoot(LoginPage);
+      this.navigationProvider.getNaviController().push(LoginPage);
       this.success();
     });
   }
