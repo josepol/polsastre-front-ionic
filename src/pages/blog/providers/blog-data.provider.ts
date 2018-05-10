@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { PostModel } from "../model/post.model";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { ENV } from "@environment";
 
 @Injectable()
 export class BlogDataProvider {
@@ -25,10 +26,14 @@ export class BlogDataProvider {
         if (this.posts.getValue()) {
             return this.posts;
         }
-        return this.http.get('assets/mocks/blog/posts.json')
+        return this.http.get(`${ENV.API_ENDPOINT}/blogs/all`)
         .map((posts: PostModel[]) => {
             this.posts.next(posts);
             return posts;
         });
+    }
+
+    getCategories() {
+        this.http.get(`${ENV.API_ENDPOINT}/blog/categories`)
     }
 }

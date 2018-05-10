@@ -195,6 +195,7 @@ var BlogDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environment__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -204,6 +205,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -223,17 +225,21 @@ var BlogDataProvider = (function () {
         if (this.posts.getValue()) {
             return this.posts;
         }
-        return this.http.get('assets/mocks/blog/posts.json')
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_3__environment__["a" /* ENV */].API_ENDPOINT + "/blogs/all")
             .map(function (posts) {
             _this.posts.next(posts);
             return posts;
         });
     };
+    BlogDataProvider.prototype.getCategories = function () {
+        this.http.get(__WEBPACK_IMPORTED_MODULE_3__environment__["a" /* ENV */].API_ENDPOINT + "/blog/categories");
+    };
     BlogDataProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
     ], BlogDataProvider);
     return BlogDataProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=blog-data.provider.js.map
