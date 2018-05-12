@@ -30,11 +30,9 @@ export class ProfileUserLeftDataComponent {
       profileModalType: profileModalType
     });
     profileUserDataModal.onDidDismiss(data => {
-      if (data.status === KO) {
-        console.log(KO);
+      if (data && data.status === KO) {
         return;
       } else {
-        console.log(OK);
         return;
       }
     })

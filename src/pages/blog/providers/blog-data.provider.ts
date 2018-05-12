@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import { PostModel } from "../model/post.model";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { ENV } from "@environment";
+import { CategoryModel } from "../model/category.model";
 
 @Injectable()
 export class BlogDataProvider {
@@ -33,7 +34,7 @@ export class BlogDataProvider {
         });
     }
 
-    getCategories() {
-        this.http.get(`${ENV.API_ENDPOINT}/blog/categories`)
+    getCategories(): Observable<any | CategoryModel[]> {
+        return this.http.get(`${ENV.API_ENDPOINT}/blogs/categories/all`);
     }
 }

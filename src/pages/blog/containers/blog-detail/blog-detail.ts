@@ -4,7 +4,7 @@ import { PostModel } from '../../model/post.model';
 import { BlogDataProvider } from '../../providers/blog-data.provider';
 import { Observable } from 'rxjs/Observable';
 import { NavigationProvider } from '../../../../shared/providers/navigation.provider';
-import { BlogPage } from '../../components/recent-popular/blog';
+import { BlogPage } from '../blog/blog';
 
 @IonicPage()
 @Component({
@@ -42,6 +42,10 @@ export class BlogDetailPage {
 
   private redirectToBlogPage() {
     this.navigationProvider.getNaviController().push(BlogPage);
+  }
+
+  setPicture() {
+    return `assets/template/img/${this.post.category}.png`;
   }
 
 }

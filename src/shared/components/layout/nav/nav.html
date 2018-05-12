@@ -16,12 +16,12 @@
           <li *ngIf="!isAuthenticated"><a href="javascript:;" (click)="navigateLogin()">Login</a></li>
           <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateAdminHome()">Admin</a></li>
           <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateProfile()">Perfil</a></li>
-          <li class="dropdown">
+          <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="img-country-flat" src="assets/imgs/es.png" /></a>
               <ul class="dropdown-menu">
                 <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('english')"><img class="img-country-flat img-responsive img-flat-second" src="assets/imgs/gb.png" /></a></li>
               </ul>
-            </li>
+            </li>-->
           <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="logout()">Logout</a></li>
         </ul>
       </div>

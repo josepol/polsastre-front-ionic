@@ -448,6 +448,14 @@ div.list-posts ul li a:hover{
   display: block;
 }
 
+.width100 {
+  width: 100%;
+}
+
+.app-img {
+  margin: auto;
+}
+
 .img-post img{
   border-radius: 5px;
   -webkit-border-radius: 5px;

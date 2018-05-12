@@ -1,13 +1,13 @@
 <div class="post" *ngFor="let post of posts">
     <h2 class="post-title" [ngClass]="{ 'text-center': fromHome }">
-        <a>{{ post.title }}</a>
+        <a href="javascript:;" (click)="openPost(post)">{{ post.title }}</a>
     </h2>
     <h4 class="post-title" [ngClass]="{ 'text-center': fromHome }">
         <a>{{ post.subtitle }}</a>
     </h4>
     <p class="post-meta" *ngIf="!fromHome">
-        <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd-MM-yyyy' }}
-        <i class="fa fa-user"></i> {{ post.creator }}
+        <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
+        <!--<i class="fa fa-user"></i> {{ post.creator }}-->
         <i class="fa fa-comment"></i>
         <a href="#">{{ post.comments }} comentarios</a>
         <i class="fa fa-folder-open-o"></i> {{ post.category }}
@@ -16,5 +16,5 @@
         <img src="" alt="" class="img-responsive">
     </a>
     <p style="word-wrap: break-word;"></p>
-    <a class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>
+    <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>
 </div>

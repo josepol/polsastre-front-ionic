@@ -6,13 +6,19 @@ import { CategoryComponent } from './components/category/category';
 import { PostListComponent } from './components/post-list/post-list';
 import { SharedModule } from '../../shared/shared.module';
 import { BlogDataProvider } from './providers/blog-data.provider';
+import { SearchComponent } from './components/search/search';
+import { RecentPopularComponent } from './components/recent-popular/recent-popular';
+import { TagsComponent } from './components/tags/tags';
 
 @NgModule({
   declarations: [
     BlogPage,
     BlogDetailPage,
     CategoryComponent,
-    PostListComponent
+    PostListComponent,
+    SearchComponent,
+    RecentPopularComponent,
+    TagsComponent
   ],
   imports: [
     SharedModule,
