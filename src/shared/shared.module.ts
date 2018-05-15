@@ -6,13 +6,15 @@ import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb';
 import { NavigationProvider } from './providers/navigation.provider';
 import AuthProvider from './providers/auth.provider';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal';
+import { CodepenComponent } from './components/codepen/codepen';
 
 @NgModule({
 	declarations: [
 		NavComponent,
 		FooterComponent,
 		BreadcrumbComponent,
-		ConfirmationModalComponent
+		ConfirmationModalComponent,
+		CodepenComponent
 	],
 	imports: [
 		IonicModule,
@@ -24,7 +26,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
 	exports: [
 		NavComponent,
 		FooterComponent,
-		BreadcrumbComponent
+		BreadcrumbComponent,
+		CodepenComponent
 	],
 	entryComponents: [
 		ConfirmationModalComponent

@@ -9,14 +9,28 @@
                 </h1>
                 <p class="post-meta">
                     <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
-                    <i class="fa fa-user"></i> {{ post.creatorName }}
+                    <!--<i class="fa fa-user"></i> {{ post.creatorName }}-->
                     <i class="fa fa-comment"></i>
                     <a href="#">{{ post.comments }} comentarios</a>
                 </p>
                 <div class="img-post">
                     <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">
                 </div>
-                <div [innerHTML]="post.message"></div>
+                <h2 class="post-subtitle">
+                    <p href="javascript:;">{{ post.subtitle }}</p>
+                </h2>
+                <div *ngFor="let paragraph of post.message">
+                    <div *ngIf="paragraph.includes('***')">
+                        <div [innerHTML]="paragraph.split('***')[0]"></div>
+                        <br/><br/>
+                        <app-codepen [codepenId]="paragraph.split('***')[1]"></app-codepen>
+                    </div>
+                    <div *ngIf="paragraph.includes('+++')">
+                        <div [innerHTML]="paragraph.split('+++')[0]"></div>
+                        <br/><br/>
+                        <img [src]="paragraph.split('+++')[1]" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>

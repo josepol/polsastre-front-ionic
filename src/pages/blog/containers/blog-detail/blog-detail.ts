@@ -44,7 +44,7 @@ export class BlogDetailPage {
     this.navigationProvider.getNaviController().push(BlogPage);
   }
 
-  setPicture() {
+  public setPicture() {
     return `assets/template/img/${this.post.category}.png`;
   }
 

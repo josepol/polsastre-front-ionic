@@ -164,12 +164,13 @@ var BlogDetailPage = (function () {
     };
     BlogDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-blog-detail',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/'<ion-content *ngIf="post">\n    <app-breadcrumb [title]="\'Blog\'"></app-breadcrumb>\n\n    <div class="container container-int">\n        <div class="row">\n            <div class="post width100">\n                <h1 class="post-title">\n                    <a href="javascript:;">{{ post.title }}</a>\n                </h1>\n                <p class="post-meta">\n                    <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n                    <i class="fa fa-user"></i> {{ post.creatorName }}\n                    <i class="fa fa-comment"></i>\n                    <a href="#">{{ post.comments }} comentarios</a>\n                </p>\n                <div class="img-post">\n                    <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">\n                </div>\n                <div [innerHTML]="post.message"></div>\n            </div>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/,
+            selector: 'page-blog-detail',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/'<ion-content *ngIf="post">\n    <app-breadcrumb [title]="\'Blog\'"></app-breadcrumb>\n\n    <div class="container container-int">\n        <div class="row">\n            <div class="post width100">\n                <h1 class="post-title">\n                    <a href="javascript:;">{{ post.title }}</a>\n                </h1>\n                <p class="post-meta">\n                    <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n                    <!--<i class="fa fa-user"></i> {{ post.creatorName }}-->\n                    <i class="fa fa-comment"></i>\n                    <a href="#">{{ post.comments }} comentarios</a>\n                </p>\n                <div class="img-post">\n                    <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">\n                </div>\n                <h2 class="post-subtitle">\n                    <p href="javascript:;">{{ post.subtitle }}</p>\n                </h2>\n                <div *ngFor="let paragraph of post.message">\n                    <div *ngIf="paragraph.includes(\'***\')">\n                        <div [innerHTML]="paragraph.split(\'***\')[0]"></div>\n                        <br/><br/>\n                        <app-codepen [codepenId]="paragraph.split(\'***\')[1]"></app-codepen>\n                    </div>\n                    <div *ngIf="paragraph.includes(\'+++\')">\n                        <div [innerHTML]="paragraph.split(\'+++\')[0]"></div>\n                        <br/><br/>\n                        <img [src]="paragraph.split(\'+++\')[1]" />\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared_providers_navigation_provider__["a" /* NavigationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_providers_navigation_provider__["a" /* NavigationProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_blog_data_provider__["a" /* BlogDataProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__shared_providers_navigation_provider__["a" /* NavigationProvider */]])
     ], BlogDetailPage);
     return BlogDetailPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=blog-detail.js.map
@@ -329,9 +330,9 @@ var NavigationProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_post_list_post_list__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_shared_module__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_blog_data_provider__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_search_search__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_recent_popular_recent_popular__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_tags_tags__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_search_search__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_recent_popular_recent_popular__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_tags_tags__ = __webpack_require__(299);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -664,12 +665,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_navigation_provider__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_provider__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_confirmation_modal_confirmation_modal__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_codepen_codepen__ = __webpack_require__(296);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -687,7 +690,8 @@ var SharedModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__components_layout_nav_nav__["a" /* NavComponent */],
                 __WEBPACK_IMPORTED_MODULE_3__components_layout_footer_footer__["a" /* FooterComponent */],
                 __WEBPACK_IMPORTED_MODULE_4__components_layout_breadcrumb_breadcrumb__["a" /* BreadcrumbComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__components_confirmation_modal_confirmation_modal__["a" /* ConfirmationModalComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__components_confirmation_modal_confirmation_modal__["a" /* ConfirmationModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__components_codepen_codepen__["a" /* CodepenComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicModule */],
@@ -699,7 +703,8 @@ var SharedModule = (function () {
             exports: [
                 __WEBPACK_IMPORTED_MODULE_2__components_layout_nav_nav__["a" /* NavComponent */],
                 __WEBPACK_IMPORTED_MODULE_3__components_layout_footer_footer__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__components_layout_breadcrumb_breadcrumb__["a" /* BreadcrumbComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__components_layout_breadcrumb_breadcrumb__["a" /* BreadcrumbComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__components_codepen_codepen__["a" /* CodepenComponent */]
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_7__components_confirmation_modal_confirmation_modal__["a" /* ConfirmationModalComponent */]
@@ -724,16 +729,16 @@ var SharedModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home_module__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_portfolio_portfolio_module__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_route__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact_module__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_portfolio_portfolio_module__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_route__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact_module__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_blog_blog_module__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__shared_shared_module__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login_module__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_admin_admin_module__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_providers_http_interceptor_provider__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_profile_profile_module__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_register_register_module__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login_module__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_admin_admin_module__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_providers_http_interceptor_provider__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_profile_profile_module__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_register_register_module__ = __webpack_require__(313);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1167,10 +1172,9 @@ var CategoryComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-category',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/category/category.html"*/'<div class="well">\n    <h4>Categorías</h4>\n    <ul class="nav nav-stacked nav-pills">\n        <li *ngFor="let category of categories">\n            <a href="javascript:;" (click)="filterByCategory(category)">{{ category.name }}</a>\n        </li>\n    </ul>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/category/category.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */]])
     ], CategoryComponent);
     return CategoryComponent;
-    var _a;
 }());
 
 //# sourceMappingURL=category.js.map
@@ -1223,10 +1227,10 @@ var PostListComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-post-list',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/post-list/post-list.html"*/'<div class="post" *ngFor="let post of posts">\n    <h2 class="post-title" [ngClass]="{ \'text-center\': fromHome }">\n        <a href="javascript:;" (click)="openPost(post)">{{ post.title }}</a>\n    </h2>\n    <h4 class="post-title" [ngClass]="{ \'text-center\': fromHome }">\n        <a>{{ post.subtitle }}</a>\n    </h4>\n    <p class="post-meta" *ngIf="!fromHome">\n        <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n        <!--<i class="fa fa-user"></i> {{ post.creator }}-->\n        <i class="fa fa-comment"></i>\n        <a href="#">{{ post.comments }} comentarios</a>\n        <i class="fa fa-folder-open-o"></i> {{ post.category }}\n    </p>\n    <a href="" class="img-post">\n        <img src="" alt="" class="img-responsive">\n    </a>\n    <p style="word-wrap: break-word;"></p>\n    <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/post-list/post-list.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__["a" /* NavigationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__["a" /* NavigationProvider */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__["a" /* NavigationProvider */]])
     ], PostListComponent);
     return PostListComponent;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=post-list.js.map
@@ -1400,6 +1404,42 @@ var BreadcrumbComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CodepenComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CodepenComponent = (function () {
+    function CodepenComponent() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", String)
+    ], CodepenComponent.prototype, "codepenId", void 0);
+    CodepenComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-codepen',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/shared/components/codepen/codepen.html"*/'<div [ngSwitch]="codepenId">\n    <iframe *ngSwitchCase="\'BxVWWJ\'" height=\'260\' scrolling=\'no\' title=\'BxVWWJ\' src=\'//codepen.io/josepol/embed/BxVWWJ/?height=260&theme-id=0&default-tab=js&embed-version=2\' frameborder=\'no\' allowtransparency=\'true\' allowfullscreen=\'true\' style=\'width: 100%;\'>See the Pen <a href=\'https://codepen.io/josepol/pen/BxVWWJ/\'>BxVWWJ</a> by josepol (<a href=\'https://codepen.io/josepol\'>@josepol</a>) on <a href=\'https://codepen.io\'>CodePen</a>\n    </iframe>\n    <iframe *ngSwitchDefault height=\'260\' scrolling=\'no\' title=\'xxx\' src=\'//codepen.io/josepol/embed/xxxx/?height=260&theme-id=0&default-tab=js&embed-version=2\' frameborder=\'no\' allowtransparency=\'true\' allowfullscreen=\'true\' style=\'width: 100%;\'> by josepol (<a href=\'https://codepen.io/josepol\'>@josepol</a>) on <a href=\'https://codepen.io\'>CodePen</a>\n    </iframe>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/shared/components/codepen/codepen.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], CodepenComponent);
+    return CodepenComponent;
+}());
+
+//# sourceMappingURL=codepen.js.map
+
+/***/ }),
+
+/***/ 297:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
@@ -1434,7 +1474,7 @@ var SearchComponent = (function () {
 
 /***/ }),
 
-/***/ 297:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1472,7 +1512,7 @@ var RecentPopularComponent = (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1510,14 +1550,14 @@ var TagsComponent = (function () {
 
 /***/ }),
 
-/***/ 299:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PortfolioModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__portfolio__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__portfolio__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1553,7 +1593,7 @@ var PortfolioModule = (function () {
 
 /***/ }),
 
-/***/ 300:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1592,7 +1632,7 @@ var PortfolioPage = (function () {
 
 /***/ }),
 
-/***/ 301:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1627,7 +1667,7 @@ var routes = [
 
 /***/ }),
 
-/***/ 302:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1635,8 +1675,8 @@ var routes = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_form_form__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_localization_localization__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_form_form__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_localization_localization__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1674,7 +1714,7 @@ var ContactModule = (function () {
 
 /***/ }),
 
-/***/ 303:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1706,7 +1746,7 @@ var FormComponent = (function () {
 
 /***/ }),
 
-/***/ 304:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1738,7 +1778,7 @@ var LocalizationComponent = (function () {
 
 /***/ }),
 
-/***/ 305:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1781,7 +1821,7 @@ var LoginModule = (function () {
 
 /***/ }),
 
-/***/ 306:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1823,12 +1863,20 @@ var AdminModule = (function () {
 
 /***/ }),
 
-/***/ 307:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environment__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environment__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navigation_provider__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1840,31 +1888,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
+
 var HttpInterceptorProvider = (function () {
-    function HttpInterceptorProvider() {
+    function HttpInterceptorProvider(navigationProvider) {
+        this.navigationProvider = navigationProvider;
     }
     HttpInterceptorProvider.prototype.intercept = function (req, next) {
+        var _this = this;
         var token = localStorage.getItem('token');
         var options = {};
-        if (!req.url.includes('login') && req.url.startsWith(__WEBPACK_IMPORTED_MODULE_1__environment__["a" /* ENV */].API_ENDPOINT)) {
+        if (!req.url.includes('login') && req.url.startsWith(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT)) {
             options.headers = req.headers
                 .set('Content-Type', 'application/json')
                 .set('Authorization', "Bearer " + token);
         }
-        return next.handle(req.clone(options));
+        return next.handle(req.clone(options)).catch(function (error, caught) {
+            switch (error.status) {
+                case 401:
+                    _this.navigationProvider.getNaviController().push(__WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginPage */]);
+                    return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw('');
+                default:
+                    break;
+            }
+        });
     };
     HttpInterceptorProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__navigation_provider__["a" /* NavigationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__navigation_provider__["a" /* NavigationProvider */]) === "function" && _a || Object])
     ], HttpInterceptorProvider);
     return HttpInterceptorProvider;
+    var _a;
 }());
 /* harmony default export */ __webpack_exports__["a"] = (HttpInterceptorProvider);
 //# sourceMappingURL=http.interceptor.provider.js.map
 
 /***/ }),
 
-/***/ 308:
+/***/ 309:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1873,12 +1937,12 @@ var HttpInterceptorProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_profile_user_left_data_profile_user_left_data__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_profile_user_left_data_profile_user_left_data__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_profile_user_data_modal_personal_info_profile_user_data_modal_personal_info__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_profile_user_data_modal_personal_info_profile_user_data_modal_personal_info__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_profile_user_data_modal_change_password_profile_user_data_modal_change_password__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_profile_data_provider__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_profile_user_data_modal_cancel_account_profile_user_data_modal_cancel_account__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_profile_user_data_modal_cancel_account_profile_user_data_modal_cancel_account__ = __webpack_require__(312);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1927,73 +1991,6 @@ var ProfileModule = (function () {
 }());
 
 //# sourceMappingURL=profile.module.js.map
-
-/***/ }),
-
-/***/ 309:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserLeftDataComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__ = __webpack_require__(111);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ProfileUserLeftDataComponent = (function () {
-    function ProfileUserLeftDataComponent(modalController) {
-        this.modalController = modalController;
-        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["e" /* PERSONAL_INFO */];
-        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["b" /* CHANGE_PASSWORD */];
-        this.CANCEL_ACCOUNT = __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["a" /* CANCEL_ACCOUNT */];
-    }
-    ProfileUserLeftDataComponent.prototype.ionViewDidLoad = function () {
-    };
-    ProfileUserLeftDataComponent.prototype.openUserDataModal = function (profileModalType) {
-        var profileUserDataModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__["a" /* ProfileUserDataModal */], {
-            profileData: this.profileData,
-            profileModalType: profileModalType
-        });
-        profileUserDataModal.onDidDismiss(function (data) {
-            if (data && data.status === __WEBPACK_IMPORTED_MODULE_4__shared_constants_app_contants__["c" /* KO */]) {
-                return;
-            }
-            else {
-                return;
-            }
-        });
-        profileUserDataModal.present();
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__models_profile_user_models__["ProfileUserModel"]) === "function" && _a || Object)
-    ], ProfileUserLeftDataComponent.prototype, "profileData", void 0);
-    ProfileUserLeftDataComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/'<div class="left-side">\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n    </h3>\n    <div class="personal-info-data">\n            <ion-item>\n                <ion-label>Nombre</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label>Nombre de usuario</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.username"></ion-input>\n            </ion-item>\n    </div>\n    <ion-grid>\n        <ion-row class="grid-padding">\n            <ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n            </ion-col>\n            <ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _b || Object])
-    ], ProfileUserLeftDataComponent);
-    return ProfileUserLeftDataComponent;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=profile-user-left-data.js.map
 
 /***/ }),
 
@@ -2080,6 +2077,69 @@ var LoginPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserLeftDataComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__ = __webpack_require__(111);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ProfileUserLeftDataComponent = (function () {
+    function ProfileUserLeftDataComponent(modalController) {
+        this.modalController = modalController;
+        this.PERSONAL_INFO = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["e" /* PERSONAL_INFO */];
+        this.CHANGE_PASSWORD = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["b" /* CHANGE_PASSWORD */];
+        this.CANCEL_ACCOUNT = __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["a" /* CANCEL_ACCOUNT */];
+    }
+    ProfileUserLeftDataComponent.prototype.ionViewDidLoad = function () {
+    };
+    ProfileUserLeftDataComponent.prototype.openUserDataModal = function (profileModalType) {
+        var profileUserDataModal = this.modalController.create(__WEBPACK_IMPORTED_MODULE_2__profile_user_data_modal_profile_user_data_modal__["a" /* ProfileUserDataModal */], {
+            profileData: this.profileData,
+            profileModalType: profileModalType
+        });
+        profileUserDataModal.onDidDismiss(function (data) {
+            if (data && data.status === __WEBPACK_IMPORTED_MODULE_3__shared_constants_app_contants__["c" /* KO */]) {
+                return;
+            }
+            else {
+                return;
+            }
+        });
+        profileUserDataModal.present();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+        __metadata("design:type", Object)
+    ], ProfileUserLeftDataComponent.prototype, "profileData", void 0);
+    ProfileUserLeftDataComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/'<div class="left-side">\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n    </h3>\n    <div class="personal-info-data">\n            <ion-item>\n                <ion-label>Nombre</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label>Nombre de usuario</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.username"></ion-input>\n            </ion-item>\n    </div>\n    <ion-grid>\n        <ion-row class="grid-padding">\n            <ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n            </ion-col>\n            <ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+    ], ProfileUserLeftDataComponent);
+    return ProfileUserLeftDataComponent;
+}());
+
+//# sourceMappingURL=profile-user-left-data.js.map
+
+/***/ }),
+
+/***/ 311:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileUserDataModalPersonalInfoComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
@@ -2120,7 +2180,7 @@ var ProfileUserDataModalPersonalInfoComponent = (function () {
 
 /***/ }),
 
-/***/ 311:
+/***/ 312:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2164,7 +2224,7 @@ var ProfileUserDataModalCancelAccountComponent = (function () {
 
 /***/ }),
 
-/***/ 312:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2204,13 +2264,6 @@ var RegisterModule = (function () {
 }());
 
 //# sourceMappingURL=register.module.js.map
-
-/***/ }),
-
-/***/ 313:
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=profile-user.models.js.map
 
 /***/ }),
 
@@ -2270,7 +2323,7 @@ var AuthProvider = (function () {
         }
         return this.http.get(__WEBPACK_IMPORTED_MODULE_5__environment__["a" /* ENV */].API_ENDPOINT + "/users/refresh")
             .map(function (response) { return _this.saveToken(response); }).toPromise()
-            .catch(function (error) { return Promise.resolve(false); });
+            .catch(function (error) { return _this.logout(); });
     };
     AuthProvider.prototype.logout = function () {
         localStorage.clear();
@@ -2284,10 +2337,10 @@ var AuthProvider = (function () {
     };
     AuthProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_3__navigation_provider__["a" /* NavigationProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__navigation_provider__["a" /* NavigationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__navigation_provider__["a" /* NavigationProvider */]) === "function" && _b || Object])
     ], AuthProvider);
     return AuthProvider;
+    var _a, _b;
 }());
 /* harmony default export */ __webpack_exports__["a"] = (AuthProvider);
 //# sourceMappingURL=auth.provider.js.map

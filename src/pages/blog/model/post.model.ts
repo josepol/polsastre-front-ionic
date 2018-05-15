@@ -3,7 +3,7 @@ export interface PostModel {
     picture: string;
     title: string;
     subtitle: string;
-    message: string;
+    message: string[];
     createdAt: Date;
     updatedAt: Date;
     creator: string;

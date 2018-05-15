@@ -38,7 +38,7 @@ export default class AuthProvider {
         }
         return this.http.get(`${ENV.API_ENDPOINT}/users/refresh`)
         .map((response: any) => this.saveToken(response)).toPromise()
-        .catch(error => Promise.resolve(false));
+        .catch(error => this.logout());
     }
 
     logout() {

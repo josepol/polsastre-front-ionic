@@ -149,6 +149,10 @@ h1.post-title, h2.post-title{
   margin-top: 0;
 }
 
+h2.post-subtitle {
+  color: #16A085;
+}
+
 p {
   margin: 0 0 25px 0;
   line-height: 23px;
