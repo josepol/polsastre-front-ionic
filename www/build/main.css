@@ -33529,6 +33529,43 @@ modal-wrapper {
   }
 }
 
+.admin-button-list button {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.admin-button-list button:hover {
+  opacity: 0.7;
+  color: white;
+}
+
+.component {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin: 13px;
+  border-radius: 3px;
+}
+
+ion-scroll[scrollX] {
+  white-space: nowrap;
+}
+
+ion-scroll[scrollX] .scroll-item {
+  display: inline-block;
+}
+
+.posts-table {
+  padding: 20px;
+}
+
+.posts-table td {
+  padding: 10px;
+}
+
+.posts-table-header td {
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .carousel {
     margin-top: 52px;

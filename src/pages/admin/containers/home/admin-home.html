@@ -1,13 +1,83 @@
 <ion-content>
-    <app-breadcrumb [title]="'Blog'"></app-breadcrumb>
+    <app-breadcrumb [title]="'Admin'"></app-breadcrumb>
 
     <div class="container">
-
-        <div class="row">
-
-            ADMIN HOME
-
+        <div>
+            <ion-grid>
+                <ion-row class="row admin-button-list">
+                    <ion-col col-lg-3 col-12>
+                        <button (click)="changeComponent('posts')" class="profile-left-btn" ion-button color="info">Posts</button>
+                    </ion-col>
+                    <ion-col col-lg-3 col-12>
+                        <button (click)="changeComponent('categories')" class="profile-left-btn" ion-button color="info">Categorias</button>
+                    </ion-col>
+                    <ion-col col-lg-3 col-12>
+                        <button (click)="changeComponent('users')" class="profile-left-btn" ion-button color="info">Usuarios</button>
+                    </ion-col>
+                    <ion-col col-lg-3 col-12>
+                        <button (click)="changeComponent('comodin')" class="profile-left-btn" ion-button color="info">Comodin</button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <div [ngSwitch]="currentComponent" class="component">
+                            <div *ngSwitchCase="'posts'">
+                                <ion-row class="grid-padding">
+                                    <ion-col col-lg-2 col-12>
+                                        <button (click)="changeComponent('posts')" class="profile-left-btn opacity" ion-button color="info"><ion-icon name="add-circle"></ion-icon></button>
+                                    </ion-col>
+                                    <ion-col col-lg-2 col-12>
+                                        <button (click)="changeComponent('categories')" class="profile-left-btn opacity" ion-button color="danger"><ion-icon name="trash"></ion-icon></button>
+                                    </ion-col>
+                                    <ion-col col-lg-8 col-12></ion-col>
+                                </ion-row>
+                                <ion-scroll scrollX scrollY style="height: 300px; background-color: white">
+                                    <div class="scroll-item">
+                                        <table class="posts-table">
+                                            <tr class="posts-table-header">
+                                                <td></td>
+                                                <td>TITULO</td>
+                                                <td>SUBTITULO</td>
+                                                <td>CREADO</td>
+                                                <td>MODIFICADO</td>
+                                                <td>CATEGORIA</td>
+                                                <td>AUTOR</td>
+                                                <td>COMENTARIOS</td>
+                                            </tr>
+                                            <tr>
+                                                    <td><input type="checkbox" /></td>
+                                                    <td>TITULO PEPINO </td>
+                                                    <td>SUB</td>
+                                                    <td>CREADO POR PEPINCAO</td>
+                                                    <td>MODIFICADO POR ASDASD</td>
+                                                    <td>C</td>
+                                                    <td>ASDASDASDASD</td>
+                                                    <td>N0 COMENTARIOS</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </ion-scroll>
+                            </div>
+                            <div *ngSwitchCase="'categories'">
+                                <ion-row class="grid-padding">
+                                    <ion-col col-lg-6 col-12>
+                                        <button (click)="changeComponent('posts')" class="profile-left-btn" ion-button color="dark">Añadir</button>
+                                    </ion-col>
+                                    <ion-col col-lg-6 col-12>
+                                        <button (click)="changeComponent('categories')" class="profile-left-btn" ion-button color="danger">Eliminar</button>
+                                    </ion-col>
+                                </ion-row>
+                            </div>
+                            <div *ngSwitchCase="'users'">
+                                users!
+                            </div>
+                            <div *ngSwitchCase="'comodin'">
+                                comodin!
+                            </div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </div>
-
     </div>
 </ion-content>

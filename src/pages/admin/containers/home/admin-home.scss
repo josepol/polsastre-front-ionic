@@ -1,3 +1,35 @@
-page-portfolio {
+.admin-button-list button {
+    background-color: color($colors, green-main, base);
+    color: white;
+}
 
+.admin-button-list button:hover {
+    opacity: 0.7;
+    color: white;
+}
+
+.component {
+    background-color: color($colors, light, base);
+    padding: 10px;
+    margin: 13px;
+    border-radius: 3px;
+}
+
+ion-scroll[scrollX] {
+    white-space: nowrap;
+    .scroll-item {
+      display: inline-block;
+    }
+}
+
+.posts-table {
+    padding: 20px;
+}
+
+.posts-table td {
+    padding: 10px;
+}
+
+.posts-table-header td {
+    font-weight: bold;
 }

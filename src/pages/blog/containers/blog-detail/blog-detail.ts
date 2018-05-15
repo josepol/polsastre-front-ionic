@@ -40,7 +40,7 @@ export class BlogDetailPage {
     }
   }
 
-  private redirectToBlogPage() {
+  redirectToBlogPage() {
     this.navigationProvider.getNaviController().push(BlogPage);
   }
 
