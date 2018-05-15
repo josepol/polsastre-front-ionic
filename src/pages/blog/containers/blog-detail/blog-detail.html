@@ -12,6 +12,7 @@
                     <!--<i class="fa fa-user"></i> {{ post.creatorName }}-->
                     <i class="fa fa-comment"></i>
                     <a href="#">{{ post.comments }} comentarios</a>
+                    <i class="fa fa-folder-open-o"></i> {{ post.category }}
                 </p>
                 <div class="img-post">
                     <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">
@@ -28,7 +29,7 @@
                     <div *ngIf="paragraph.includes('+++')">
                         <div [innerHTML]="paragraph.split('+++')[0]"></div>
                         <br/><br/>
-                        <img [src]="paragraph.split('+++')[1]" />
+                        <img [src]="'assets/imgs/' + paragraph.split('+++')[1]" />
                     </div>
                 </div>
             </div>
