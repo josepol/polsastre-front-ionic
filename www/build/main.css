@@ -33556,6 +33556,7 @@ ion-scroll[scrollX] .scroll-item {
 
 .posts-table {
   padding: 20px;
+  background-color: #f4f4f4;
 }
 
 .posts-table td {
@@ -33564,6 +33565,17 @@ ion-scroll[scrollX] .scroll-item {
 
 .posts-table-header td {
   font-weight: bold;
+  color: #424242;
+}
+
+.bg-green {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.ion-scroll-table {
+  height: 300px;
+  background-color: #f4f4f4;
 }
 
 @media (max-width: 768px) {

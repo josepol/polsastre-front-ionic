@@ -4,7 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { NavigationProvider } from "./navigation.provider";
 import { LoginPage } from "../../pages/login/login";
 import { ENV } from '@environment';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
+import * as jwtDecode from 'jwt-decode';
 
 @Injectable()
 export default class AuthProvider {
@@ -32,13 +33,28 @@ export default class AuthProvider {
         .map((response: any) => this.saveToken(response));
     }
 
-    refresh() {
+    refresh(): any {
         if (!localStorage.getItem('token')) {
             return Promise.resolve(false);
         }
         return this.http.get(`${ENV.API_ENDPOINT}/users/refresh`)
         .map((response: any) => this.saveToken(response)).toPromise()
         .catch(error => this.logout());
+    }
+
+    refreshAdmin() {
+        if (!localStorage.getItem('token')) {
+            return Promise.resolve(false);
+        }
+        return this.http.get(`${ENV.API_ENDPOINT}/users/refresh`)
+        .map((response: any) => {
+            const decoded: any = jwtDecode(response.token);
+            if (decoded.rol !== 0) {
+                throw new Error();
+            }
+            return response;
+        })
+        .map((response: any) => this.saveToken(response)).toPromise();
     }
 
     logout() {

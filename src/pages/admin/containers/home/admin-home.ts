@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
+import * as jwtDecode from 'jwt-decode';
 import AuthProvider from '../../../../shared/providers/auth.provider';
+import { BlogDataProvider } from '../../../blog/providers/blog-data.provider';
+import { PostModel } from '../../../blog/model/post.model';
 
 @IonicPage()
 @Component({
@@ -10,18 +13,23 @@ import AuthProvider from '../../../../shared/providers/auth.provider';
 export class AdminHomePage {
 
   public currentComponent: string;
+  public posts: PostModel[];
 
   constructor(
-    private authProvider: AuthProvider
+    private authProvider: AuthProvider,
+    private blogDataProvider: BlogDataProvider
   ) {
   }
 
   ionViewDidLoad() {
     this.currentComponent = 'posts';
+    this.blogDataProvider.getPosts().subscribe((posts: PostModel[]) => {
+      this.posts = posts;
+    });
   }
 
   ionViewCanEnter() {
-    return this.authProvider.refresh().then(token => token);
+    return this.authProvider.refreshAdmin().then();
   }
 
   changeComponent(newComponent) {

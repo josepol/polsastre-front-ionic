@@ -5,6 +5,7 @@ import { AdminHomePage } from '../admin/containers/home/admin-home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import AuthProvider from '../../shared/providers/auth.provider';
 import { RegisterPage } from '../register/register';
+import { BlogPage } from '../blog/containers/blog/blog';
 
 @IonicPage()
 @Component({
@@ -44,7 +45,7 @@ export class LoginPage implements OnInit {
     }
 
     this.authProvider.login(userLogin).subscribe(token => {
-      this.navigateAdminHome();
+      this.navigateBlogPage();
     }, error => {
       this.loginFailed = true;
     });
@@ -56,8 +57,8 @@ export class LoginPage implements OnInit {
     this.navigationProvider.getNaviController().push(RegisterPage);
   }
 
-  private navigateAdminHome() {
-    this.navigationProvider.getNaviController().push(AdminHomePage);
+  private navigateBlogPage() {
+    this.navigationProvider.getNaviController().push(BlogPage);
   }
 
 }

@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <ion-content>
     <app-breadcrumb [title]="'Admin'"></app-breadcrumb>
 
@@ -31,7 +32,7 @@
                                     </ion-col>
                                     <ion-col col-lg-8 col-12></ion-col>
                                 </ion-row>
-                                <ion-scroll scrollX scrollY style="height: 300px; background-color: white">
+                                <ion-scroll scrollX scrollY class="ion-scroll-table">
                                     <div class="scroll-item">
                                         <table class="posts-table">
                                             <tr class="posts-table-header">
@@ -43,16 +44,18 @@
                                                 <td>CATEGORIA</td>
                                                 <td>AUTOR</td>
                                                 <td>COMENTARIOS</td>
+                                                <td>ID</td>
                                             </tr>
-                                            <tr>
+                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? 'bg-green':''">
                                                     <td><input type="checkbox" /></td>
-                                                    <td>TITULO PEPINO </td>
-                                                    <td>SUB</td>
-                                                    <td>CREADO POR PEPINCAO</td>
-                                                    <td>MODIFICADO POR ASDASD</td>
-                                                    <td>C</td>
-                                                    <td>ASDASDASDASD</td>
-                                                    <td>N0 COMENTARIOS</td>
+                                                    <td>{{ post.title }}</td>
+                                                    <td>{{ post.subtitle }}</td>
+                                                    <td>{{ post.createdAt }}</td>
+                                                    <td>{{ post.modifiedAt }}</td>
+                                                    <td>{{ post.category }}</td>
+                                                    <td>{{ post.creator }}</td>
+                                                    <td>{{ post.comments }}</td>
+                                                    <td>{{ post._id }}</td>
                                             </tr>
                                         </table>
                                     </div>

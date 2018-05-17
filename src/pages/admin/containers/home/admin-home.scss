@@ -24,6 +24,7 @@ ion-scroll[scrollX] {
 
 .posts-table {
     padding: 20px;
+    background-color: color($colors, light, base);
 }
 
 .posts-table td {
@@ -32,4 +33,15 @@ ion-scroll[scrollX] {
 
 .posts-table-header td {
     font-weight: bold;
+    color: #424242;
+}
+
+.bg-green {
+    background-color: color($colors, green-main, base);
+    color: white;
+}
+
+.ion-scroll-table {
+    height: 300px;
+    background-color: color($colors, light, base);
 }

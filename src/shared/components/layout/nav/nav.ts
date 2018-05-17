@@ -16,6 +16,7 @@ import { ConfirmationModalComponent } from '../../confirmation-modal/confirmatio
 export class NavComponent implements OnInit {
 
   public isAuthenticated: boolean = false;
+  public isAdmin: boolean = false;
 
   constructor(
     private navigationProvider: NavigationProvider,
@@ -26,6 +27,8 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.authProvider.getIsAuthenticated().subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
+    this.authProvider.refreshAdmin().then(() => this.isAdmin = true)
+    .catch(() => this.isAdmin = false);
   }
 
   public navigateHome() {
