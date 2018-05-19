@@ -5,6 +5,7 @@ import { AdminHomePage } from '../admin/containers/home/admin-home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import AuthProvider from '../../shared/providers/auth.provider';
 import { LoginPage } from '../login/login';
+import { BlogPage } from '../blog/containers/blog/blog';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,14 @@ export class RegisterPage implements OnInit {
   }
 
   ionViewCanEnter() {
-    return this.authProvider.refresh().then(token => !token);
+    return this.authProvider.refresh().then(token => {
+      console.log(token);
+      if (token) {
+        this.navigateBlogPage();
+        return false;
+      }
+      return true;
+    });
   }
 
   ngOnInit(): void {
@@ -55,7 +63,7 @@ export class RegisterPage implements OnInit {
     this.authProvider.register(userRegister).subscribe(token => {
       this.navigateAdminHome();
     }, error => {
-      if (error.error.code === 11000) {
+      if (error.error && error.error.code === 11000) {
         this.registerFailed = '11000';
       } else {
         this.registerFailed = '00000';
@@ -83,6 +91,10 @@ export class RegisterPage implements OnInit {
 
   private navigateAdminHome() {
     this.navigationProvider.getNaviController().push(AdminHomePage);
+  }
+
+  private navigateBlogPage() {
+    this.navigationProvider.getNaviController().push(BlogPage);
   }
 
 }

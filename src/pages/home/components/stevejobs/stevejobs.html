@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-3 col-sm-4">
                 <a *ngIf="!isAuthenticated" href="javascript:;" (click)="navigateLogin()" class="btn btn-danger btn-lg">Iniciar sesión</a>
-                <a *ngIf="isAuthenticated" href="javascript:;" (click)="navigateAdminHome()" class="btn btn-danger btn-lg">Administración</a>
+                <a *ngIf="isAuthenticated" href="javascript:;" (click)="navigateToProfile()" class="btn btn-danger btn-lg">Perfil</a>
             </div>
         </div>
 

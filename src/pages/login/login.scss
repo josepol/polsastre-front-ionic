@@ -1,3 +1,42 @@
-page-portfolio {
+.bg-login{
+    background-image: url('../../assets/imgs/laptop_2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.bg-section {
+    height: 100%;
+    background-color: color($colors, green-main-op, base);
+}
+
+.bg-section h2 {
+    color: white;
+    font-weight: bold;
+}
+
+.bg-section input {
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+}
+
+.bg-section label {
+    text-align: center;
+    width: 100%;
+    color: color($colors, light, base);
+    margin-bottom:10px;
+}
+
+.bg-section p {
+    text-align: center;
+}
+
+.buttons-login {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.buttons-login button {
+    width: 49%;
 }

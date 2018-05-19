@@ -3,6 +3,7 @@ import { LoginPage } from '../../../login/login';
 import { NavigationProvider } from '../../../../shared/providers/navigation.provider';
 import AuthProvider from '../../../../shared/providers/auth.provider';
 import { AdminHomePage } from '../../../admin/containers/home/admin-home';
+import { ProfilePage } from '../../../profile/profile';
 
 @Component({
   selector: 'app-stevejobs',
@@ -28,6 +29,10 @@ export class SteveJobsComponent implements OnInit {
 
   public navigateAdminHome() {
     this.navigationProvider.getNaviController().push(AdminHomePage);
+  }
+
+  public navigateToProfile() {
+    this.navigationProvider.getNaviController().push(ProfilePage);
   }
 
 }

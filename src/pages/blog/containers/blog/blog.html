@@ -1,40 +1,17 @@
 <app-nav></app-nav>
 <ion-content>
     <app-breadcrumb [title]="'Blog'"></app-breadcrumb>
-
-    <div class="container container-int">
-
-        <div class="row">
-
-            <div class="col-md-8 col-sm-8">
-                <app-post-list></app-post-list>
-                <div class="text-center">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 sidebar">
+    <ion-grid class="container container-int">
+        <ion-row class="row">
+            <ion-col col-md-8 col-sm-8 col-12>
+                <app-post-list [categorySelectedFilter]="categorySelected"></app-post-list>
+            </ion-col>
+            <ion-col col-md-4 col-sm-4 col-12 class="sidebar">
                 <!--<app-search></app-search>-->
-                <app-category></app-category>
+                <app-category (categoryChange)="onCategoryChange($event)"></app-category>
                 <!--<app-recent-popular></app-recent-popular>-->
                 <!--<app-tags></app-tags>-->
-            </div>
-
-        </div>
-
-    </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

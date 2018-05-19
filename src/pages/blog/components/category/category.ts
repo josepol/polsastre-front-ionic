@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BlogDataProvider } from '../../providers/blog-data.provider';
 import { CategoryModel } from '../../model/category.model';
@@ -8,6 +8,8 @@ import { CategoryModel } from '../../model/category.model';
   templateUrl: 'category.html',
 })
 export class CategoryComponent implements OnInit {
+
+  @Output() categoryChange: EventEmitter<string> = new EventEmitter<string>();
 
   private categories: CategoryModel[];
 
@@ -22,8 +24,8 @@ export class CategoryComponent implements OnInit {
     })
   }
 
-  filterByCategory() {
-    console.log('proximamente!');
+  filterByCategory(category) {
+    this.categoryChange.emit(category.name ? category.name : '');
   }
 
 }

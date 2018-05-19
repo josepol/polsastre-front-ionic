@@ -8,10 +8,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BlogPage {
 
+  public categorySelected: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
+  }
+
+  public onCategoryChange($event) {
+    this.categorySelected = $event;
   }
 
 }

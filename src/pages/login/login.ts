@@ -27,7 +27,13 @@ export class LoginPage implements OnInit {
   }
 
   ionViewCanEnter() {
-    return this.authProvider.refresh().then(token => !token);
+    return this.authProvider.refresh().then(token => {
+      if (token) {
+        this.navigateBlogPage();
+        return false;
+      }
+      return true;
+    });
   }
 
   ngOnInit(): void {
@@ -53,7 +59,6 @@ export class LoginPage implements OnInit {
   }
 
   public goToRegister($event) {
-    // $event.preventDefault();
     this.navigationProvider.getNaviController().push(RegisterPage);
   }
 

@@ -1,8 +1,8 @@
-<ion-content>
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
+<ion-content class="bg-login">
+    <div class="section bg-section">
+        <ion-grid class="container">
+            <ion-row class="row">
+                <ion-col col-md-4 offset-md-4 col-12>
                     <h2>Login</h2><br/>
                     <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value, loginForm.valid)">
                         <div class="form-group">
@@ -16,12 +16,14 @@
                             <p *ngIf="loginForm.controls.password.hasError('required') && submitted" class="text-danger">El campo password es requerido</p>
                             <p *ngIf="loginFailed && submitted" class="text-danger">Usuario o contraseña incorrectos</p>
                         </div>
-                        <button type="input" [disabled]="loading" class="btn btn-primary">Entrar</button>
-                        <button (click)="goToRegister($event)" type="input" [disabled]="loading" class="btn btn-primary">Registrarse</button>
+                        <div class="buttons-login">
+                            <button type="input" [disabled]="loading" class="btn btn-primary">Entrar</button>
+                            <button (click)="goToRegister($event)" type="input" [disabled]="loading" class="btn btn-primary">Registrarse</button>    
+                        </div>
                         <img *ngIf="loading" />
                     </form>
-                </div>
-            </div>
-        </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </div>
 </ion-content>

@@ -1,4 +1,4 @@
-<div class="post" *ngFor="let post of posts">
+<div class="post" *ngFor="let post of postsDisplayed">
     <h2 class="post-title" [ngClass]="{ 'text-center': fromHome }">
         <a href="javascript:;" (click)="openPost(post)">{{ post.title }}</a>
     </h2>
@@ -8,8 +8,8 @@
     <p class="post-meta" *ngIf="!fromHome">
         <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
         <!--<i class="fa fa-user"></i> {{ post.creator }}-->
-        <i class="fa fa-comment"></i>
-        <a href="#">{{ post.comments }} comentarios</a>
+        <!--<i class="fa fa-comment"></i>
+        <a href="#">{{ post.comments }} comentarios</a>-->
         <i class="fa fa-folder-open-o"></i> {{ post.category }}
     </p>
     <a href="" class="img-post">
@@ -17,4 +17,21 @@
     </a>
     <p style="word-wrap: break-word;" [innerHTML]="post.message[0].split('***')[0]"></p><br/>
     <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>
+</div>
+<div class="text-center">
+    <ul class="pagination">
+        <li *ngIf="postsIndex >= 1">
+            <a href="javascript:;" (click)="prevPage()">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{{ postsIndex + 1 }}</a>
+        </li>
+        <li *ngIf="postsIndex < (postsArrayLengh - 1)">
+            <a href="javascript:;" (click)="nextPage()">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
 </div>
