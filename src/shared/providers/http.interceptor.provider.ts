@@ -25,6 +25,10 @@ export default class HttpInterceptorProvider implements HttpInterceptor {
                 .set('Authorization', `Bearer ${token}`);
         }
 
+        if (req.url.includes('/users/login')) {
+            return next.handle(req.clone(options));
+        }
+
         return next.handle(req.clone(options)).catch((error: any, caught: any) => {
             switch (error.status) {
                 case 401:

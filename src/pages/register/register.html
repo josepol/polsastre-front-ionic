@@ -1,9 +1,10 @@
-<ion-content>
-    <div class="section">
+<ion-content class="bg-login">
+    <div class="section bg-section">
         <ion-grid class="container">
             <ion-row class="row">
-                <ion-col col-md-4 offset-md-4 col-12>
-                    <h2>Registro</h2><br/>
+                <ion-col class="login-form" col-md-4 offset-md-4 col-12>
+                    <img (click)="navigateToHome()" class="polsastre-ico" src="../../assets/imgs/polsastre-ico.png" />
+                    <br/><br/>
                     <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value, registerForm.valid)">
                         <div class="form-group">
                             <label for="name">Nombre</label>
@@ -28,7 +29,7 @@
                             <p *ngIf="differentPasswordFailed && submitted" class="text-danger">Las contraseñas son distintas</p>
                         </div>
                         <button type="input" [disabled]="loading" class="btn btn-primary">Registrarse</button>
-                        <button (click)="goToLogin()" type="input" [disabled]="loading" class="btn btn-primary">Iniciar sesión</button>
+                        <button (click)="goToLogin($event)" type="input" [disabled]="loading" class="btn btn-primary">Iniciar sesión</button>
                         <img *ngIf="loading" />
                     </form>
                 </ion-col>

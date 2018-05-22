@@ -1,12 +1,13 @@
 .bg-login{
-    background-image: url('../../assets/imgs/laptop_2.png');
+    /*background-image: url('../../assets/imgs/laptop_2.png');*/
+    background-color: color($colors, green-main, base);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bg-section {
     height: 100%;
-    background-color: color($colors, green-main-op, base);
+    // background-color: color($colors, primary, base);
 }
 
 .bg-section h2 {
@@ -39,4 +40,24 @@
 
 .buttons-login button {
     width: 49%;
+}
+
+.login-form {
+    background-color: color($colors, dark-light-op, base);
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px;
+    // border-color: color($colors, green-main-op, base);
+}
+
+.login-form input {
+    text-align: center;
+    color: color($colors, dark-light, base); 
+}
+
+.polsastre-ico {
+    opacity: 0.8;
+    border-radius: 10px;
+    box-shadow: 2px 5px 20px color($colors, dark-light, base);
+    cursor: pointer;
 }

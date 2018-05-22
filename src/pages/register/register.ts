@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import AuthProvider from '../../shared/providers/auth.provider';
 import { LoginPage } from '../login/login';
 import { BlogPage } from '../blog/containers/blog/blog';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -72,7 +73,8 @@ export class RegisterPage implements OnInit {
 
   }
 
-  public goToLogin() {
+  public goToLogin($event) {
+    $event.preventDefault();
     this.navigationProvider.getNaviController().push(LoginPage);
   }
 
@@ -95,6 +97,10 @@ export class RegisterPage implements OnInit {
 
   private navigateBlogPage() {
     this.navigationProvider.getNaviController().push(BlogPage);
+  }
+
+  public navigateToHome() {
+    this.navigationProvider.getNaviController().push(HomePage);
   }
 
 }
