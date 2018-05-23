@@ -7,31 +7,26 @@
             <ion-grid>
                 <ion-row class="row admin-button-list">
                     <ion-col col-lg-3 col-12>
-                        <button (click)="changeComponent('posts')" class="profile-left-btn" ion-button color="info">Posts</button>
+                        <button (click)="changeComponent('posts')" 
+                            class="profile-left-btn" ion-button color="info">Posts</button>
                     </ion-col>
                     <ion-col col-lg-3 col-12>
-                        <button (click)="changeComponent('categories')" class="profile-left-btn" ion-button color="info">Categorias</button>
+                        <button (click)="changeComponent('add')"
+                            class="profile-left-btn" ion-button color="info">Añadir</button>
                     </ion-col>
                     <ion-col col-lg-3 col-12>
-                        <button (click)="changeComponent('users')" class="profile-left-btn" ion-button color="info">Usuarios</button>
+                        <button (click)="deletePosts()"
+                            class="profile-left-btn" ion-button color="info">Eliminar</button>
                     </ion-col>
                     <ion-col col-lg-3 col-12>
-                        <button (click)="changeComponent('comodin')" class="profile-left-btn" ion-button color="info">Comodin</button>
+                        <button (click)="updatePosts()"
+                            class="profile-left-btn" ion-button color="info">Modificar</button>
                     </ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col>
                         <div [ngSwitch]="currentComponent" class="component">
                             <div *ngSwitchCase="'posts'">
-                                <!--<ion-row class="grid-padding">
-                                    <ion-col col-lg-2 col-12>
-                                        <button (click)="changeComponent('posts')" class="profile-left-btn opacity" ion-button color="info"><ion-icon name="add-circle"></ion-icon></button>
-                                    </ion-col>
-                                    <ion-col col-lg-2 col-12>
-                                        <button (click)="changeComponent('categories')" class="profile-left-btn opacity" ion-button color="danger"><ion-icon name="trash"></ion-icon></button>
-                                    </ion-col>
-                                    <ion-col col-lg-8 col-12></ion-col>
-                                </ion-row>-->
                                 <ion-scroll scrollX scrollY class="ion-scroll-table">
                                     <div class="scroll-item">
                                         <table class="posts-table">
@@ -46,7 +41,7 @@
                                                 <td>COMENTARIOS</td>
                                                 <td>ID</td>
                                             </tr>
-                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? 'bg-green':''">
+                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? 'bg-green':'color-grey'">
                                                     <td><input type="checkbox" /></td>
                                                     <td>{{ post.title }}</td>
                                                     <td>{{ post.subtitle }}</td>
@@ -61,21 +56,26 @@
                                     </div>
                                 </ion-scroll>
                             </div>
-                            <div *ngSwitchCase="'categories'">
-                                <ion-row class="grid-padding">
-                                    <ion-col col-lg-6 col-12>
-                                        <button (click)="changeComponent('posts')" class="profile-left-btn" ion-button color="dark">Añadir</button>
-                                    </ion-col>
-                                    <ion-col col-lg-6 col-12>
-                                        <button (click)="changeComponent('categories')" class="profile-left-btn" ion-button color="danger">Eliminar</button>
-                                    </ion-col>
-                                </ion-row>
-                            </div>
-                            <div *ngSwitchCase="'users'">
-                                users!
-                            </div>
-                            <div *ngSwitchCase="'comodin'">
-                                comodin!
+                            <div *ngSwitchCase="'add'">
+                                <form [formGroup]="addPostFormGroup" class="add-post-form">
+                                    <ion-row>
+                                        <ion-col col-lg-12>
+                                            <ion-input formControlName="title" type="text" clearInput placeholder="Título"></ion-input>
+                                            <br/>
+                                            <ion-input formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>
+                                            <br/>
+                                            <ion-item style="height: 30px"><ion-select formControlName="category">
+                                                    <ion-option value="">Categorias</ion-option>
+                                                <ion-option value="angular">Angular</ion-option>
+                                                <ion-option value="react">React</ion-option>
+                                            </ion-select></ion-item>
+                                            <br/>
+                                            <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>
+                                        </ion-col>
+                                    </ion-row>
+                                </form>
+                                <br/>
+                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div>
                             </div>
                         </div>
                     </ion-col>

@@ -16416,16 +16416,16 @@ input.text-input:-webkit-autofill {
 
 .item-md.item-input.item-input-has-focus .item-inner,
 .item-md.item-input.input-has-focus .item-inner {
-  border-bottom-color: #488aff;
-  -webkit-box-shadow: inset 0 -1px 0 0 #488aff;
-  box-shadow: inset 0 -1px 0 0 #488aff;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .list-md .item-input.item-input-has-focus:last-child,
 .list-md .item-input.input-has-focus:last-child {
-  border-bottom-color: #488aff;
-  -webkit-box-shadow: inset 0 -1px 0 0 #488aff;
-  box-shadow: inset 0 -1px 0 0 #488aff;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .list-md .item-input.item-input-has-focus:last-child .item-inner,
@@ -16436,16 +16436,16 @@ input.text-input:-webkit-autofill {
 
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
 .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-  border-bottom-color: #32db64;
-  -webkit-box-shadow: inset 0 -1px 0 0 #32db64;
-  box-shadow: inset 0 -1px 0 0 #32db64;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
 .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
-  border-bottom-color: #32db64;
-  -webkit-box-shadow: inset 0 -1px 0 0 #32db64;
-  box-shadow: inset 0 -1px 0 0 #32db64;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner,
@@ -16455,15 +16455,15 @@ input.text-input:-webkit-autofill {
 }
 
 .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-  border-bottom-color: #f53d3d;
-  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
-  box-shadow: inset 0 -1px 0 0 #f53d3d;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
-  border-bottom-color: #f53d3d;
-  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
-  box-shadow: inset 0 -1px 0 0 #f53d3d;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner {
@@ -39999,9 +39999,13 @@ ion-scroll[scrollX] .scroll-item {
   padding: 10px;
 }
 
+.color-grey {
+  color: grey;
+}
+
 .posts-table-header td {
   font-weight: bold;
-  color: #424242;
+  color: grey;
 }
 
 .bg-green {
@@ -40012,6 +40016,23 @@ ion-scroll[scrollX] .scroll-item {
 .ion-scroll-table {
   height: 300px;
   background-color: #f4f4f4;
+}
+
+.add-post-form {
+  height: 400px;
+  font-weight: bold;
+  color: grey;
+}
+
+.post-preview {
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.textarea textarea {
+  height: 250px;
 }
 
 @media (max-width: 768px) {
