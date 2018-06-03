@@ -183,7 +183,7 @@ var BlogDetailPage = (function () {
     };
     BlogDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-blog-detail',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/'<app-nav></app-nav>\n<ion-content *ngIf="post">\n    <app-breadcrumb [title]="\'Blog\'"></app-breadcrumb>\n\n    <div class="container container-int">\n        <div class="row">\n            <div class="post width100">\n                <h1 class="post-title">\n                    <a href="javascript:;">{{ post.title }}</a>\n                </h1>\n                <p class="post-meta">\n                    <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n                    <!--<i class="fa fa-user"></i> {{ post.creatorName }}-->\n                    <i class="fa fa-comment"></i>\n                    <!--<a href="#">{{ post.comments }} comentarios</a>-->\n                    <i class="fa fa-folder-open-o"></i> {{ post.category }}\n                </p>\n                <div class="img-post">\n                    <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">\n                </div>\n                <h2 class="post-subtitle">\n                    <p href="javascript:;">{{ post.subtitle }}</p>\n                </h2>\n                <div *ngFor="let paragraph of post.message">\n                    <div *ngIf="paragraph.includes(\'***\')">\n                        <div [innerHTML]="paragraph.split(\'***\')[0]"></div>\n                        <br/><br/>\n                        <app-codepen [codepenId]="paragraph.split(\'***\')[1]"></app-codepen>\n                    </div>\n                    <div *ngIf="paragraph.includes(\'+++\')">\n                        <div [innerHTML]="paragraph.split(\'+++\')[0]"></div>\n                        <br/><br/>\n                        <img [src]="\'assets/imgs/\' + paragraph.split(\'+++\')[1]" />\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/,
+            selector: 'page-blog-detail',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/'<app-nav></app-nav>\n<ion-content *ngIf="post">\n    <app-breadcrumb [title]="\'Blog\'"></app-breadcrumb>\n\n    <div class="container container-int">\n        <div class="row">\n            <div class="post width100">\n                <h1 class="post-title">\n                    <a href="javascript:;">{{ post.title }}</a>\n                </h1>\n                <p class="post-meta">\n                    <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n                    <!--<i class="fa fa-user"></i> {{ post.creatorName }}-->\n                    <i class="fa fa-comment"></i>\n                    <!--<a href="#">{{ post.comments }} comentarios</a>-->\n                    <i class="fa fa-folder-open-o"></i> {{ post.category }}\n                </p>\n                <div class="img-post">\n                    <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">\n                </div>\n                <h2 class="post-subtitle">\n                    <p href="javascript:;">{{ post.subtitle }}</p>\n                </h2>\n                <div [innerHTML]="post.text"></div>\n                <!--<div *ngFor="let paragraph of post.message">\n                    <div *ngIf="paragraph.includes(\'***\')">\n                        <div [innerHTML]="paragraph.split(\'***\')[0]"></div>\n                        <br/><br/>\n                        <app-codepen [codepenId]="paragraph.split(\'***\')[1]"></app-codepen>\n                    </div>\n                    <div *ngIf="paragraph.includes(\'+++\')">\n                        <div [innerHTML]="paragraph.split(\'+++\')[0]"></div>\n                        <br/><br/>\n                        <img [src]="\'assets/imgs/\' + paragraph.split(\'+++\')[1]" />\n                    </div>\n                </div>-->\n            </div>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/containers/blog-detail/blog-detail.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_blog_data_provider__["a" /* BlogDataProvider */],
@@ -1303,7 +1303,7 @@ var PostListComponent = (function () {
     };
     PostListComponent.prototype.openPost = function (post) {
         this.navigationProvider.getNaviController().push(__WEBPACK_IMPORTED_MODULE_3__containers_blog_detail_blog_detail__["a" /* BlogDetailPage */], {
-            id: post.id
+            id: post._id
         });
     };
     PostListComponent.prototype.prevPage = function () {
@@ -1337,12 +1337,12 @@ var PostListComponent = (function () {
     ], PostListComponent.prototype, "categorySelectedFilter", void 0);
     PostListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-post-list',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/post-list/post-list.html"*/'<div class="post" *ngFor="let post of postsDisplayed">\n    <h2 class="post-title" [ngClass]="{ \'text-center\': fromHome }">\n        <a href="javascript:;" (click)="openPost(post)">{{ post.title }}</a>\n    </h2>\n    <h4 class="post-title" [ngClass]="{ \'text-center\': fromHome }">\n        <a>{{ post.subtitle }}</a>\n    </h4>\n    <p class="post-meta" *ngIf="!fromHome">\n        <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n        <!--<i class="fa fa-user"></i> {{ post.creator }}-->\n        <!--<i class="fa fa-comment"></i>\n        <a href="#">{{ post.comments }} comentarios</a>-->\n        <i class="fa fa-folder-open-o"></i> {{ post.category }}\n    </p>\n    <a href="" class="img-post">\n        <img src="" alt="" class="img-responsive">\n    </a>\n    <p style="word-wrap: break-word;" [innerHTML]="post.message[0].split(\'***\')[0]"></p><br/>\n    <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>\n</div>\n<div class="text-center">\n    <ul class="pagination">\n        <li *ngIf="postsIndex >= 1">\n            <a href="javascript:;" (click)="prevPage()">\n                <i class="fa fa-angle-left"></i>\n            </a>\n        </li>\n        <li class="active">\n            <a href="javascript:;">{{ postsIndex + 1 }}</a>\n        </li>\n        <li *ngIf="postsIndex < (postsArrayLengh - 1)">\n            <a href="javascript:;" (click)="nextPage()">\n                <i class="fa fa-angle-right"></i>\n            </a>\n        </li>\n    </ul>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/post-list/post-list.html"*/,
+            selector: 'app-post-list',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/post-list/post-list.html"*/'<div class="post" *ngFor="let post of postsDisplayed">\n    <h2 class="post-title" [ngClass]="{ \'text-center\': fromHome }">\n        <a href="javascript:;" (click)="openPost(post)">{{ post.title }}</a>\n    </h2>\n    <h4 class="post-title" [ngClass]="{ \'text-center\': fromHome }">\n        <a>{{ post.subtitle }}</a>\n    </h4>\n    <p class="post-meta" *ngIf="!fromHome">\n        <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: \'dd/MM/yyyy\' }}\n        <!--<i class="fa fa-user"></i> {{ post.creator }}-->\n        <!--<i class="fa fa-comment"></i>\n        <a href="#">{{ post.comments }} comentarios</a>-->\n        <i class="fa fa-folder-open-o"></i> {{ post.category }}\n    </p>\n    <a href="" class="img-post">\n        <img src="" alt="" class="img-responsive">\n    </a>\n    <p style="word-wrap: break-word;" [innerHTML]="post.text.substring(0, 100) + \' ...\'"></p><br/>\n    <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>\n</div>\n<div class="text-center">\n    <ul class="pagination">\n        <li *ngIf="postsIndex >= 1">\n            <a href="javascript:;" (click)="prevPage()">\n                <i class="fa fa-angle-left"></i>\n            </a>\n        </li>\n        <li class="active">\n            <a href="javascript:;">{{ postsIndex + 1 }}</a>\n        </li>\n        <li *ngIf="postsIndex < (postsArrayLengh - 1)">\n            <a href="javascript:;" (click)="nextPage()">\n                <i class="fa fa-angle-right"></i>\n            </a>\n        </li>\n    </ul>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/post-list/post-list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__["a" /* NavigationProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__["a" /* NavigationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_providers_navigation_provider__["a" /* NavigationProvider */]) === "function" && _b || Object])
     ], PostListComponent);
     return PostListComponent;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=post-list.js.map
@@ -1945,12 +1945,14 @@ var LoginModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_home_admin_home__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__ = __webpack_require__(323);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1967,7 +1969,9 @@ var AdminModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__["a" /* SharedModule */],
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__containers_home_admin_home__["a" /* AdminHomePage */]),
             ],
-            providers: [],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__["a" /* AdminDataProvider */]
+            ],
             exports: []
         })
     ], AdminModule);
@@ -2340,6 +2344,45 @@ var RegisterModule = (function () {
 
 /***/ }),
 
+/***/ 323:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminDataProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environment__ = __webpack_require__(61);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AdminDataProvider = (function () {
+    function AdminDataProvider(http) {
+        this.http = http;
+    }
+    AdminDataProvider.prototype.addPost = function (post) {
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/blogs/add-post", post);
+    };
+    AdminDataProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
+    ], AdminDataProvider);
+    return AdminDataProvider;
+    var _a;
+}());
+
+//# sourceMappingURL=admin-data.provider.js.map
+
+/***/ }),
+
 /***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2488,6 +2531,7 @@ var AuthProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__ = __webpack_require__(323);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2501,18 +2545,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AdminHomePage = (function () {
-    function AdminHomePage(authProvider, blogDataProvider, formBuilder) {
+    function AdminHomePage(authProvider, blogDataProvider, formBuilder, adminDataProvider) {
         this.authProvider = authProvider;
         this.blogDataProvider = blogDataProvider;
         this.formBuilder = formBuilder;
+        this.adminDataProvider = adminDataProvider;
     }
     AdminHomePage.prototype.ngOnInit = function () {
         this.addPostFormGroup = this.formBuilder.group({
-            title: [''],
-            subtitle: [''],
-            text: [''],
-            category: ['']
+            title: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            subtitle: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            text: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            category: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]
         });
     };
     AdminHomePage.prototype.ionViewDidLoad = function () {
@@ -2528,19 +2574,27 @@ var AdminHomePage = (function () {
     AdminHomePage.prototype.changeComponent = function (newComponent) {
         this.currentComponent = newComponent;
     };
+    AdminHomePage.prototype.addPost = function (addPotsFormValue, isValid) {
+        var _this = this;
+        if (!isValid) {
+            return;
+        }
+        this.adminDataProvider.addPost(addPotsFormValue).subscribe(function (response) {
+            _this.ionViewDidLoad();
+        });
+    };
     AdminHomePage.prototype.deletePosts = function () {
     };
     AdminHomePage.prototype.updatePosts = function () {
     };
     AdminHomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-admin-home',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/'<app-nav></app-nav>\n<ion-content>\n    <app-breadcrumb [title]="\'Admin\'"></app-breadcrumb>\n\n    <div class="container">\n        <div>\n            <ion-grid>\n                <ion-row class="row admin-button-list">\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="changeComponent(\'posts\')" \n                            class="profile-left-btn" ion-button color="info">Posts</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="changeComponent(\'add\')"\n                            class="profile-left-btn" ion-button color="info">Añadir</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="deletePosts()"\n                            class="profile-left-btn" ion-button color="info">Eliminar</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="updatePosts()"\n                            class="profile-left-btn" ion-button color="info">Modificar</button>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col>\n                        <div [ngSwitch]="currentComponent" class="component">\n                            <div *ngSwitchCase="\'posts\'">\n                                <ion-scroll scrollX scrollY class="ion-scroll-table">\n                                    <div class="scroll-item">\n                                        <table class="posts-table">\n                                            <tr class="posts-table-header">\n                                                <td></td>\n                                                <td>TITULO</td>\n                                                <td>SUBTITULO</td>\n                                                <td>CREADO</td>\n                                                <td>MODIFICADO</td>\n                                                <td>CATEGORIA</td>\n                                                <td>AUTOR</td>\n                                                <td>COMENTARIOS</td>\n                                                <td>ID</td>\n                                            </tr>\n                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? \'bg-green\':\'color-grey\'">\n                                                    <td><input type="checkbox" /></td>\n                                                    <td>{{ post.title }}</td>\n                                                    <td>{{ post.subtitle }}</td>\n                                                    <td>{{ post.createdAt }}</td>\n                                                    <td>{{ post.modifiedAt }}</td>\n                                                    <td>{{ post.category }}</td>\n                                                    <td>{{ post.creator }}</td>\n                                                    <td>{{ post.comments }}</td>\n                                                    <td>{{ post._id }}</td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </ion-scroll>\n                            </div>\n                            <div *ngSwitchCase="\'add\'">\n                                <form [formGroup]="addPostFormGroup" class="add-post-form">\n                                    <ion-row>\n                                        <ion-col col-lg-12>\n                                            <ion-input formControlName="title" type="text" clearInput placeholder="Título"></ion-input>\n                                            <br/>\n                                            <ion-input formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>\n                                            <br/>\n                                            <ion-item style="height: 30px"><ion-select formControlName="category">\n                                                    <ion-option value="">Categorias</ion-option>\n                                                <ion-option value="angular">Angular</ion-option>\n                                                <ion-option value="react">React</ion-option>\n                                            </ion-select></ion-item>\n                                            <br/>\n                                            <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>\n                                        </ion-col>\n                                    </ion-row>\n                                </form>\n                                <br/>\n                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div>\n                            </div>\n                        </div>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/,
+            selector: 'app-admin-home',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/'<app-nav></app-nav>\n<ion-content>\n    <app-breadcrumb [title]="\'Admin\'"></app-breadcrumb>\n\n    <div class="container">\n        <div>\n            <ion-grid>\n                <ion-row class="row admin-button-list">\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="changeComponent(\'posts\')" \n                            class="profile-left-btn" ion-button color="info">Posts</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="changeComponent(\'add\')"\n                            class="profile-left-btn" ion-button color="info">Añadir</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="deletePosts()"\n                            class="profile-left-btn" ion-button color="info">Eliminar</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="updatePosts()"\n                            class="profile-left-btn" ion-button color="info">Modificar</button>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col>\n                        <div [ngSwitch]="currentComponent" class="component">\n                            <div *ngSwitchCase="\'posts\'">\n                                <ion-scroll scrollX scrollY class="ion-scroll-table">\n                                    <div class="scroll-item">\n                                        <table class="posts-table">\n                                            <tr class="posts-table-header">\n                                                <td></td>\n                                                <td>TITULO</td>\n                                                <td>SUBTITULO</td>\n                                                <td>CREADO</td>\n                                                <td>MODIFICADO</td>\n                                                <td>CATEGORIA</td>\n                                                <td>AUTOR</td>\n                                                <td>COMENTARIOS</td>\n                                                <td>ID</td>\n                                            </tr>\n                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? \'bg-green\':\'color-grey\'">\n                                                    <td><input type="checkbox" /></td>\n                                                    <td>{{ post.title }}</td>\n                                                    <td>{{ post.subtitle }}</td>\n                                                    <td>{{ post.createdAt }}</td>\n                                                    <td>{{ post.modifiedAt }}</td>\n                                                    <td>{{ post.category }}</td>\n                                                    <td>{{ post.creator }}</td>\n                                                    <td>{{ post.comments }}</td>\n                                                    <td>{{ post._id }}</td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </ion-scroll>\n                            </div>\n                            <div *ngSwitchCase="\'add\'">\n                                <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addPost(addPostFormGroup.value, addPostFormGroup.valid)">\n                                    <ion-row>\n                                        <ion-col col-lg-12>\n                                            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Título"></ion-input>\n                                            <br/>\n                                            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>\n                                            <br/>\n                                            <ion-item no-lines style="height: 30px"><ion-select formControlName="category" class="select-category">\n                                                <ion-option value="">Categorias</ion-option>\n                                                <ion-option value="angular">Angular</ion-option>\n                                                <ion-option value="react">React</ion-option>\n                                            </ion-select></ion-item>\n                                            <br/>\n                                            <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>\n                                        </ion-col>\n                                        <br/>\n                                        <button class="add-post-button" ion-button large full type="submit">Añadir</button>\n                                    </ion-row>\n                                </form>\n                                <br/>\n                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div>\n                            </div>\n                        </div>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */],
-            __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__["a" /* BlogDataProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__["a" /* AdminDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__["a" /* AdminDataProvider */]) === "function" && _d || Object])
     ], AdminHomePage);
     return AdminHomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=admin-home.js.map
@@ -2577,9 +2631,9 @@ var BlogDataProvider = (function () {
     }
     BlogDataProvider.prototype.getBlogData = function (id) {
         if (this.posts.getValue()) {
-            return this.posts.getValue().filter(function (post) { return post.id === id; })[0];
+            return this.posts.getValue().filter(function (post) { return post._id === id; })[0];
         }
-        return this.getPosts().map(function (posts) { return posts.filter(function (post) { return post.id === id; })[0]; });
+        return this.getPosts().map(function (posts) { return posts.filter(function (post) { return post._id === id; })[0]; });
     };
     BlogDataProvider.prototype.getPosts = function () {
         var _this = this;
@@ -2597,9 +2651,10 @@ var BlogDataProvider = (function () {
     };
     BlogDataProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
     ], BlogDataProvider);
     return BlogDataProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=blog-data.provider.js.map

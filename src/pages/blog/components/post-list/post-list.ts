@@ -49,7 +49,7 @@ export class PostListComponent implements OnInit, OnChanges {
 
   openPost(post) {
     this.navigationProvider.getNaviController().push(BlogDetailPage, {
-      id: post.id
+      id: post._id
     });
   }
 

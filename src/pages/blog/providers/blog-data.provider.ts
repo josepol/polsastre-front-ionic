@@ -18,9 +18,9 @@ export class BlogDataProvider {
 
     getBlogData(id): any | PostModel {
         if (this.posts.getValue()) {
-            return this.posts.getValue().filter(post => post.id === id)[0];
+            return this.posts.getValue().filter(post => post._id === id)[0];
         }
-        return this.getPosts().map(posts => posts.filter(post => post.id === id)[0]);
+        return this.getPosts().map(posts => posts.filter(post => post._id === id)[0]);
     }
 
     getPosts(): Observable<any> {

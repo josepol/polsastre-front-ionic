@@ -21,7 +21,8 @@
                 <h2 class="post-subtitle">
                     <p href="javascript:;">{{ post.subtitle }}</p>
                 </h2>
-                <div *ngFor="let paragraph of post.message">
+                <div [innerHTML]="post.text"></div>
+                <!--<div *ngFor="let paragraph of post.message">
                     <div *ngIf="paragraph.includes('***')">
                         <div [innerHTML]="paragraph.split('***')[0]"></div>
                         <br/><br/>
@@ -32,7 +33,7 @@
                         <br/><br/>
                         <img [src]="'assets/imgs/' + paragraph.split('+++')[1]" />
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

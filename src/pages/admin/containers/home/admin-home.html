@@ -57,21 +57,23 @@
                                 </ion-scroll>
                             </div>
                             <div *ngSwitchCase="'add'">
-                                <form [formGroup]="addPostFormGroup" class="add-post-form">
+                                <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addPost(addPostFormGroup.value, addPostFormGroup.valid)">
                                     <ion-row>
                                         <ion-col col-lg-12>
-                                            <ion-input formControlName="title" type="text" clearInput placeholder="Título"></ion-input>
+                                            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Título"></ion-input>
                                             <br/>
-                                            <ion-input formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>
+                                            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>
                                             <br/>
-                                            <ion-item style="height: 30px"><ion-select formControlName="category">
-                                                    <ion-option value="">Categorias</ion-option>
+                                            <ion-item no-lines style="height: 30px"><ion-select formControlName="category" class="select-category">
+                                                <ion-option value="">Categorias</ion-option>
                                                 <ion-option value="angular">Angular</ion-option>
                                                 <ion-option value="react">React</ion-option>
                                             </ion-select></ion-item>
                                             <br/>
                                             <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>
                                         </ion-col>
+                                        <br/>
+                                        <button class="add-post-button" ion-button large full type="submit">Añadir</button>
                                     </ion-row>
                                 </form>
                                 <br/>

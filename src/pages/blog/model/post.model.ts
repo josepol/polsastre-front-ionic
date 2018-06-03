@@ -1,9 +1,9 @@
 export interface PostModel {
-    id: string;
+    _id: string;
     picture: string;
     title: string;
     subtitle: string;
-    message: string[];
+    text: string;
     createdAt: Date;
     updatedAt: Date;
     creator: string;

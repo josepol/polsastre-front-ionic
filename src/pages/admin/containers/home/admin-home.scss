@@ -1,3 +1,8 @@
+.admin-button-list {
+    margin: 0px;
+    margin-left: -5px;
+}
+
 .admin-button-list button {
     background-color: color($colors, green-main, base);
     color: white;
@@ -66,4 +71,24 @@ ion-scroll[scrollX] {
 
 .textarea textarea {
     height: 250px;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+.select-category {
+    color: rgba(155, 155, 155, 1);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.add-post-button {
+    margin: 5px;
+    margin-top: 20px;
+    background-color: color($colors, green-main, base);;
+}
+
+.add-post-input-text {
+    color: rgba(155, 155, 155, 1);
+    padding-left: 23px;
+    padding-right: 23px;
 }

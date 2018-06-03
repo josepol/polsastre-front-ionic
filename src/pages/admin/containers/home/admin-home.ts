@@ -4,7 +4,8 @@ import * as jwtDecode from 'jwt-decode';
 import AuthProvider from '../../../../shared/providers/auth.provider';
 import { BlogDataProvider } from '../../../blog/providers/blog-data.provider';
 import { PostModel } from '../../../blog/model/post.model';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AdminDataProvider } from '../../providers/admin-data.provider';
 
 @IonicPage()
 @Component({
@@ -20,16 +21,17 @@ export class AdminHomePage implements OnInit {
   constructor(
     private authProvider: AuthProvider,
     private blogDataProvider: BlogDataProvider,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private adminDataProvider: AdminDataProvider
   ) {
   }
 
   ngOnInit(): void {
     this.addPostFormGroup = this.formBuilder.group({
-      title: [''],
-      subtitle: [''],
-      text: [''],
-      category: ['']
+      title: ['', Validators.required],
+      subtitle: ['', Validators.required],
+      text: ['', Validators.required],
+      category: ['', Validators.required]
     });
   }
 
@@ -46,6 +48,15 @@ export class AdminHomePage implements OnInit {
 
   changeComponent(newComponent) {
     this.currentComponent = newComponent;
+  }
+
+  addPost(addPotsFormValue, isValid) {
+    if (!isValid) {
+      return;
+    }
+    this.adminDataProvider.addPost(addPotsFormValue).subscribe(response => {
+      this.ionViewDidLoad();
+    });
   }
 
   deletePosts() {
