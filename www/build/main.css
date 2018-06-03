@@ -40086,8 +40086,8 @@ modal-wrapper {
 }
 
 .admin-button-list {
-  margin: 0px;
-  margin-left: -5px;
+  margin: 0px !important;
+  margin-left: -5px !important;
 }
 
 .admin-button-list button {
