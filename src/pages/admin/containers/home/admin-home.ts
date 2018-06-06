@@ -6,6 +6,7 @@ import { BlogDataProvider } from '../../../blog/providers/blog-data.provider';
 import { PostModel } from '../../../blog/model/post.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminDataProvider } from '../../providers/admin-data.provider';
+import { CategoryModel } from '../../../blog/model/category.model';
 
 @IonicPage()
 @Component({
@@ -17,6 +18,7 @@ export class AdminHomePage implements OnInit {
   public addPostFormGroup: FormGroup;
   public currentComponent: string;
   public posts: PostModel[];
+  public categories: Array<CategoryModel>;
 
   constructor(
     private authProvider: AuthProvider,
@@ -39,6 +41,9 @@ export class AdminHomePage implements OnInit {
     this.currentComponent = 'posts';
     this.blogDataProvider.getPosts().subscribe((posts: PostModel[]) => {
       this.posts = posts;
+    });
+    this.blogDataProvider.getCategories().subscribe(categories => {
+      this.categories = categories;
     });
   }
 

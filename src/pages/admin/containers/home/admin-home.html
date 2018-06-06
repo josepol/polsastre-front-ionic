@@ -66,8 +66,7 @@
                                             <br/>
                                             <ion-item no-lines style="height: 30px"><ion-select formControlName="category" class="select-category">
                                                 <ion-option value="">Categorias</ion-option>
-                                                <ion-option value="angular">Angular</ion-option>
-                                                <ion-option value="react">React</ion-option>
+                                                <ion-option *ngFor="let category of categories" value="{{category.name}}">{{ category.name }}</ion-option>
                                             </ion-select></ion-item>
                                             <br/>
                                             <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>

@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.blogDataProvider.getCategories().subscribe(categories => {
       this.categories = categories;
-    })
+    });
   }
 
   filterByCategory(category) {
