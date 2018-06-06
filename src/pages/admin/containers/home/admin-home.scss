@@ -20,13 +20,6 @@
     border-radius: 3px;
 }
 
-ion-scroll[scrollX] {
-    white-space: nowrap;
-    .scroll-item {
-      display: inline-block;
-    }
-}
-
 .posts-table {
     padding: 20px;
     background-color: color($colors, light, base);
@@ -60,13 +53,6 @@ ion-scroll[scrollX] {
     height: 400px;
     font-weight: bold;
     color: grey;
-}
-
-.post-preview {
-    background-color:white;
-    color: black;
-    padding: 30px;
-    border-radius: 5px;
 }
 
 .textarea textarea {

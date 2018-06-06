@@ -73,11 +73,11 @@
                                             <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>
                                         </ion-col>
                                         <br/>
-                                        <button class="add-post-button" ion-button large full type="submit">Añadir</button>
                                     </ion-row>
-                                </form>
                                 <br/>
-                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div>
+                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div><br/>
+                                <button class="add-post-button" ion-button large full type="submit">Añadir</button>
+                            </form>
                             </div>
                         </div>
                     </ion-col>

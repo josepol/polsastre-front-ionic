@@ -1,0 +1,14 @@
+.text div, .post-preview div {
+    font-family: monospace;
+    font-size: 1.2em;
+    padding: 20px !important;
+    padding-right: 30px !important;
+    background-color: color($colors, dark, base) !important;
+    display: flex;
+    overflow-x: scroll;
+    color: white;
+}
+
+.const {
+    color: red;
+}
