@@ -292,6 +292,8 @@ webpackEmptyAsyncContext.id = 166;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environment__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -304,6 +306,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AdminDataProvider = (function () {
     function AdminDataProvider(http) {
         this.http = http;
@@ -311,11 +314,16 @@ var AdminDataProvider = (function () {
     AdminDataProvider.prototype.addPost = function (post) {
         return this.http.post(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/blogs/add-post", post);
     };
+    AdminDataProvider.prototype.deletePosts = function (posts) {
+        var postIdsArray = __WEBPACK_IMPORTED_MODULE_3_lodash__["map"](posts.filter(function (post) { return post.checked; }), '_id');
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_2__environment__["a" /* ENV */].API_ENDPOINT + "/blogs/delete-post", postIdsArray);
+    };
     AdminDataProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
     ], AdminDataProvider);
     return AdminDataProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=admin-data.provider.js.map
@@ -1272,16 +1280,15 @@ var CategoryComponent = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */])
     ], CategoryComponent.prototype, "categoryChange", void 0);
     CategoryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-category',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/category/category.html"*/'<div class="well">\n    <h4>Categorías</h4>\n    <ul class="nav nav-stacked nav-pills">\n        <li><a href="javascript:;" (click)="filterByCategory(\'\')">Todos</a>\n        <li *ngFor="let category of categories">\n            <a href="javascript:;" (click)="filterByCategory(category)">{{ category.name }}</a>\n        </li>\n    </ul>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/blog/components/category/category.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_blog_data_provider__["a" /* BlogDataProvider */]])
     ], CategoryComponent);
     return CategoryComponent;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=category.js.map
@@ -2241,7 +2248,7 @@ var ProfileUserLeftDataComponent = (function () {
     ], ProfileUserLeftDataComponent.prototype, "profileData", void 0);
     ProfileUserLeftDataComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/'<div class="left-side">\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n        <button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>\n    </h3>\n    <div class="personal-info-data">\n            <ion-item>\n                <ion-label>Nombre</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label>Nombre de usuario</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.username"></ion-input>\n            </ion-item>\n    </div>\n    <ion-grid>\n        <ion-row class="grid-padding">\n            <ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n            </ion-col>\n            <ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/,
+            selector: 'app-profile-user-left-data',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/'<div class="left-side">\n    <h3 class="page-header text-center personal-header-info">Información personal &nbsp;&nbsp;\n        <!--<button clear item-right (click)="openUserDataModal(PERSONAL_INFO)" class="icon-bg"><ion-icon name="create"></ion-icon></button>-->\n    </h3>\n    <div class="personal-info-data">\n            <ion-item>\n                <ion-label>Nombre</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.name"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label>Nombre de usuario</ion-label>\n                <ion-input readonly type="text" [value]="profileData?.username"></ion-input>\n            </ion-item>\n    </div>\n    <ion-grid>\n        <ion-row class="grid-padding">\n            <!--<ion-col col-lg-6 col-12>\n                <button (click)="openUserDataModal(CHANGE_PASSWORD)" class="profile-left-btn" ion-button color="dark">Cambiar contraseña</button>\n            </ion-col>-->\n            <ion-col col-lg-6 offset-lg-3 col-12>\n                <button (click)="openUserDataModal(CANCEL_ACCOUNT)" class="profile-left-btn" ion-button color="danger">Cancelar cuenta</button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</div>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/profile/components/profile-user-left-data/profile-user-left-data.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], ProfileUserLeftDataComponent);
@@ -2545,6 +2552,8 @@ var ENV = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Subscription__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Subscription___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Subscription__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2559,12 +2568,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AdminHomePage = (function () {
     function AdminHomePage(authProvider, blogDataProvider, formBuilder, adminDataProvider) {
         this.authProvider = authProvider;
         this.blogDataProvider = blogDataProvider;
         this.formBuilder = formBuilder;
         this.adminDataProvider = adminDataProvider;
+        this.deleteButtonDisabled = true;
+        this.subscription = new __WEBPACK_IMPORTED_MODULE_5_rxjs_Subscription__["Subscription"]();
     }
     AdminHomePage.prototype.ngOnInit = function () {
         this.addPostFormGroup = this.formBuilder.group({
@@ -2577,12 +2589,12 @@ var AdminHomePage = (function () {
     AdminHomePage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.currentComponent = 'posts';
-        this.blogDataProvider.getPosts().subscribe(function (posts) {
+        this.subscription.add(this.blogDataProvider.getPosts().subscribe(function (posts) {
             _this.posts = posts;
-        });
-        this.blogDataProvider.getCategories().subscribe(function (categories) {
+        }));
+        this.subscription.add(this.blogDataProvider.getCategories().subscribe(function (categories) {
             _this.categories = categories;
-        });
+        }));
     };
     AdminHomePage.prototype.ionViewCanEnter = function () {
         return this.authProvider.refreshAdmin().then();
@@ -2595,17 +2607,35 @@ var AdminHomePage = (function () {
         if (!isValid) {
             return;
         }
-        this.adminDataProvider.addPost(addPotsFormValue).subscribe(function (response) {
+        this.subscription.add(this.adminDataProvider.addPost(addPotsFormValue).subscribe(function (response) {
             _this.ionViewDidLoad();
-        });
+        }));
     };
     AdminHomePage.prototype.deletePosts = function () {
+        var _this = this;
+        this.subscription.add(this.adminDataProvider.deletePosts(this.posts).subscribe(function (response) {
+            _this.ionViewDidLoad();
+        }));
     };
     AdminHomePage.prototype.updatePosts = function () {
     };
+    AdminHomePage.prototype.someCheckboxChanged = function (e, postIndex) {
+        var hasAnyChecked = false;
+        this.posts[postIndex].checked = e.target.checked;
+        this.posts.forEach(function (post) {
+            if (post.checked) {
+                return hasAnyChecked = true;
+            }
+        });
+        this.deleteButtonDisabled = !hasAnyChecked;
+        return hasAnyChecked;
+    };
+    AdminHomePage.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
+    };
     AdminHomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-admin-home',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/'<app-nav></app-nav>\n<ion-content>\n    <app-breadcrumb [title]="\'Admin\'"></app-breadcrumb>\n\n    <div class="container">\n        <div>\n            <ion-grid>\n                <ion-row class="row admin-button-list">\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="changeComponent(\'posts\')" \n                            class="profile-left-btn" ion-button color="info">Posts</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="changeComponent(\'add\')"\n                            class="profile-left-btn" ion-button color="info">Añadir</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="deletePosts()"\n                            class="profile-left-btn" ion-button color="info">Eliminar</button>\n                    </ion-col>\n                    <ion-col col-lg-3 col-12>\n                        <button (click)="updatePosts()"\n                            class="profile-left-btn" ion-button color="info">Modificar</button>\n                    </ion-col>\n                </ion-row>\n                <ion-row>\n                    <ion-col>\n                        <div [ngSwitch]="currentComponent" class="component">\n                            <div *ngSwitchCase="\'posts\'">\n                                <ion-scroll scrollX scrollY class="ion-scroll-table">\n                                    <div class="scroll-item">\n                                        <table class="posts-table">\n                                            <tr class="posts-table-header">\n                                                <td></td>\n                                                <td>TITULO</td>\n                                                <td>SUBTITULO</td>\n                                                <td>CREADO</td>\n                                                <td>MODIFICADO</td>\n                                                <td>CATEGORIA</td>\n                                                <td>AUTOR</td>\n                                                <td>COMENTARIOS</td>\n                                                <td>ID</td>\n                                            </tr>\n                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? \'bg-green\':\'color-grey\'">\n                                                    <td><input type="checkbox" /></td>\n                                                    <td>{{ post.title }}</td>\n                                                    <td>{{ post.subtitle }}</td>\n                                                    <td>{{ post.createdAt }}</td>\n                                                    <td>{{ post.modifiedAt }}</td>\n                                                    <td>{{ post.category }}</td>\n                                                    <td>{{ post.creator }}</td>\n                                                    <td>{{ post.comments }}</td>\n                                                    <td>{{ post._id }}</td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </ion-scroll>\n                            </div>\n                            <div *ngSwitchCase="\'add\'">\n                                <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addPost(addPostFormGroup.value, addPostFormGroup.valid)">\n                                    <ion-row>\n                                        <ion-col col-lg-12>\n                                            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Título"></ion-input>\n                                            <br/>\n                                            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>\n                                            <br/>\n                                            <ion-item no-lines style="height: 30px"><ion-select formControlName="category" class="select-category">\n                                                <ion-option value="">Categorias</ion-option>\n                                                <ion-option *ngFor="let category of categories" value="{{category.name}}">{{ category.name }}</ion-option>\n                                            </ion-select></ion-item>\n                                            <br/>\n                                            <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>\n                                        </ion-col>\n                                        <br/>\n                                    </ion-row>\n                                <br/>\n                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div><br/>\n                                <button class="add-post-button" ion-button large full type="submit">Añadir</button>\n                            </form>\n                            </div>\n                        </div>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/,
+            selector: 'app-admin-home',template:/*ion-inline-start:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/'<app-nav></app-nav>\n<ion-content>\n    <app-breadcrumb [title]="\'Admin\'"></app-breadcrumb>\n\n    <div class="container">\n        <div>\n            <ion-grid>\n                <ion-row class="row admin-button-list">\n                    <ion-col col-lg-4 col-12>\n                        <button (click)="changeComponent(\'posts\')" \n                            class="profile-left-btn" ion-button color="info">Posts</button>\n                    </ion-col>\n                    <ion-col col-lg-4 col-12>\n                        <button (click)="changeComponent(\'add\')"\n                            class="profile-left-btn" ion-button color="info">Añadir</button>\n                    </ion-col>\n                    <ion-col col-lg-4 col-12>\n                        <button (click)="deletePosts()" [disabled]="deleteButtonDisabled"\n                            class="profile-left-btn" ion-button color="info">Eliminar</button>\n                    </ion-col>\n                    <!--<ion-col col-lg-3 col-12>\n                        <button (click)="updatePosts()"\n                            class="profile-left-btn" ion-button color="info">Modificar</button>\n                    </ion-col>-->\n                </ion-row>\n                <ion-row>\n                    <ion-col>\n                        <div [ngSwitch]="currentComponent" class="component">\n                            <div *ngSwitchCase="\'posts\'">\n                                <ion-scroll scrollX scrollY class="ion-scroll-table">\n                                    <div class="scroll-item">\n                                        <table class="posts-table">\n                                            <tr class="posts-table-header">\n                                                <td></td>\n                                                <td>TITULO</td>\n                                                <td>SUBTITULO</td>\n                                                <td>CREADO</td>\n                                                <td>MODIFICADO</td>\n                                                <td>CATEGORIA</td>\n                                                <td>AUTOR</td>\n                                                <td>COMENTARIOS</td>\n                                                <td>ID</td>\n                                            </tr>\n                                            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? \'bg-green\':\'color-grey\'">\n                                                    <td><input type="checkbox" (change)="someCheckboxChanged($event, i)" /></td>\n                                                    <td>{{ post.title }}</td>\n                                                    <td>{{ post.subtitle }}</td>\n                                                    <td>{{ post.createdAt }}</td>\n                                                    <td>{{ post.modifiedAt }}</td>\n                                                    <td>{{ post.category }}</td>\n                                                    <td>{{ post.creator }}</td>\n                                                    <td>{{ post.comments }}</td>\n                                                    <td>{{ post._id }}</td>\n                                            </tr>\n                                        </table>\n                                    </div>\n                                </ion-scroll>\n                            </div>\n                            <div *ngSwitchCase="\'add\'">\n                                <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addPost(addPostFormGroup.value, addPostFormGroup.valid)">\n                                    <ion-row>\n                                        <ion-col col-lg-12>\n                                            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Título"></ion-input>\n                                            <br/>\n                                            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>\n                                            <br/>\n                                            <ion-item no-lines style="height: 30px"><ion-select formControlName="category" class="select-category">\n                                                <ion-option value="">Categorias</ion-option>\n                                                <ion-option *ngFor="let category of categories" value="{{category.name}}">{{ category.name }}</ion-option>\n                                            </ion-select></ion-item>\n                                            <br/>\n                                            <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>\n                                        </ion-col>\n                                        <br/>\n                                    </ion-row>\n                                <br/>\n                                <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div><br/>\n                                <button class="add-post-button" ion-button large full type="submit">Añadir</button>\n                            </form>\n                            </div>\n                        </div>\n                    </ion-col>\n                </ion-row>\n            </ion-grid>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/josepolsastre/Documents/proyectos/polsastre/polsastre-front-ionic/src/pages/admin/containers/home/admin-home.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_providers_auth_provider__["a" /* default */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__["a" /* BlogDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__blog_providers_blog_data_provider__["a" /* BlogDataProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__["a" /* AdminDataProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_admin_data_provider__["a" /* AdminDataProvider */]) === "function" && _d || Object])
     ], AdminHomePage);

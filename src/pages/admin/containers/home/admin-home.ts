@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import * as jwtDecode from 'jwt-decode';
 import AuthProvider from '../../../../shared/providers/auth.provider';
@@ -7,18 +7,22 @@ import { PostModel } from '../../../blog/model/post.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminDataProvider } from '../../providers/admin-data.provider';
 import { CategoryModel } from '../../../blog/model/category.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @IonicPage()
 @Component({
   selector: 'app-admin-home',
   templateUrl: 'admin-home.html',
 })
-export class AdminHomePage implements OnInit {
+export class AdminHomePage implements OnInit, OnDestroy {
 
   public addPostFormGroup: FormGroup;
   public currentComponent: string;
   public posts: PostModel[];
   public categories: Array<CategoryModel>;
+  public deleteButtonDisabled: boolean = true;
+
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private authProvider: AuthProvider,
@@ -39,12 +43,12 @@ export class AdminHomePage implements OnInit {
 
   ionViewDidLoad() {
     this.currentComponent = 'posts';
-    this.blogDataProvider.getPosts().subscribe((posts: PostModel[]) => {
+    this.subscription.add(this.blogDataProvider.getPosts().subscribe((posts: PostModel[]) => {
       this.posts = posts;
-    });
-    this.blogDataProvider.getCategories().subscribe(categories => {
+    }));
+    this.subscription.add(this.blogDataProvider.getCategories().subscribe(categories => {
       this.categories = categories;
-    });
+    }));
   }
 
   ionViewCanEnter() {
@@ -59,17 +63,35 @@ export class AdminHomePage implements OnInit {
     if (!isValid) {
       return;
     }
-    this.adminDataProvider.addPost(addPotsFormValue).subscribe(response => {
+    this.subscription.add(this.adminDataProvider.addPost(addPotsFormValue).subscribe(response => {
       this.ionViewDidLoad();
-    });
+    }));
   }
 
   deletePosts() {
-
+    this.subscription.add(this.adminDataProvider.deletePosts(this.posts).subscribe(response => {
+      this.ionViewDidLoad();
+    }));
   }
 
   updatePosts() {
 
+  }
+
+  public someCheckboxChanged(e, postIndex) {
+    let hasAnyChecked = false;
+    this.posts[postIndex].checked = e.target.checked;
+    this.posts.forEach(post => {
+      if (post.checked) {
+        return hasAnyChecked = true;
+      }
+    });
+    this.deleteButtonDisabled = !hasAnyChecked;
+    return hasAnyChecked;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

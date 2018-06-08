@@ -10,4 +10,5 @@ export interface PostModel {
     creatorName: string;
     category: string;
     comments: number;
+    checked: boolean;
 }

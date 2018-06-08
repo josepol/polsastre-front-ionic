@@ -6,22 +6,22 @@
         <div>
             <ion-grid>
                 <ion-row class="row admin-button-list">
-                    <ion-col col-lg-3 col-12>
+                    <ion-col col-lg-4 col-12>
                         <button (click)="changeComponent('posts')" 
                             class="profile-left-btn" ion-button color="info">Posts</button>
                     </ion-col>
-                    <ion-col col-lg-3 col-12>
+                    <ion-col col-lg-4 col-12>
                         <button (click)="changeComponent('add')"
                             class="profile-left-btn" ion-button color="info">Añadir</button>
                     </ion-col>
-                    <ion-col col-lg-3 col-12>
-                        <button (click)="deletePosts()"
+                    <ion-col col-lg-4 col-12>
+                        <button (click)="deletePosts()" [disabled]="deleteButtonDisabled"
                             class="profile-left-btn" ion-button color="info">Eliminar</button>
                     </ion-col>
-                    <ion-col col-lg-3 col-12>
+                    <!--<ion-col col-lg-3 col-12>
                         <button (click)="updatePosts()"
                             class="profile-left-btn" ion-button color="info">Modificar</button>
-                    </ion-col>
+                    </ion-col>-->
                 </ion-row>
                 <ion-row>
                     <ion-col>
@@ -42,7 +42,7 @@
                                                 <td>ID</td>
                                             </tr>
                                             <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? 'bg-green':'color-grey'">
-                                                    <td><input type="checkbox" /></td>
+                                                    <td><input type="checkbox" (change)="someCheckboxChanged($event, i)" /></td>
                                                     <td>{{ post.title }}</td>
                                                     <td>{{ post.subtitle }}</td>
                                                     <td>{{ post.createdAt }}</td>
