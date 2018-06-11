@@ -9,29 +9,17 @@ import { CategoryModel } from "../model/category.model";
 @Injectable()
 export class BlogDataProvider {
 
-    private posts: BehaviorSubject<PostModel[]> = new BehaviorSubject<PostModel[]>(undefined);
-
     constructor(
         private http: HttpClient
     ) 
     {}
 
     getBlogData(id): any | PostModel {
-        if (this.posts.getValue()) {
-            return this.posts.getValue().filter(post => post._id === id)[0];
-        }
         return this.getPosts().map(posts => posts.filter(post => post._id === id)[0]);
     }
 
     getPosts(): Observable<any> {
-        if (this.posts.getValue()) {
-            return this.posts;
-        }
-        return this.http.get(`${ENV.API_ENDPOINT}/blogs/all`)
-        .map((posts: PostModel[]) => {
-            this.posts.next(posts);
-            return posts;
-        });
+        return this.http.get(`${ENV.API_ENDPOINT}/blogs/all`);
     }
 
     getCategories(): Observable<any | CategoryModel[]> {

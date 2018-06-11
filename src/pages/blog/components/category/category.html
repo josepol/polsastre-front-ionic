@@ -3,7 +3,7 @@
     <ul class="nav nav-stacked nav-pills">
         <li><a href="javascript:;" (click)="filterByCategory('')">Todos</a>
         <li *ngFor="let category of categories">
-            <a href="javascript:;" (click)="filterByCategory(category)">{{ category.name }}</a>
+            <a class="capitalize" href="javascript:;" (click)="filterByCategory(category)">{{ category.name }}</a>
         </li>
     </ul>
 </div>

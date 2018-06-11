@@ -23,7 +23,7 @@ import { RegisterModule } from '../pages/register/register.module';
     IonicModule.forRoot(MyApp, {}, {links: routes}),
     BrowserModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule.forRoot(),
     HomeModule,
     PortfolioModule,
     ContactModule,

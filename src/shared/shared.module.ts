@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { NavComponent } from './components/layout/nav/nav';
 import { FooterComponent } from './components/layout/footer/footer';
@@ -33,4 +33,13 @@ import { CodepenComponent } from './components/codepen/codepen';
 		ConfirmationModalComponent
 	]
 })
-export class SharedModule {}
+export class SharedModule {
+	static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: SharedModule,
+            providers: [
+                NavComponent
+            ]
+        };
+    }
+}
