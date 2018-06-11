@@ -8,6 +8,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminDataProvider } from '../../providers/admin-data.provider';
 import { CategoryModel } from '../../../blog/model/category.model';
 import { Subscription } from 'rxjs/Subscription';
+import { BlogDetailPage } from '../../../blog/containers/blog-detail/blog-detail';
+import { NavigationProvider } from '../../../../shared/providers/navigation.provider';
+import CacheProvider from '../../../../shared/providers/cache.provider';
 
 @IonicPage()
 @Component({
@@ -21,6 +24,7 @@ export class AdminHomePage implements OnInit, OnDestroy {
   public posts: PostModel[];
   public categories: Array<CategoryModel>;
   public deleteButtonDisabled: boolean = true;
+  public isModifyingPost: string = undefined;
 
   private subscription: Subscription = new Subscription();
 
@@ -28,7 +32,9 @@ export class AdminHomePage implements OnInit, OnDestroy {
     private authProvider: AuthProvider,
     private blogDataProvider: BlogDataProvider,
     private formBuilder: FormBuilder,
-    private adminDataProvider: AdminDataProvider
+    private adminDataProvider: AdminDataProvider,
+    private navigationProvider: NavigationProvider,
+    private cacheProvier: CacheProvider
   ) {
   }
 
@@ -56,13 +62,22 @@ export class AdminHomePage implements OnInit, OnDestroy {
   }
 
   changeComponent(newComponent) {
+    this.isModifyingPost = undefined;
     this.currentComponent = newComponent;
   }
 
-  addPost(addPotsFormValue, isValid) {
+  addOrUpdatePost(formValue, isValid) {
     if (!isValid) {
       return;
     }
+    if (this.isModifyingPost) {
+      this.modifyPost(formValue, isValid);
+    } else {
+      this.addPost(formValue, isValid);
+    }
+  }
+
+  addPost(addPotsFormValue, isValid) {
     this.subscription.add(this.adminDataProvider.addPost(addPotsFormValue).subscribe(response => {
       this.ionViewDidLoad();
     }));
@@ -74,8 +89,27 @@ export class AdminHomePage implements OnInit, OnDestroy {
     }));
   }
 
-  updatePosts() {
+  seePost(post) {
+    this.navigationProvider.getNaviController().push(BlogDetailPage, {
+      id: post._id
+    });
+  }
 
+  modifyPost(modifyPostFormValue, isValid) {
+    this.subscription.add(this.adminDataProvider.modifyPost(this.isModifyingPost, modifyPostFormValue).subscribe(response => {
+      this.ionViewDidLoad();
+    }));
+  }
+
+  navToModify(post) {
+    this.isModifyingPost = post._id;
+    this.currentComponent = 'add';
+    this.addPostFormGroup.setValue({
+      title: post.title,
+      subtitle: post.subtitle,
+      text: post.text,
+      category: post.category
+    });
   }
 
   public someCheckboxChanged(e, postIndex) {

@@ -15,7 +15,7 @@
     <a href="" class="img-post">
         <img src="" alt="" class="img-responsive">
     </a>
-    <p style="word-wrap: break-word;" [innerHTML]="post.text.substring(0, 100) + ' ...'"></p><br/>
+    <p style="word-wrap: break-word; text-align: center" [innerHTML]="post.text.substring(0, 150) + ' ...'"></p><br/>
     <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>
 </div>
 <div class="text-center">

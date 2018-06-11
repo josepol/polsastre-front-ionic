@@ -51,13 +51,15 @@
                                                     <td>{{ post.creator }}</td>
                                                     <td>{{ post.comments }}</td>
                                                     <td>{{ post._id }}</td>
+                                                    <td><button class="modify-button" ion-button full type="button" (click)="seePost(post)">See post!</button></td>
+                                                    <td><button class="modify-button" ion-button full type="button" (click)="navToModify(post)">Modify!</button></td>
                                             </tr>
                                         </table>
                                     </div>
                                 </ion-scroll>
                             </div>
                             <div *ngSwitchCase="'add'">
-                                <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addPost(addPostFormGroup.value, addPostFormGroup.valid)">
+                                <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addOrUpdatePost(addPostFormGroup.value, addPostFormGroup.valid)">
                                     <ion-row>
                                         <ion-col col-lg-12>
                                             <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Título"></ion-input>
@@ -75,7 +77,7 @@
                                     </ion-row>
                                 <br/>
                                 <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div><br/>
-                                <button class="add-post-button" ion-button large full type="submit">Añadir</button>
+                                <button class="add-post-button" ion-button large full type="submit">{{ isModifyingPost ? 'Modificar' : 'Añadir' }}</button>
                             </form>
                             </div>
                         </div>

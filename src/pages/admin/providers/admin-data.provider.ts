@@ -19,4 +19,8 @@ export class AdminDataProvider {
         return this.http.post(`${ENV.API_ENDPOINT}/blogs/delete-post`, postIdsArray);
     }
 
+    public modifyPost(id, post) {
+        return this.http.post(`${ENV.API_ENDPOINT}/blogs/modify-post`, {id, post});
+    }
+
 }

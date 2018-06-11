@@ -8,6 +8,7 @@ import AuthProvider from '../../../providers/auth.provider';
 import { ProfilePage } from '../../../../pages/profile/profile';
 import { ModalController } from 'ionic-angular';
 import { ConfirmationModalComponent } from '../../confirmation-modal/confirmation-modal';
+import MenuComponent from '../menu/menu';
 
 @Component({
   selector: 'app-nav',
@@ -51,6 +52,14 @@ export class NavComponent implements OnInit {
     this.navigationProvider.getNaviController().push(ProfilePage);
   }
 
+  public openMenu() {
+    const menuModalComponent = this.modalController.create(MenuComponent);
+    menuModalComponent.onDidDismiss(data => {
+
+    });
+    menuModalComponent.present();
+  }
+
   public logout() {
     const confirmationModalComponent = this.modalController.create(ConfirmationModalComponent);
     confirmationModalComponent.onDidDismiss(data => {
@@ -59,10 +68,6 @@ export class NavComponent implements OnInit {
       }
     });
     confirmationModalComponent.present();
-  }
-
-  public translate(language) {
-    
   }
   
 }

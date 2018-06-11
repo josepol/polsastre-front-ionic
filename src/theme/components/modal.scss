@@ -50,6 +50,13 @@
         font-weight: none !important;
         color: white;
     }
+
+    .button-menu {
+        @include confirm-button;
+        width: 100%;
+        background-color: color($colors, green-main, base);
+        margin: 3px 0px;
+    }
     
     .confirm-button-accept {
         @include confirm-button;

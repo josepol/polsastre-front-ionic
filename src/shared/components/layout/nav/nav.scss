@@ -1,5 +1,10 @@
 .nav-button-background-color {
-    border-color: #1ABC9C !important;
+    background-color: color($colors, green-main, base);
+    color: white;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-right: 20px;
+
 }
 
 .nav-button {
@@ -10,8 +15,23 @@
     margin: 0 !important;
 }
 
+.navbar-header {
+    text-align: right;
+}
+
+navbar-toggle:hover nav-button-background-color:hover {
+    text-decoration: none;
+    background-color: transparent !important;
+}
+
 @media (max-width: 600px) {
     .navbar-nav {
         margin: 0 !important;
+    }
+}
+
+@media (min-width: 767px) {
+    .nav-button-background-color {
+        display: none;
     }
 }
