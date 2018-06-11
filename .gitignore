@@ -30,6 +30,7 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 polsastre.apk
+polsastre.keystore
 KEY_NAME_TO_CHANGE.keystore
 
 .DS_Store
