@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, ToastController } from 'ionic-angular';
 import { NavigationProvider } from '../../shared/providers/navigation.provider';
 import { AdminHomePage } from '../admin/containers/home/admin-home';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -24,13 +24,13 @@ export class RegisterPage implements OnInit {
   constructor(
     private navigationProvider: NavigationProvider,
     private formBuilder: FormBuilder,
-    private authProvider: AuthProvider
+    private authProvider: AuthProvider,
+    private toastController: ToastController
   ) {
   }
 
   ionViewCanEnter() {
     return this.authProvider.refresh().then(token => {
-      console.log(token);
       if (token) {
         this.navigateBlogPage();
         return false;
@@ -62,7 +62,11 @@ export class RegisterPage implements OnInit {
     }
 
     this.authProvider.register(userRegister).subscribe(token => {
-      this.navigateAdminHome();
+      const toast = this.toastController.create({
+        message: 'You have been successfully registered',
+        duration: 3000
+      });
+      toast.present();
     }, error => {
       if (error.error && error.error.code === 11000) {
         this.registerFailed = '11000';
@@ -75,7 +79,7 @@ export class RegisterPage implements OnInit {
 
   public goToLogin($event) {
     $event.preventDefault();
-    this.navigationProvider.getNaviController().push(LoginPage);
+    this.navigationProvider.getNaviController().push(LoginPage, {}, {animate: false});
   }
 
   private setPasswordListener() {
@@ -92,15 +96,19 @@ export class RegisterPage implements OnInit {
   }
 
   private navigateAdminHome() {
-    this.navigationProvider.getNaviController().push(AdminHomePage);
+    this.navigationProvider.getNaviController().push(AdminHomePage, {}, {animate: false});
   }
 
   private navigateBlogPage() {
-    this.navigationProvider.getNaviController().push(BlogPage);
+    this.navigationProvider.getNaviController().push(BlogPage, {}, {animate: false});
   }
 
   public navigateToHome() {
-    this.navigationProvider.getNaviController().push(HomePage);
+    this.navigationProvider.getNaviController().push(HomePage, {}, {animate: false});
+  }
+
+  public navigateToLogin() {
+    this.navigationProvider.getNaviController().push(LoginPage, {}, {animate: false});
   }
 
 }

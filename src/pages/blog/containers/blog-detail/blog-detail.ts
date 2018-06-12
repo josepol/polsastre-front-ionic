@@ -41,7 +41,7 @@ export class BlogDetailPage {
   }
 
   redirectToBlogPage() {
-    this.navigationProvider.getNaviController().push(BlogPage);
+    this.navigationProvider.getNaviController().push(BlogPage, {}, {animate: false});
   }
 
   public setPicture() {

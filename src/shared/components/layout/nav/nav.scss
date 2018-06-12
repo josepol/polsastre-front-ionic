@@ -1,37 +1,20 @@
-.nav-button-background-color {
-    background-color: color($colors, green-main, base);
-    color: white;
-    font-size: 30px;
-    padding-top: 10px;
-    padding-right: 20px;
-
-}
-
-.nav-button {
-    border-color: white !important;
-}
-
-.navbar-nav {
-    margin: 0 !important;
-}
-
-.navbar-header {
-    text-align: right;
-}
-
-navbar-toggle:hover nav-button-background-color:hover {
-    text-decoration: none;
-    background-color: transparent !important;
-}
-
-@media (max-width: 600px) {
-    .navbar-nav {
-        margin: 0 !important;
+app-nav {
+    .navbar-header {
+        text-align: right;
     }
-}
-
-@media (min-width: 767px) {
+    
     .nav-button-background-color {
-        display: none;
+        background-color: color($colors, green-main, base);
+        color: white;
+        font-size: 30px;
+        padding-top: 10px;
+        padding-right: 20px;
+    
+    }
+    
+    @media (min-width: 767px) {
+        .nav-button-background-color {
+            display: none;
+        }
     }
 }

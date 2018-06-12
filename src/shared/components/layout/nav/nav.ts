@@ -16,9 +16,6 @@ import MenuComponent from '../menu/menu';
 })
 export class NavComponent implements OnInit {
 
-  public isAuthenticated: boolean = false;
-  public isAdmin: boolean = false;
-
   constructor(
     private navigationProvider: NavigationProvider,
     private authProvider: AuthProvider,
@@ -27,29 +24,10 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authProvider.getIsAuthenticated().subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
-    this.authProvider.refreshAdmin().then(() => this.isAdmin = true)
-    .catch(() => this.isAdmin = false);
   }
 
   public navigateHome() {
-    this.navigationProvider.getNaviController().push(HomePage);
-  }
-
-  public navigateBlog() {
-    this.navigationProvider.getNaviController().push(BlogPage);
-  }
-
-  public navigateLogin() {
-    this.navigationProvider.getNaviController().push(LoginPage);
-  }
-
-  public navigateAdminHome() {
-    this.navigationProvider.getNaviController().push(AdminHomePage);
-  }
-
-  public navigateProfile() {
-    this.navigationProvider.getNaviController().push(ProfilePage);
+    this.navigationProvider.getNaviController().push(HomePage, {}, {animate: false});
   }
 
   public openMenu() {
@@ -58,16 +36,6 @@ export class NavComponent implements OnInit {
 
     });
     menuModalComponent.present();
-  }
-
-  public logout() {
-    const confirmationModalComponent = this.modalController.create(ConfirmationModalComponent);
-    confirmationModalComponent.onDidDismiss(data => {
-      if(data.status === 'OK') {
-        this.authProvider.logout();
-      }
-    });
-    confirmationModalComponent.present();
   }
   
 }

@@ -32,7 +32,7 @@ export default class HttpInterceptorProvider implements HttpInterceptor {
         return next.handle(req.clone(options)).catch((error: any, caught: any) => {
             switch (error.status) {
                 case 401:
-                this.navigationProvider.getNaviController().push(LoginPage);
+                this.navigationProvider.getNaviController().push(LoginPage, {}, {animate: false});
                 return Observable.throw('');
                 default:
                 break;

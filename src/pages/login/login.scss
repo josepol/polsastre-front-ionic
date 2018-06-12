@@ -1,6 +1,6 @@
 .bg-login{
-    /*background-image: url('../../assets/imgs/laptop_2.png');*/
-    background-color: color($colors, green-main, base);
+    background-image: url('../../assets/imgs/laptop_2.png');
+    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -43,10 +43,11 @@
 }
 
 .login-form {
-    background-color: color($colors, dark-light-op, base);
-    padding: 15px;
+    background-color: color($colors, green-main, base);
+    padding: 25px;
     border-radius: 5px;
     border: 2px;
+    box-shadow: 1px 3px 3px rgba(51, 51, 51, .35);
     // border-color: color($colors, green-main-op, base);
 }
 
@@ -56,14 +57,24 @@
 }
 
 .polsastre-ico {
-    opacity: 0.8;
-    border-radius: 10px;
-    box-shadow: 2px 5px 20px color($colors, dark-light, base);
+    opacity: 1;
+    border-radius: 0px;
+    // box-shadow: 2px 5px 20px color($colors, dark-light, base);
     cursor: pointer;
 }
 
 @media(max-width: 768px) {
     .polsastre-ico {
         width: 100%;
+    }
+    .bg-login {
+        background-color: color($colors, green-main, base);
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .polsastre-ico {
+        width: 70%;
+        margin-left: 15%;
     }
 }

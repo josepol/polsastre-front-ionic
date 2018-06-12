@@ -34,27 +34,27 @@ export default class MenuComponent {
   }
 
   public navigateHome() {
-    this.navigationProvider.getNaviController().push(HomePage);
+    this.navigationProvider.getNaviController().push(HomePage, {}, {animate: false});
     this.viewController.dismiss();
   }
 
   public navigateBlog() {
-    this.navigationProvider.getNaviController().push(BlogPage);
+    this.navigationProvider.getNaviController().push(BlogPage, {}, {animate: false});
     this.viewController.dismiss();
   }
 
   public navigateLogin() {
-    this.navigationProvider.getNaviController().push(LoginPage);
+    this.navigationProvider.getNaviController().push(LoginPage, {}, {animate: false});
     this.viewController.dismiss();
   }
 
   public navigateAdminHome() {
-    this.navigationProvider.getNaviController().push(AdminHomePage);
+    this.navigationProvider.getNaviController().push(AdminHomePage, {}, {animate: false});
     this.viewController.dismiss();
   }
 
   public navigateProfile() {
-    this.navigationProvider.getNaviController().push(ProfilePage);
+    this.navigationProvider.getNaviController().push(ProfilePage, {}, {animate: false});
     this.viewController.dismiss();
   }
 

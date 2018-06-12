@@ -4,22 +4,5 @@
         <button type="button" (click)="openMenu()" class="nav-button-background-color "><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
         <a href="javascript:;" class="navbar-brand" (click)="navigateHome()">Pol Sastre</a>
       </div>
-  
-      <div class="collapse navbar-collapse navbar-ex1-collapse nav-button">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateHome()">Home</a></li>
-          <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateBlog()">Blog</a></li>
-          <li *ngIf="!isAuthenticated"><a href="javascript:;" (click)="navigateLogin()">Login</a></li>
-          <li *ngIf="isAuthenticated && isAdmin"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateAdminHome()">Admin</a></li>
-          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="navigateProfile()">Perfil</a></li>
-          <!--<li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="img-country-flat" src="assets/imgs/es.png" /></a>
-              <ul class="dropdown-menu">
-                <li><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="translate('english')"><img class="img-country-flat img-responsive img-flat-second" src="assets/imgs/gb.png" /></a></li>
-              </ul>
-            </li>-->
-          <li *ngIf="isAuthenticated"><a data-toggle="collapse" data-target=".navbar-collapse" href="javascript:;" (click)="logout()">Logout</a></li>
-        </ul>
-      </div>
     </div>
   </nav>

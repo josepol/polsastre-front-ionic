@@ -61,15 +61,15 @@ export class LoginPage implements OnInit {
 
   public goToRegister($event) {
     $event.preventDefault();
-    this.navigationProvider.getNaviController().push(RegisterPage);
+    this.navigationProvider.getNaviController().push(RegisterPage, {}, {animate: false});
   }
 
   private navigateBlogPage() {
-    this.navigationProvider.getNaviController().push(BlogPage);
+    this.navigationProvider.getNaviController().push(BlogPage, {}, {animate: false});
   }
 
   public navigateToHome() {
-    this.navigationProvider.getNaviController().push(HomePage);
+    this.navigationProvider.getNaviController().push(HomePage, {}, {animate: false});
   }
 
 }

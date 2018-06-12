@@ -50,7 +50,7 @@ export class PostListComponent implements OnInit, OnChanges {
   openPost(post) {
     this.navigationProvider.getNaviController().push(BlogDetailPage, {
       id: post._id
-    });
+    }, { animate: false });
   }
 
   prevPage() {

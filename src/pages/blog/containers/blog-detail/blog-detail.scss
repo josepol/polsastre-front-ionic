@@ -1,3 +1,19 @@
 .post-subtitle p {
     line-height: 30px;
 }
+
+.detail-text {
+    p {
+        font-size: 1.3em;
+        text-align: justify;
+        color: color($colors, dark-medium, base);
+    }
+
+    small {
+        color: color($colors, dark-light, base);
+    }
+
+    div {
+        font-size: 1em;
+    }
+}

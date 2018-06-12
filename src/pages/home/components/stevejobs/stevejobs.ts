@@ -24,15 +24,15 @@ export class SteveJobsComponent implements OnInit {
   }
 
   public navigateLogin() {
-    this.navigationProvider.getNaviController().push(LoginPage);
+    this.navigationProvider.getNaviController().push(LoginPage, {}, {animate: false});
   }
 
   public navigateAdminHome() {
-    this.navigationProvider.getNaviController().push(AdminHomePage);
+    this.navigationProvider.getNaviController().push(AdminHomePage, {}, {animate: false});
   }
 
   public navigateToProfile() {
-    this.navigationProvider.getNaviController().push(ProfilePage);
+    this.navigationProvider.getNaviController().push(ProfilePage, {}, {animate: false});
   }
 
 }

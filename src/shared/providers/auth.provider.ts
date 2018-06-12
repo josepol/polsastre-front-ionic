@@ -6,6 +6,7 @@ import { LoginPage } from "../../pages/login/login";
 import { ENV } from '@environment';
 import 'rxjs/add/operator/map';
 import * as jwtDecode from 'jwt-decode';
+import { BlogPage } from "../../pages/blog/containers/blog/blog";
 
 @Injectable()
 export default class AuthProvider {
@@ -30,7 +31,7 @@ export default class AuthProvider {
 
     register(userRegister) {
         return this.http.post(`${ENV.API_ENDPOINT}/users/register`, userRegister)
-        .map((response: any) => this.saveToken(response));
+        .map((response: any) => this.saveToken(response, true));
     }
 
     refresh(): any {
@@ -60,12 +61,15 @@ export default class AuthProvider {
     logout() {
         localStorage.clear();
         this.isAuthenticated.next(false);
-        this.navigationProvider.getNaviController().push(LoginPage);
+        this.navigationProvider.getNaviController().push(LoginPage, {}, {animate: false});
     }
 
-    private saveToken(response) {
+    private saveToken(response, isFromRegister = false) {
         this.isAuthenticated.next(true);
         localStorage.setItem('token', response.token);
+        if (isFromRegister) {
+            this.navigationProvider.getNaviController().push(BlogPage, {}, {animate: false});
+        }
         return response.token ? true : false;
     }
 

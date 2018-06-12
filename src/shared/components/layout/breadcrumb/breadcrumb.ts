@@ -16,7 +16,7 @@ export class BreadcrumbComponent {
   }
 
   public navigateHome() {
-    this.app.getRootNav().push(HomePage);
+    this.app.getRootNav().push(HomePage, {}, {animate: false});
   }
 
 }

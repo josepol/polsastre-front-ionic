@@ -92,7 +92,7 @@ export class AdminHomePage implements OnInit, OnDestroy {
   seePost(post) {
     this.navigationProvider.getNaviController().push(BlogDetailPage, {
       id: post._id
-    });
+    }, { animate: false });
   }
 
   modifyPost(modifyPostFormValue, isValid) {
