@@ -4,10 +4,8 @@
 
 .detail-text {
 
-    line-height: 1.9;
-
     p {
-        font-size: 1.3em;
+        font-size: 1.1em;
         text-align: justify;
         color: color($colors, dark-medium, base);
         line-height: 1.4;
@@ -17,7 +15,14 @@
         color: color($colors, dark-light, base);
     }
 
+    pre {
+        white-space: pre;
+        overflow: scroll;
+    }
+
     div {
         font-size: 1em;
+        overflow: scroll;
+        white-space: pre;
     }
 }
