@@ -1,4 +1,24 @@
 app-nav {
+
+    .navbar {
+        height: 55px;
+    }
+
+    .menu-screen {
+        float: right;
+        padding-top: 17px;
+    }
+
+    a {
+        color: white;
+        padding: 0 20px;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
     .navbar-header {
         text-align: right;
     }
@@ -14,6 +34,12 @@ app-nav {
     
     @media (min-width: 767px) {
         .nav-button-background-color {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .menu-screen {
             display: none;
         }
     }

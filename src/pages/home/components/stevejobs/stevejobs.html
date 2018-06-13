@@ -4,12 +4,12 @@
 
         <div class="row">
             <div class="col-md-9 col-sm-8">
-                <h2>“Si tú no trabajas por tus sueños, alguien te contratará para que trabajes por los suyos”</h2>
-                <h4 class="steve-jobs-name">Steve Jobs</h4>
+                <h2>“If you don't build your dream, someone will hire you to help build theirs.”</h2>
+                <h4 class="steve-jobs-name">Tony Gaskins</h4>
             </div>
             <div class="col-md-3 col-sm-4">
-                <a *ngIf="!isAuthenticated" href="javascript:;" (click)="navigateLogin()" class="btn btn-danger btn-lg">Iniciar sesión</a>
-                <a *ngIf="isAuthenticated" href="javascript:;" (click)="navigateToProfile()" class="btn btn-danger btn-lg">Perfil</a>
+                <a *ngIf="!isAuthenticated" href="javascript:;" (click)="navigateLogin()" class="btn btn-danger btn-lg">Log in</a>
+                <a *ngIf="isAuthenticated" href="javascript:;" (click)="navigateToProfile()" class="btn btn-danger btn-lg">Profile</a>
             </div>
         </div>
 

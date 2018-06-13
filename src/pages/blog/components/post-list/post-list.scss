@@ -1,9 +1,26 @@
-page-portfolio {
-    .text {
-        word-wrap: break-word;
-        text-align: justify;
+.text {
+    word-wrap: break-word;
+    text-align: justify;
+    font-size: 1.3em;
+    color: color($colors, dark-medium, base);
+}
+
+.post-title {
+    padding-right: 10px;
+}
+
+.text-blog {
+    padding-right: 30px;
+}
+
+@media (min-width: 676px) {
+    .text-home {
+        padding: 0 120px;
     }
-    .post {
-        padding-right: 30px;
+}
+
+@media (max-width: 676px) {
+    .text-blog {
+        padding-right: 0px !important;
     }
 }

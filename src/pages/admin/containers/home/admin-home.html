@@ -12,11 +12,11 @@
                     </ion-col>
                     <ion-col col-lg-4 col-12>
                         <button (click)="changeComponent('add')"
-                            class="profile-left-btn" ion-button color="info">Añadir</button>
+                            class="profile-left-btn" ion-button color="info">Add</button>
                     </ion-col>
                     <ion-col col-lg-4 col-12>
                         <button (click)="deletePosts()" [disabled]="deleteButtonDisabled"
-                            class="profile-left-btn" ion-button color="info">Eliminar</button>
+                            class="profile-left-btn" ion-button color="info">Delete</button>
                     </ion-col>
                     <!--<ion-col col-lg-3 col-12>
                         <button (click)="updatePosts()"
@@ -32,13 +32,13 @@
                                         <table class="posts-table">
                                             <tr class="posts-table-header">
                                                 <td></td>
-                                                <td>TITULO</td>
-                                                <td>SUBTITULO</td>
-                                                <td>CREADO</td>
-                                                <td>MODIFICADO</td>
-                                                <td>CATEGORIA</td>
-                                                <td>AUTOR</td>
-                                                <td>COMENTARIOS</td>
+                                                <td>TITLE</td>
+                                                <td>SUBTITLE</td>
+                                                <td>CREATED AT</td>
+                                                <td>MODIFIED AT</td>
+                                                <td>CATEGORY</td>
+                                                <td>AUTHOR</td>
+                                                <td>COMMENTS</td>
                                                 <td>ID</td>
                                             </tr>
                                             <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? 'bg-green':'color-grey'">
@@ -62,22 +62,22 @@
                                 <form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addOrUpdatePost(addPostFormGroup.value, addPostFormGroup.valid)">
                                     <ion-row>
                                         <ion-col col-lg-12>
-                                            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Título"></ion-input>
+                                            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Title"></ion-input>
                                             <br/>
-                                            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtítulo"></ion-input>
+                                            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtitle"></ion-input>
                                             <br/>
                                             <ion-item no-lines style="height: 30px"><ion-select formControlName="category" class="select-category">
-                                                <ion-option value="">Categorias</ion-option>
+                                                <ion-option value="">Categories</ion-option>
                                                 <ion-option *ngFor="let category of categories" value="{{category.name}}">{{ category.name }}</ion-option>
                                             </ion-select></ion-item>
                                             <br/>
-                                            <ion-textarea class="textarea" formControlName="text" placeholder="Texto HTML del post"></ion-textarea>
+                                            <ion-textarea class="textarea" formControlName="text" placeholder="HTML post text"></ion-textarea>
                                         </ion-col>
                                         <br/>
                                     </ion-row>
                                 <br/>
                                 <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div><br/>
-                                <button class="add-post-button" ion-button large full type="submit">{{ isModifyingPost ? 'Modificar' : 'Añadir' }}</button>
+                                <button class="add-post-button" ion-button large full type="submit">{{ isModifyingPost ? 'Modify' : 'Add' }}</button>
                             </form>
                             </div>
                         </div>

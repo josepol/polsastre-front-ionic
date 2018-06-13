@@ -1,11 +1,11 @@
 <ion-content class="main-view">
     <div class="overlay" (click)="cancel()"></div>
     <div class="modal_content modal_content-with-height">
-        <button class="button-menu" (click)="navigateHome()">Home</button>
+        <button class="button-menu border-up" (click)="navigateHome()">Home</button>
         <button class="button-menu" (click)="navigateBlog()">Blog</button>
         <button *ngIf="!isAuthenticated" (click)="navigateLogin()" class="button-menu">Login</button>
         <button *ngIf="isAuthenticated && isAdmin" (click)="navigateAdminHome()" class="button-menu">Admin</button>
-        <button *ngIf="isAuthenticated" class="button-menu" (click)="navigateProfile()">Perfil</button>
+        <button *ngIf="isAuthenticated" class="button-menu" (click)="navigateProfile()">Profile</button>
         <button *ngIf="isAuthenticated" class="button-menu" (click)="logout()">Logout</button>
     </div>
 </ion-content>
