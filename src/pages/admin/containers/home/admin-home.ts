@@ -1,16 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import * as jwtDecode from 'jwt-decode';
+import { PostModel } from '../../../blog/model/post.model';
+import { Subscription } from 'rxjs/Subscription';
 import AuthProvider from '../../../../shared/providers/auth.provider';
 import { BlogDataProvider } from '../../../blog/providers/blog-data.provider';
-import { PostModel } from '../../../blog/model/post.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AdminDataProvider } from '../../providers/admin-data.provider';
 import { CategoryModel } from '../../../blog/model/category.model';
-import { Subscription } from 'rxjs/Subscription';
-import { BlogDetailPage } from '../../../blog/containers/blog-detail/blog-detail';
-import { NavigationProvider } from '../../../../shared/providers/navigation.provider';
-import CacheProvider from '../../../../shared/providers/cache.provider';
+import { AdminDataProvider } from '../../providers/admin-data.provider';
 
 @IonicPage()
 @Component({
@@ -19,32 +14,21 @@ import CacheProvider from '../../../../shared/providers/cache.provider';
 })
 export class AdminHomePage implements OnInit, OnDestroy {
 
-  public addPostFormGroup: FormGroup;
   public currentComponent: string;
   public posts: PostModel[];
-  public categories: Array<CategoryModel>;
   public deleteButtonDisabled: boolean = true;
-  public isModifyingPost: string = undefined;
+  public categories: Array<CategoryModel>;
 
   private subscription: Subscription = new Subscription();
 
   constructor(
     private authProvider: AuthProvider,
     private blogDataProvider: BlogDataProvider,
-    private formBuilder: FormBuilder,
-    private adminDataProvider: AdminDataProvider,
-    private navigationProvider: NavigationProvider,
-    private cacheProvier: CacheProvider
+    private adminDataProvider: AdminDataProvider
   ) {
   }
 
   ngOnInit(): void {
-    this.addPostFormGroup = this.formBuilder.group({
-      title: ['', Validators.required],
-      subtitle: ['', Validators.required],
-      text: ['', Validators.required],
-      category: ['', Validators.required]
-    });
   }
 
   ionViewDidLoad() {
@@ -62,25 +46,15 @@ export class AdminHomePage implements OnInit, OnDestroy {
   }
 
   changeComponent(newComponent) {
-    this.isModifyingPost = undefined;
     this.currentComponent = newComponent;
   }
 
-  addOrUpdatePost(formValue, isValid) {
-    if (!isValid) {
-      return;
-    }
-    if (this.isModifyingPost) {
-      this.modifyPost(formValue, isValid);
-    } else {
-      this.addPost(formValue, isValid);
-    }
+  onDeletePosts(posts) {
+    this.posts = posts;
   }
 
-  addPost(addPotsFormValue, isValid) {
-    this.subscription.add(this.adminDataProvider.addPost(addPotsFormValue).subscribe(response => {
-      this.ionViewDidLoad();
-    }));
+  onDeletePostEnabled(deleteButtonDisabled) {
+    this.deleteButtonDisabled = !deleteButtonDisabled;
   }
 
   deletePosts() {
@@ -89,39 +63,9 @@ export class AdminHomePage implements OnInit, OnDestroy {
     }));
   }
 
-  seePost(post) {
-    this.navigationProvider.getNaviController().push(BlogDetailPage, {
-      id: post._id
-    }, { animate: false });
-  }
-
-  modifyPost(modifyPostFormValue, isValid) {
-    this.subscription.add(this.adminDataProvider.modifyPost(this.isModifyingPost, modifyPostFormValue).subscribe(response => {
-      this.ionViewDidLoad();
-    }));
-  }
-
-  navToModify(post) {
-    this.isModifyingPost = post._id;
-    this.currentComponent = 'add';
-    this.addPostFormGroup.setValue({
-      title: post.title,
-      subtitle: post.subtitle,
-      text: post.text,
-      category: post.category
-    });
-  }
-
-  public someCheckboxChanged(e, postIndex) {
-    let hasAnyChecked = false;
-    this.posts[postIndex].checked = e.target.checked;
-    this.posts.forEach(post => {
-      if (post.checked) {
-        return hasAnyChecked = true;
-      }
-    });
-    this.deleteButtonDisabled = !hasAnyChecked;
-    return hasAnyChecked;
+  onUpdatePosts($event) {
+    this.adminDataProvider.setCurrentModifiedPost(undefined);
+    this.ionViewDidLoad();
   }
 
   ngOnDestroy(): void {

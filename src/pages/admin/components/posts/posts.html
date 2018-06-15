@@ -1,0 +1,32 @@
+<ion-scroll scrollX scrollY class="ion-scroll-table">
+    <div class="scroll-item">
+        <table class="posts-table">
+            <tr class="posts-table-header">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>TITLE</td>
+                <td>SUBTITLE</td>
+                <td>CREATED AT</td>
+                <td>MODIFIED AT</td>
+                <td>CATEGORY</td>
+                <td>AUTHOR</td>
+                <td>COMMENTS</td>
+                <td>ID</td>
+            </tr>
+            <tr *ngFor="let post of posts; let i = index" [ngClass]="i % 2 === 0 ? 'bg-green':'color-grey'">
+                <td><button class="modify-button" ion-button full type="button" (click)="seePost(post)">See post!</button></td>
+                <td><button class="modify-button" ion-button full type="button" (click)="navToModify(post)">Modify!</button></td>
+                <td><input type="checkbox" (change)="someCheckboxChanged($event, i)" /></td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.subtitle }}</td>
+                <td>{{ post.createdAt }}</td>
+                <td>{{ post.modifiedAt }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.creator }}</td>
+                <td>{{ post.comments }}</td>
+                <td>{{ post._id }}</td>
+            </tr>
+        </table>
+    </div>
+</ion-scroll>
