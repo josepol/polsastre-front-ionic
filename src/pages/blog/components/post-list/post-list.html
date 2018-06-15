@@ -19,7 +19,7 @@
     <a *ngIf="!fromHome" class="btn btn-primary" (click)="openPost(post)" href="javascript:;">Seguir leyendo <i class="fa fa-angle-right"></i></a>
 </div>
 <div class="text-center">
-    <ul class="pagination">
+    <ul class="pagination" *ngIf="postsDisplayed">
         <li *ngIf="postsIndex >= 1">
             <a href="javascript:;" (click)="prevPage()">
                 <i class="fa fa-angle-left"></i>
