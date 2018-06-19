@@ -6,7 +6,6 @@ import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb';
 import { NavigationProvider } from './providers/navigation.provider';
 import AuthProvider from './providers/auth.provider';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal';
-import { CodepenComponent } from './components/codepen/codepen';
 import CacheProvider from './providers/cache.provider';
 import MenuComponent from './components/layout/menu/menu';
 
@@ -16,7 +15,6 @@ import MenuComponent from './components/layout/menu/menu';
 		FooterComponent,
 		BreadcrumbComponent,
 		ConfirmationModalComponent,
-		CodepenComponent,
 		MenuComponent
 	],
 	imports: [
@@ -30,8 +28,7 @@ import MenuComponent from './components/layout/menu/menu';
 	exports: [
 		NavComponent,
 		FooterComponent,
-		BreadcrumbComponent,
-		CodepenComponent
+		BreadcrumbComponent
 	],
 	entryComponents: [
 		ConfirmationModalComponent,

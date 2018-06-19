@@ -9,9 +9,9 @@
 </div>
 <div class="container container-int">
     <ol class="breadcrumb">
-        <li>
-            <a (click)="navigateHome()">Home</a>
-        </li>
-        <li class="active">{{title}}</li>
+        <li><a (click)="navigateHome()">Home</a></li>
+        <li class="active" *ngIf="!post">{{title}}</li>
+        <li class="active" *ngIf="post"><a (click)="navigateBlog()">{{title}}</a></li>
+        <li class="active" *ngIf="post">{{post}}</li>
     </ol>
 </div>

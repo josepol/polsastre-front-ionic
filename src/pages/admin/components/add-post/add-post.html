@@ -1,0 +1,23 @@
+<form [formGroup]="addPostFormGroup" class="add-post-form" (ngSubmit)="addOrUpdatePost(addPostFormGroup.value, addPostFormGroup.valid)">
+    <ion-row>
+        <ion-col col-lg-12>
+            <ion-input class="add-post-input-text" formControlName="title" type="text" clearInput placeholder="Title"></ion-input>
+            <br/>
+            <ion-input class="add-post-input-text" formControlName="subtitle" type="text" clearInput placeholder="Subtitle"></ion-input>
+            <br/>
+            <ion-item no-lines style="height: 30px">
+                <ion-select formControlName="category" class="select-category">
+                    <ion-option value="">Categories</ion-option>
+                    <ion-option *ngFor="let category of categories" value="{{category.name}}">{{ category.name }}</ion-option>
+                </ion-select>
+            </ion-item>
+            <br/>
+            <ion-textarea class="textarea" formControlName="text" placeholder="HTML post text"></ion-textarea>
+        </ion-col>
+        <br/>
+    </ion-row>
+    <br/>
+    <div class="post-preview" [innerHTML]="addPostFormGroup.controls.text.value"></div>
+    <br/>
+    <button class="add-post-button" ion-button large full type="submit">{{ isModifyingPost ? 'Modify' : 'Add' }}</button>
+</form>
