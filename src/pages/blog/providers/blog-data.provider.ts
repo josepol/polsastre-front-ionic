@@ -5,6 +5,7 @@ import { PostModel } from "../model/post.model";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { ENV } from "@environment";
 import { CategoryModel } from "../model/category.model";
+import * as moment from "moment";
 
 @Injectable()
 export class BlogDataProvider {
@@ -18,8 +19,9 @@ export class BlogDataProvider {
         return this.getPosts().map(posts => posts.filter(post => post._id === id)[0]);
     }
 
-    getPosts(): Observable<any> {
-        return this.http.get(`${ENV.API_ENDPOINT}/blogs/all`);
+    getPosts(): Observable<Array<PostModel>> {
+        return this.http.get(`${ENV.API_ENDPOINT}/blogs/all`)
+        .map((blogs: Array<PostModel>) => blogs.sort((postA, postB) => moment(postA.createdAt).isBefore(postB.createdAt) ? 1 : 0));
     }
 
     getCategories(): Observable<any | CategoryModel[]> {
