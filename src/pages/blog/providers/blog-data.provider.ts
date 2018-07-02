@@ -20,6 +20,7 @@ export class BlogDataProvider {
     }
 
     getPosts(): Observable<Array<PostModel>> {
+        // testing jenkins
         return this.http.get(`${ENV.API_ENDPOINT}/blogs/all`)
         .map((blogs: Array<PostModel>) => blogs.sort((postA, postB) => moment(postA.createdAt).isBefore(postB.createdAt) ? 1 : 0));
     }
