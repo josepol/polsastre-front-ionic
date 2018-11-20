@@ -1,0 +1,24 @@
+<div class="well" *ngIf="isAuthenticated">
+    <h4>Leave a Comment</h4>
+    <form role="form" [formGroup]="commentForm" (ngSubmit)="sendComment(commentForm.valid, commentForm.value)">
+        <div class="form-group">
+            <textarea formControlName="text" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<hr>
+
+<h3>{{comments?.length}} Comments</h3><br/>
+
+<div *ngFor="let comment of comments">
+    <div class="comment-author-icon pull-left">
+        <i class="fa fa-user"></i>
+    </div>
+    <div class="comment-content pull-left">
+        <h4 class="capitalize"><span [ngClass]="comment.isAdmin ? 'is-admin': ''">{{ comment.userName }}</span> <small>{{ comment.date | date }}</small></h4>
+        <p>{{ comment.text }}</p>
+    </div>
+    <div class="clearfix"></div>
+</div>

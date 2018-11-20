@@ -24,5 +24,8 @@
                 <div class="text detail-text" [innerHTML]="post.text"></div>
             </div>
         </div>
+        <div class="row">
+            <app-comments [postId]="post._id"></app-comments>
+        </div>
     </div>
 </ion-content>

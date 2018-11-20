@@ -9,6 +9,8 @@ import { BlogDataProvider } from './providers/blog-data.provider';
 import { SearchComponent } from './components/search/search';
 import { RecentPopularComponent } from './components/recent-popular/recent-popular';
 import { TagsComponent } from './components/tags/tags';
+import { CommentsComponent } from './components/comments/comments';
+import { ConfirmationModalComponent } from '../../shared/components/confirmation-modal/confirmation-modal';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { TagsComponent } from './components/tags/tags';
     PostListComponent,
     SearchComponent,
     RecentPopularComponent,
-    TagsComponent
+    TagsComponent,
+    CommentsComponent
   ],
   imports: [
     SharedModule,
@@ -31,7 +34,8 @@ import { TagsComponent } from './components/tags/tags';
     PostListComponent
   ],
   entryComponents: [
-    BlogDetailPage
+    BlogDetailPage,
+    ConfirmationModalComponent
   ]
 })
 export class BlogModule {}

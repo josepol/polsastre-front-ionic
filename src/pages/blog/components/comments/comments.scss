@@ -1,0 +1,16 @@
+app-comments {
+    width: 100%;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.fa-user {
+    color: color($colors, green-main, base);
+}
+
+.is-admin {
+    color: color($colors, green-main, base);
+    font-weight: bold;
+}

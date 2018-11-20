@@ -5,6 +5,7 @@ import { PostModel } from "../model/post.model";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { ENV } from "@environment";
 import { CategoryModel } from "../model/category.model";
+import { CommentsModel } from "../model/comments.model";
 
 @Injectable()
 export class BlogDataProvider {
@@ -24,5 +25,14 @@ export class BlogDataProvider {
 
     getCategories(): Observable<any | CategoryModel[]> {
         return this.http.get(`${ENV.API_ENDPOINT}/blogs/categories/all`);
+    }
+
+    getComments(blogId): Observable<any | CommentsModel[]> {
+        return this.http.get(`${ENV.API_ENDPOINT}/blogs/comments/${blogId}`);
+        // return this.http.get(`assets/mocks/blog/comments.json`);
+    }
+
+    postComment(text, blogId) {
+        return this.http.post(`${ENV.API_ENDPOINT}/blogs/add-comments`, {text, blogId});
     }
 }
