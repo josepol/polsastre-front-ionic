@@ -24,5 +24,6 @@
         font-size: 1em;
         overflow: scroll;
         white-space: pre;
+        border-left: solid 10px color($colors, green-main, base);
     }
 }
