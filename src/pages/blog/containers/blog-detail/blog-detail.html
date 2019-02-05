@@ -9,11 +9,11 @@
                     <a href="javascript:;">{{ post.title }}</a>
                 </h1>
                 <p class="post-meta">
-                    <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
+                    <i *ngIf="post.createdAt" class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
                     <!--<i class="fa fa-user"></i> {{ post.creatorName }}-->
                     <!--<i class="fa fa-comment"></i>-->
                     <!--<a href="#">{{ post.comments }} comentarios</a>-->
-                    <i class="fa fa-folder-open-o"></i> {{ post.category }}
+                    <i class="fa fa-folder-open-o margin-left-0"></i> {{ post.category }}
                 </p>
                 <div class="img-post">
                     <img [src]="setPicture()" alt="post 1" class="img-responsive app-img">
