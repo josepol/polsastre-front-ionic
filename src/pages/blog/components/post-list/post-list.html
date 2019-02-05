@@ -6,11 +6,11 @@
         <a>{{ post.subtitle }}</a>
     </h4>
     <p class="post-meta" *ngIf="!fromHome">
-        <i class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
+        <i *ngIf="post.createdAt" class="fa fa-calendar-o first"></i> {{ post.createdAt | date: 'dd/MM/yyyy' }}
         <!--<i class="fa fa-user"></i> {{ post.creator }}-->
         <!--<i class="fa fa-comment"></i>
         <a href="#">{{ post.comments }} comentarios</a>-->
-        <i class="fa fa-folder-open-o"></i> {{ post.category }}
+        <i class="fa fa-folder-open-o margin-left-0"></i>{{ post.category }}
     </p>
     <a href="" class="img-post">
         <img src="" alt="" class="img-responsive">
